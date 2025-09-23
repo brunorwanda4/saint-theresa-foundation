@@ -1,179 +1,228 @@
-import Footer from '@/components/ui/footer';
-import { Button } from '@/components/ui/button';
-import { Heart, Users, Award, Shield, Clock, Stethoscope } from 'lucide-react';
+"use client";
+
+import { useRef, useState } from "react";
+import Link from "next/link";
+import Footer from "@/components/ui/footer";
+import { Button } from "@/components/ui/button";
+import {
+  Heart,
+  Users,
+  Shield,
+  BookOpen,
+  Handshake,
+  Truck,
+  Pill,
+  Smartphone,
+  Play,
+} from "lucide-react";
 
 const values = [
   {
     icon: Heart,
-    title: 'Compassionate Care',
-    description: 'We treat every patient with empathy, respect, and genuine concern for their wellbeing.',
-  },
-  {
-    icon: Shield,
-    title: 'Excellence in Medicine',
-    description: 'Our commitment to the highest standards of medical practice and continuous improvement.',
+    title: "Compassion & Dignity",
+    description:
+      "Rooted in Christian compassion, we serve the poor and vulnerable with respect and care.",
   },
   {
     icon: Users,
-    title: 'Patient-Centered',
-    description: 'Every decision we make is guided by what is best for our patients and their families.',
+    title: "Access & Equity",
+    description:
+      "Bringing care closer through mobile clinics, pharmacies, and digital health for rural communities.",
   },
   {
-    icon: Award,
-    title: 'Professional Integrity',
-    description: 'We maintain the highest ethical standards in all our medical and business practices.',
+    icon: BookOpen,
+    title: "Prevention & Education",
+    description:
+      "Public health education on safe medicine use, nutrition, hygiene, and disease prevention.",
+  },
+  {
+    icon: Handshake,
+    title: "Sustainable Partnerships",
+    description:
+      "Working with faith networks, health partners, and donors to build long-term impact.",
   },
 ];
 
-const team = [
+const programs = [
   {
-    name: 'Dr. Sarah Mukamana',
-    role: 'Chief Medical Officer',
-    specialty: 'Internal Medicine',
-    image: 'https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    icon: Truck,
+    title: "Mobile Clinics",
+    copy:
+      "Deploying units to reach hard-to-access villages with primary care and screening.",
   },
   {
-    name: 'Dr. Jean Baptiste Nzeyimana',
-    role: 'Head of Emergency',
-    specialty: 'Emergency Medicine',
-    image: 'https://images.pexels.com/photos/6129967/pexels-photo-6129967.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    icon: Pill,
+    title: "Community Pharmacies",
+    copy:
+      "Two accessible pharmacies providing subsidized or low-cost essential medicines.",
   },
   {
-    name: 'Dr. Grace Uwimana',
-    role: 'Pediatric Specialist',
-    specialty: 'Pediatrics',
-    image: 'https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    icon: Smartphone,
+    title: "Digital Health",
+    copy:
+      "e-consultation and digital prescriptions to overcome distance and cost barriers.",
   },
   {
-    name: 'Dr. Patrick Habimana',
-    role: 'Senior Surgeon',
-    specialty: 'General Surgery',
-    image: 'https://images.pexels.com/photos/6129020/pexels-photo-6129020.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    icon: BookOpen,
+    title: "Public Health Education",
+    copy:
+      "Community awareness campaigns on safe medicine use, nutrition, and hygiene.",
   },
 ];
 
 export default function About() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.play();
+    v.controls = true; // show controls after play
+    setIsPlaying(true);
+  };
+
   return (
     <div className="min-h-screen">
+      {/* Header */}
       <div className="relative py-20 bg-gradient-to-br from-slate-900 to-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">CarePoint Clinic</span>
+            About{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
+              Sainte Theresa Foundation
+            </span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            For over 25 years, we have been Rwanda's trusted healthcare partner, 
-            providing exceptional medical services with compassion and excellence.
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+            Founded in 2013 as an extension of Sainte Theresa Polyclinic,
+            we advance affordable, quality healthcare for Rwanda’s rural and
+            underserved communities — serving over{" "}
+            <span className="font-semibold text-white">50,000 patients annually</span>.
           </p>
         </div>
       </div>
 
-      {/* Mission & Vision */}
-      <div className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Mission & Vision (video on the right) */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-6">Our Mission</h2>
-              <p className="text-lg text-gray-600 mb-6">
-                To provide accessible, high-quality healthcare services that improve the health and 
-                wellbeing of our communities throughout Rwanda. We are committed to delivering 
-                compassionate care while advancing medical excellence through innovation and 
-                continuous learning.
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">Our Mission</h2>
+              <p className="text-gray-700 mb-6">
+                To enhance the well-being of underserved communities by deploying
+                mobile healthcare, digital medical tools, and sustainable community
+                pharmacies — rooted in human dignity and guided by Christian compassion.
               </p>
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center">
-                  <Stethoscope className="h-6 w-6 text-slate-900" />
+
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Our Vision</h3>
+              <p className="text-gray-700">
+                A Rwanda where every person — regardless of income or geography —
+                can access affordable, quality healthcare and essential medicines.
+              </p>
+
+              <div className="mt-6 flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full grid place-items-center">
+                  <Shield className="h-6 w-6 text-slate-900" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-900">Excellence in Healthcare</h3>
-                  <p className="text-gray-600">Committed to the highest standards of medical care</p>
+                  <p className="font-semibold text-slate-900">
+                    Faith-driven, community-based care
+                  </p>
+                  <p className="text-gray-600">
+                    Inspired by St. Theresa of Lisieux and the call to serve “the least of these.”
+                  </p>
                 </div>
               </div>
             </div>
+
+            {/* Click-to-play video */}
             <div className="relative">
-              <img
-                src="https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-                alt="Medical team"
-                className="rounded-lg shadow-xl"
-              />
+              <video
+                ref={videoRef}
+                className="w-full rounded-lg shadow-xl"
+                poster="/assets/images/image-11.jpeg" // replace with your poster
+                preload="metadata"
+              >
+                <source src="/assets/videos/video-1.mp4" type="video/mp4" />
+                {/* Add a .webm source too if you have it for better compression */}
+              </video>
+
+              {!isPlaying && (
+                <button
+                  type="button"
+                  onClick={handlePlay}
+                  aria-label="Play mission video"
+                  className="absolute inset-0 grid place-items-center rounded-lg bg-black/30 backdrop-blur-[1px] hover:bg-black/40 transition-colors"
+                >
+                  <span className="inline-flex items-center gap-3 rounded-full bg-white text-black px-5 py-3 font-medium shadow-lg">
+                    <Play className="h-5 w-5" />
+                    Play video
+                  </span>
+                </button>
+              )}
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Values */}
-      <div className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Our Core Values</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              These fundamental principles guide everything we do and shape our commitment to exceptional healthcare.
+            <h2 className="text-3xl font-bold text-slate-900 mb-3">Our Core Values</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              These principles guide our work across mobile clinics, pharmacies, digital health, and education.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => {
-              const IconComponent = value.icon;
-              return (
-                <div key={index} className="text-center group">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full mb-4 group-hover:shadow-lg transition-all duration-300">
-                    <IconComponent className="h-8 w-8 text-slate-900" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-2">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
+            {values.map(({ icon: Icon, title, description }) => (
+              <div key={title} className="text-center">
+                <div className="mx-auto mb-4 grid h-16 w-16 place-items-center rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600">
+                  <Icon className="h-8 w-8 text-slate-900" />
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      {/* Team */}
-      <div className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Meet Our Expert Team</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Our dedicated healthcare professionals bring years of experience and unwavering commitment to patient care.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <div key={index} className="text-center group">
-                <div className="relative mb-4 overflow-hidden rounded-lg">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-1">{member.name}</h3>
-                <p className="text-yellow-600 font-medium mb-1">{member.role}</p>
-                <p className="text-gray-600">{member.specialty}</p>
+                <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+                <p className="mt-2 text-gray-600">{description}</p>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* CTA Section */}
-      <div className="py-16 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Experience Excellence in Healthcare?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join thousands of satisfied patients who trust CarePoint Clinic for their healthcare needs.
-          </p>
-          <Button 
-            size="lg"
-            className="bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-slate-900 font-semibold px-8 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            Book Your Appointment Today
-          </Button>
+      {/* Programs */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 mb-3">What We Do</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Practical, community-led solutions — backed by training, monitoring & evaluation, and strong partnerships.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {programs.map(({ icon: Icon, title, copy }) => (
+              <div key={title} className="flex items-start gap-3">
+                <div className="mt-1 grid h-10 w-10 place-items-center rounded-full bg-yellow-100">
+                  <Icon className="h-6 w-6 text-yellow-700" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-900">{title}</h3>
+                  <p className="text-gray-600">{copy}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button asChild className="bg-yellow-600 hover:bg-yellow-700 text-slate-900 font-semibold">
+              <Link href="/donate">Support Our Work</Link>
+            </Button>
+            <Button asChild variant="outline" className="border-slate-300 text-slate-900 hover:bg-slate-100">
+              <Link href="/partners">Become a Partner</Link>
+            </Button>
+          </div>
         </div>
-      </div>
+      </section>
 
       <Footer />
     </div>
