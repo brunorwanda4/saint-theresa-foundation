@@ -65,13 +65,12 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Book Appointment Button & Mobile Menu Button */}
           <div className="flex items-center space-x-4">
             <Button
               asChild
               className="hidden sm:inline-flex bg-blue-900 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium transition-all duration-200 shadow-md hover:shadow-lg"
             >
-              <Link href="/contact">Book Appointment</Link>
+              <Link href="/contact">Contact us</Link>
             </Button>
 
             {/* Mobile menu button */}
@@ -115,7 +114,7 @@ export default function Navbar() {
                   className="w-full bg-blue-900 hover:bg-blue-700 text-white rounded-md font-medium transition-all duration-200"
                 >
                   <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                    Book Appointment
+                    Contact us
                   </Link>
                 </Button>
               </div>
