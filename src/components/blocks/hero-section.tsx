@@ -13,12 +13,12 @@ export default function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/assets/images/image-1.jpeg" // replace with your own asset
+          src="/assets/images/founder.jpg" // replace with your own asset
           alt=""
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-center"
         />
         {/* Overlay for contrast */}
         <div className="absolute inset-0 bg-slate-950/70" />
