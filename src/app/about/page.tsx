@@ -18,7 +18,6 @@ import {
   Twitter,
 } from "lucide-react";
 
-/* ----------------------- Values ----------------------- */
 const values = [
   {
     icon: Heart,
@@ -334,7 +333,6 @@ export default function About() {
                       className="inline-flex items-center gap-2 text-slate-700 hover:text-slate-900"
                     >
                       <Icon className="h-5 w-5" />
-                      <span className="text-sm underline">Follow</span>
                     </a>
                   );
                 })}
@@ -346,9 +344,6 @@ export default function About() {
     </div>
   </div>
 </section>
-
-
-
       <Footer />
     </div>
   );
