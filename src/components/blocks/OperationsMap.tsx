@@ -1,4 +1,3 @@
-// src/components/sections/OperationsMap.tsx
 "use client";
 
 import { useEffect, useMemo } from "react";
@@ -6,6 +5,7 @@ import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from "react-leaf
 import type { LatLngTuple } from "leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import locations from "@/constants/locations";
 
 type Location = {
   id: string;
@@ -37,8 +37,8 @@ function AutoFitBounds({ locations }: { locations: Location[] }) {
   return null;
 }
 
-export default function OperationsMap({ locations = [] as Location[] }) {
-  // Kigali fallback center (only used if no locations yet)
+export default function OperationsMapInner() {
+  // Kigali fallback center (only used before bounds fit)
   const defaultCenter: [number, number] = [-1.9441, 30.0619];
 
   const colorFor = (type?: Location["type"]) => {
@@ -55,8 +55,8 @@ export default function OperationsMap({ locations = [] as Location[] }) {
     }
   };
 
-  // Stable key so MapContainer remounts if you change the list drastically (optional)
-  const mapKey = useMemo(() => locations.map((l) => l.id).join("|"), [locations]);
+  // Stable key so MapContainer remounts if the list changes (defensive)
+  const mapKey = useMemo(() => locations.map((l) => l.id).join("|"), []);
 
   return (
     <section aria-labelledby="ops-map-title" className="py-16 bg-white">
@@ -84,7 +84,7 @@ export default function OperationsMap({ locations = [] as Location[] }) {
             />
 
             {/* Auto-fit the view to the markers */}
-            <AutoFitBounds locations={locations} />
+            <AutoFitBounds locations={locations as Location[]} />
 
             {locations.map((loc) => (
               <CircleMarker
@@ -115,7 +115,7 @@ export default function OperationsMap({ locations = [] as Location[] }) {
         </div>
 
         <p className="mt-3 text-center text-xs text-gray-500">
-          Planned sites (pharmacies & mobile units) per the 2025–2027 action plan.
+          Planned sites (pharmacies &amp; mobile units) per the 2025–2027 action plan.
         </p>
       </div>
     </section>

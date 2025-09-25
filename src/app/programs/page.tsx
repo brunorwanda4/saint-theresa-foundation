@@ -19,7 +19,9 @@ import {
   ClipboardCheck,
   FileText,
 } from "lucide-react";
+import { motion, useReducedMotion, easeOut } from "framer-motion";
 
+/* ----------------------- Data ----------------------- */
 const programs = [
   {
     icon: Truck,
@@ -135,108 +137,165 @@ const programs = [
   },
 ];
 
+/* ----------------------- Variants ----------------------- */
+const sectionTitleUp = {
+  hidden: { opacity: 0, y: 12 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.32, ease: easeOut } },
+};
+
+const gridVariants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
+};
+
+const cardUp = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.28, ease: easeOut } },
+};
+
 export default function Programs() {
+  const reduce = useReducedMotion();
+
   return (
     <div className="min-h-screen">
       {/* Header */}
       <div className="relative py-20 bg-gradient-to-br from-slate-900 to-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+          <motion.h1
+            variants={sectionTitleUp}
+            initial={reduce ? undefined : "hidden"}
+            animate="show"
+            className="text-4xl sm:text-5xl font-bold text-white mb-6"
+          >
             Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
-              Programs & Initiatives
+              Programs &amp; Initiatives
             </span>
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          </motion.h1>
+
+          <motion.p
+            variants={sectionTitleUp}
+            initial={reduce ? undefined : "hidden"}
+            animate="show"
+            transition={{ delay: 0.06 }}
+            className="text-xl text-gray-300 max-w-3xl mx-auto"
+          >
             Practical, faith-driven solutions to expand access to affordable,
             quality healthcare for rural and underserved communities in Rwanda.
-          </p>
+          </motion.p>
         </div>
       </div>
 
       {/* Programs Grid */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={gridVariants}
+            initial={reduce ? undefined : "hidden"}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             {programs.map((program) => {
               const IconComponent = program.icon;
               return (
-                <Card
-                  key={program.title}
-                  className="group overflow-hidden transition-all duration-300 hover:shadow-xl"
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={program.image}
-                      alt={program.title}
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                    <div className="absolute top-4 left-4">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600">
-                        <IconComponent className="h-6 w-6 text-slate-900" />
+                <motion.div key={program.title} variants={cardUp}>
+                  <Card className="group overflow-hidden transition-all duration-300 hover:shadow-xl">
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={program.image}
+                        alt={program.title}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                      <div className="absolute top-4 left-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600">
+                          <IconComponent className="h-6 w-6 text-slate-900" />
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <CardHeader>
-                    <CardTitle className="text-lg sm:text-xl text-slate-900">
-                      {program.title}
-                    </CardTitle>
-                    <CardDescription className="text-gray-600">
-                      {program.description}
-                    </CardDescription>
-                  </CardHeader>
+                    <CardHeader>
+                      <CardTitle className="text-lg sm:text-xl text-slate-900">
+                        {program.title}
+                      </CardTitle>
+                      <CardDescription className="text-gray-600">
+                        {program.description}
+                      </CardDescription>
+                    </CardHeader>
 
-                  <CardContent>
-                    <ul className="mb-6 space-y-2">
-                      {program.features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-center text-sm text-gray-700"
-                        >
-                          <span className="mr-3 inline-block h-2 w-2 rounded-full bg-yellow-400" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+                    <CardContent>
+                      <ul className="mb-6 space-y-2">
+                        {program.features.map((feature) => (
+                          <li
+                            key={feature}
+                            className="flex items-center text-sm text-gray-700"
+                          >
+                            <span className="mr-3 inline-block h-2 w-2 rounded-full bg-yellow-400" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
 
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="w-full border-yellow-400 text-yellow-700 hover:bg-yellow-400 hover:text-slate-900 transition-colors"
-                    >
-                      <a href="/programs">Learn More</a>
-                    </Button>
-                  </CardContent>
-                </Card>
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="w-full border-yellow-400 text-yellow-700 hover:bg-yellow-400 hover:text-slate-900 transition-colors"
+                      >
+                        <a href="/programs">Learn More</a>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* CTA Section */}
       <div className="py-16 bg-slate-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-white">
+          <motion.h2
+            variants={sectionTitleUp}
+            initial={reduce ? undefined : "hidden"}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+            className="mb-4 text-3xl font-bold text-white"
+          >
             Partner with Sainte Thérèse Foundation
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-xl text-gray-300">
+          </motion.h2>
+
+          <motion.p
+            variants={sectionTitleUp}
+            initial={reduce ? undefined : "hidden"}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ delay: 0.06 }}
+            className="mx-auto mb-8 max-w-2xl text-xl text-gray-300"
+          >
             Join us in extending the healing hand of service—through donations,
             partnerships, or volunteering.
-          </p>
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          </motion.p>
+
+          <motion.div
+            variants={sectionTitleUp}
+            initial={reduce ? undefined : "hidden"}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+            className="flex flex-col items-center justify-center gap-4 sm:flex-row"
+          >
             <Button className="rounded-lg bg-yellow-600 px-8 py-4 text-lg font-semibold text-slate-900 hover:bg-yellow-700">
               Donate
             </Button>
             <Button
               variant="outline"
-              className="rounded-lg border-2 border-white px-8 py-4 text-lg text-white hover:bg-white hover:text-slate-900"
+              className="rounded-lg border-2 border-white px-8 py-4 text-lg  hover:bg-white text-slate-900"
             >
               Become a Partner
             </Button>
-          </div>
+          </motion.div>
         </div>
       </div>
 

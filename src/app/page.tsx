@@ -1,62 +1,34 @@
-import HeroSection from "@/components/blocks/hero-section";
-import { Stats } from "@/components/blocks/stats";
-import Footer from '@/components/ui/footer';
-import OperationsMap from "@/components/blocks/OperationsMap";
+"use client"
+import dynamic from "next/dynamic";
 
-export default function Home() {
-  const locations = [
-    {
-      id: "hq",
-      name: "Kigali Operations Hub (HQ)",
-      lat: -1.9440,
-      lng: 30.0610,
-      type: "base" as const,
-      description: "Central coordination point for mobile clinics and programs.",
-    },
-    {
-      id: "pharmacy-kimironko",
-      name: "Community Pharmacy — Kimironko (Planned)",
-      lat: -1.9350,
-      lng: 30.1030,
-      type: "pharmacy" as const,
-      description: "Affordable, essential medicines for nearby communities.",
-    },
-    {
-      id: "pharmacy-nyamirambo",
-      name: "Community Pharmacy — Nyamirambo (Planned)",
-      lat: -1.9810,
-      lng: 30.0440,
-      type: "pharmacy" as const,
-    },
-    {
-      id: "mobile-nyarutarama",
-      name: "Mobile Clinic Unit — Nyarutarama",
-      lat: -1.9300,
-      lng: 30.0970,
-      type: "mobile" as const,
-      description: "Rotational outreach to hard-to-reach households.",
-    },
-    {
-      id: "mobile-remera",
-      name: "Mobile Clinic Unit — Remera",
-      lat: -1.9620,
-      lng: 30.1160,
-      type: "mobile" as const,
-    },
-    {
-      id: "office-kicukiro",
-      name: "Program Office — Kicukiro",
-      lat: -1.9890,
-      lng: 30.1000,
-      type: "office" as const,
-    },
-  ];
+// ✅ These will only load in the browser (no window access during SSR)
+const HeroSection = dynamic(() => import("@/components/blocks/hero-section"), {
+  ssr: false,
+});
+const Programs = dynamic(() => import("@/app/programs/page").then(m => m.default), {
+  ssr: false,
+});
+const About = dynamic(() => import("@/app/about/page").then(m => m.default), {
+  ssr: false,
+});
+const OperationsMap = dynamic(() => import("@/components/blocks/OperationsMap"), {
+  ssr: false,
+});
+const Stats = dynamic(() => import("@/components/blocks/stats").then(m => m.Stats), {
+  ssr: false,
+});
+
+// If you have a Footer that is server-safe, import normally.
+// Otherwise you can also dynamic it with ssr:false.
+import Footer from "@/components/ui/footer";
+
+export default function HomePage() {
   return (
-    <>
-    <HeroSection />
-    <Stats />
-    <OperationsMap locations={locations} />
-    <Footer />
-    </>
+    <main className="min-h-screen">
+      <HeroSection />
+      <Stats />
+      <OperationsMap />
+      <Footer />
+    </main>
   );
 }

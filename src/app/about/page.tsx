@@ -17,7 +17,9 @@ import {
   Linkedin,
   Twitter,
 } from "lucide-react";
+import { motion, useReducedMotion, easeOut } from "framer-motion";
 
+/* ----------------------- Data ----------------------- */
 const values = [
   {
     icon: Heart,
@@ -45,7 +47,6 @@ const values = [
   },
 ];
 
-/* ----------------------- Programs ----------------------- */
 const programs = [
   {
     icon: Truck,
@@ -73,7 +74,6 @@ const programs = [
   },
 ];
 
-/* ----------------------- Leaders ----------------------- */
 type Leader = {
   name: string;
   role: string;
@@ -101,7 +101,7 @@ const leaders: Leader[] = [
   },
 ];
 
-/* ----------------------- ReadMore ----------------------- */
+/* ----------------------- Small utilities ----------------------- */
 function ReadMore({
   text,
   initialChars = 260,
@@ -135,10 +135,27 @@ function ReadMore({
   );
 }
 
+/* ----------------------- Variants ----------------------- */
+const gridVariants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
+};
+
+const itemUp = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.28, ease: easeOut } },
+};
+
+const sectionTitleUp = {
+  hidden: { opacity: 0, y: 12 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.32, ease: easeOut } },
+};
+
 /* ----------------------- Page ----------------------- */
 export default function About() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const reduce = useReducedMotion();
 
   const handlePlay = () => {
     const v = videoRef.current;
@@ -153,18 +170,30 @@ export default function About() {
       {/* Header */}
       <div className="relative py-20 bg-gradient-to-br from-slate-900 to-slate-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+          <motion.h1
+            variants={sectionTitleUp}
+            initial={reduce ? undefined : "hidden"}
+            animate="show"
+            className="text-4xl sm:text-5xl font-bold text-white mb-6"
+          >
             About{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
               Sainte Theresa Foundation
             </span>
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+          </motion.h1>
+
+          <motion.p
+            variants={sectionTitleUp}
+            initial={reduce ? undefined : "hidden"}
+            animate="show"
+            transition={{ delay: 0.06 }}
+            className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto"
+          >
             Founded in 2013 as an extension of Sainte Theresa Polyclinic,
             we advance affordable, quality healthcare for Rwanda’s rural and
             underserved communities — serving over{" "}
             <span className="font-semibold text-white">50,000 patients annually</span>.
-          </p>
+          </motion.p>
         </div>
       </div>
 
@@ -172,7 +201,12 @@ export default function About() {
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <motion.div
+              variants={sectionTitleUp}
+              initial={reduce ? undefined : "hidden"}
+              whileInView="show"
+              viewport={{ once: true, amount: 0.45 }}
+            >
               <h2 className="text-3xl font-bold text-slate-900 mb-4">Our Mission</h2>
               <p className="text-gray-700 mb-6">
                 To enhance the well-being of underserved communities by deploying
@@ -197,9 +231,15 @@ export default function About() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
+
             {/* Video */}
-            <div className="relative">
+            <motion.div
+              initial={reduce ? undefined : { opacity: 0, scale: 0.98 }}
+              whileInView={reduce ? undefined : { opacity: 1, scale: 1, transition: { duration: 0.35, ease: "easeOut" } }}
+              viewport={{ once: true, amount: 0.4 }}
+              className="relative"
+            >
               <video
                 ref={videoRef}
                 className="w-full rounded-lg shadow-xl"
@@ -221,7 +261,7 @@ export default function About() {
                   </span>
                 </button>
               )}
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -229,38 +269,64 @@ export default function About() {
       {/* Values */}
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <motion.div
+            variants={sectionTitleUp}
+            initial={reduce ? undefined : "hidden"}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+            className="text-center mb-12"
+          >
             <h2 className="text-3xl font-bold text-slate-900 mb-3">Our Core Values</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               These principles guide our work across mobile clinics, pharmacies, digital health, and education.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            variants={gridVariants}
+            initial={reduce ? undefined : "hidden"}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.35 }}
+          >
             {values.map(({ icon: Icon, title, description }) => (
-              <div key={title} className="text-center">
+              <motion.div key={title} variants={itemUp} className="text-center">
                 <div className="mx-auto mb-4 grid h-16 w-16 place-items-center rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600">
                   <Icon className="h-8 w-8 text-slate-900" />
                 </div>
                 <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
                 <p className="mt-2 text-gray-600">{description}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Programs */}
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <motion.div
+            variants={sectionTitleUp}
+            initial={reduce ? undefined : "hidden"}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+            className="text-center mb-12"
+          >
             <h2 className="text-3xl font-bold text-slate-900 mb-3">What We Do</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Practical, community-led solutions — backed by training, monitoring & evaluation, and strong partnerships.
+              Practical, community-led solutions — backed by training, monitoring &amp; evaluation, and strong partnerships.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            variants={gridVariants}
+            initial={reduce ? undefined : "hidden"}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.35 }}
+          >
             {programs.map(({ icon: Icon, title, copy }) => (
-              <div key={title} className="flex items-start gap-3">
+              <motion.div key={title} variants={itemUp} className="flex items-start gap-3">
                 <div className="mt-1 grid h-10 w-10 place-items-center rounded-full bg-yellow-100">
                   <Icon className="h-6 w-6 text-yellow-700" />
                 </div>
@@ -268,82 +334,114 @@ export default function About() {
                   <h3 className="font-semibold text-slate-900">{title}</h3>
                   <p className="text-gray-600">{copy}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          </motion.div>
+
+          <motion.div
+            variants={sectionTitleUp}
+            initial={reduce ? undefined : "hidden"}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.35 }}
+            className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          >
             <Button asChild className="bg-yellow-600 hover:bg-yellow-700 text-slate-900 font-semibold">
               <Link href="/donate">Support Our Work</Link>
             </Button>
             <Button asChild variant="outline" className="border-slate-300 text-slate-900 hover:bg-slate-100">
               <Link href="/partners">Become a Partner</Link>
             </Button>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Leaders */}
-   {/* Leaders (portrait left, content right) */}
-<section className="py-16 bg-gray-50">
-  <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-12">
-      <h2 className="text-3xl font-bold text-slate-900 mb-3">Our Leaders</h2>
-      <p className="text-gray-600 max-w-2xl mx-auto">
-        Guided by vision and compassion, these leaders dedicate their lives to advancing health and social impact.
-      </p>
-    </div>
+      <section className="py-16 bg-gray-50">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={sectionTitleUp}
+            initial={reduce ? undefined : "hidden"}
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold text-slate-900 mb-3">Our Team</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Guided by vision and compassion, these leaders dedicate their lives to advancing health and social impact.
+            </p>
+          </motion.div>
 
-    <div className="space-y-12">
-      {leaders.map((l, i) => (
-        <article
-          key={l.name}
-          className="flex flex-col md:flex-row gap-8 rounded-2xl border border-slate-200 bg-white p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow"
-        >
-          {/* Portrait image left */}
-          <div className="w-full md:w-1/3 lg:w-1/4 flex-shrink-0">
-            <div className="relative w-full h-80 md:h-[28rem] overflow-hidden rounded-xl bg-slate-100">
-              <img
-                src={l.image}
-                alt={l.name + " portrait"}
-                className="w-full h-full object-cover object-top"
-                loading="lazy"
-              />
-            </div>
-          </div>
+          <div className="space-y-12">
+            {leaders.map((l, i) => (
+              <motion.article
+                key={l.name}
+                initial={reduce ? undefined : { opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+                whileInView={reduce ? undefined : { opacity: 1, x: 0, transition: { duration: 0.35, ease: "easeOut" } }}
+                viewport={{ once: true, amount: 0.35 }}
+                className="flex flex-col md:flex-row gap-8 rounded-2xl border border-slate-200 bg-white p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow"
+              >
+                {/* Portrait */}
+                <div className="w-full md:w-1/3 lg:w-1/4 flex-shrink-0">
+                  <motion.div
+                    initial={reduce ? undefined : { opacity: 0, scale: 0.98 }}
+                    whileInView={reduce ? undefined : { opacity: 1, scale: 1, transition: { duration: 0.28, ease: "easeOut" } }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    className="relative w-full h-80 md:h-[28rem] overflow-hidden rounded-xl bg-slate-100"
+                  >
+                    <img
+                      src={l.image}
+                      alt={l.name + " portrait"}
+                      className="w-full h-full object-cover object-top"
+                      loading="lazy"
+                    />
+                  </motion.div>
+                </div>
 
-          {/* Content right */}
-          <div className="flex-1">
-            <header className="mb-3">
-              <h3 className="text-2xl font-semibold text-slate-900">{l.name}</h3>
-              <p className="text-sm md:text-base text-yellow-800">{l.role}</p>
-            </header>
+                {/* Content */}
+                <div className="flex-1">
+                  <header className="mb-3">
+                    <h3 className="text-2xl font-semibold text-slate-900">{l.name}</h3>
+                    <p className="text-sm md:text-base text-yellow-800">{l.role}</p>
+                  </header>
 
-            <ReadMore text={l.bio} initialChars={320} id={`leader-bio-${i}`} />
+                  <motion.div
+                    initial={reduce ? undefined : { opacity: 0, y: 10 }}
+                    whileInView={reduce ? undefined : { opacity: 1, y: 0, transition: { duration: 0.28, ease: "easeOut" } }}
+                    viewport={{ once: true, amount: 0.35 }}
+                  >
+                    <ReadMore text={l.bio} initialChars={320} id={`leader-bio-${i}`} />
+                  </motion.div>
 
-            {l.socials && l.socials.length > 0 && (
-              <div className="mt-6 flex items-center gap-4">
-                {l.socials.map((s, idx) => {
-                  const Icon = s.platform === "linkedin" ? Linkedin : Twitter;
-                  return (
-                    <a
-                      key={idx}
-                      href={s.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-slate-700 hover:text-slate-900"
+                  {l.socials && l.socials.length > 0 && (
+                    <motion.div
+                      initial={reduce ? undefined : { opacity: 0, y: 8 }}
+                      whileInView={reduce ? undefined : { opacity: 1, y: 0, transition: { duration: 0.24, ease: "easeOut", delay: 0.05 } }}
+                      viewport={{ once: true, amount: 0.35 }}
+                      className="mt-6 flex items-center gap-4"
                     >
-                      <Icon className="h-5 w-5" />
-                    </a>
-                  );
-                })}
-              </div>
-            )}
+                      {l.socials.map((s, idx) => {
+                        const Icon = s.platform === "linkedin" ? Linkedin : Twitter;
+                        return (
+                          <a
+                            key={idx}
+                            href={s.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-slate-700 hover:text-slate-900"
+                          >
+                            <Icon className="h-5 w-5" />
+                          </a>
+                        );
+                      })}
+                    </motion.div>
+                  )}
+                </div>
+              </motion.article>
+            ))}
           </div>
-        </article>
-      ))}
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

@@ -139,7 +139,7 @@ export default function Impact() {
             <Button
               asChild
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-slate-900"
+              className="border-white hover:bg-white text-slate-900"
             >
               <Link href="/partners">Become a Partner</Link>
             </Button>
