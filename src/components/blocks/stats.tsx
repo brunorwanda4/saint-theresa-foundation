@@ -40,7 +40,7 @@ function Stats() {
   ];
 
   return (
-    <section aria-labelledby="stats-title" className="w-full py-16 lg:py-24">
+    <section aria-labelledby="stats-title" className="w-full py-10 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 id="stats-title" className="sr-only">Foundation statistics</h2>
 

@@ -28,7 +28,6 @@ export default function HomePage() {
       <HeroSection />
       <Stats />
       <OperationsMap />
-      <Footer />
     </main>
   );
 }

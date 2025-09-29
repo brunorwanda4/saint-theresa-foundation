@@ -122,32 +122,30 @@ export default function Impact() {
         </div>
       </section>
 
-      {/* Call for partnership */}
-      <section className="bg-slate-900 py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white">
-            Join Our Mission
-          </h2>
-          <p className="mt-3 text-sm md:text-base text-gray-300 max-w-2xl mx-auto">
-            Partner with Sainte Thérèse Foundation to expand access to care: support mobile clinics,
-            ensure affordable medicines, and equip local health workers.
-          </p>
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button asChild className="bg-yellow-600 hover:bg-yellow-700 text-slate-900 font-semibold">
-              <Link href="/donate">Donate</Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="border-white hover:bg-white text-slate-900"
-            >
-              <Link href="/partners">Become a Partner</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+<section className="bg-slate-900 py-12 md:py-16" aria-labelledby="cta-heading">
+  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+    <h2 id="cta-heading" className="text-2xl md:text-3xl font-bold text-white">
+      Join Our Mission
+    </h2>
 
-      <Footer />
+    <p className="mt-3 text-sm md:text-base text-gray-300 max-w-2xl mx-auto">
+      Partner with Sainte Thérèse Foundation to expand access to care: support mobile clinics,
+      ensure affordable medicines, and equip local health workers.
+    </p>
+
+    <div className="mt-6 flex justify-center">
+      {/* shadcn/ui: Button should wrap Link when using `asChild` */}
+      <Button
+        asChild
+        className="bg-yellow-500 hover:bg-yellow-600 text-slate-900 font-semibold shadow-none focus-visible:ring-yellow-400"
+      >
+        <Link href="/contact" aria-label="Get in touch with Sainte Thérèse Foundation">
+          Get in touch
+        </Link>
+      </Button>
+    </div>
+  </div>
+</section>
     </div>
   );
 }

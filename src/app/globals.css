@@ -120,3 +120,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+@keyframes slowFloat {
+  0% { transform: translateY(0) skewY(-6deg); }
+  50% { transform: translateY(-10px) skewY(-6deg); }
+  100% { transform: translateY(0) skewY(-6deg); }
+}
+.animate-slowFloat {
+  animation: slowFloat 12s ease-in-out infinite;
+}

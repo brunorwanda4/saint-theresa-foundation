@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Footer from "@/components/ui/footer";
 import { Button } from "@/components/ui/button";
 import {
@@ -254,52 +255,30 @@ export default function Programs() {
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="py-16 bg-slate-900">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2
-            variants={sectionTitleUp}
-            initial={reduce ? undefined : "hidden"}
-            whileInView="show"
-            viewport={{ once: true, amount: 0.4 }}
-            className="mb-4 text-3xl font-bold text-white"
-          >
-            Partner with Sainte Thérèse Foundation
-          </motion.h2>
+<section className="bg-slate-900 py-12 md:py-16" aria-labelledby="cta-heading">
+  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+    <h2 id="cta-heading" className="text-2xl md:text-3xl font-bold text-white">
+      Join Our Mission
+    </h2>
 
-          <motion.p
-            variants={sectionTitleUp}
-            initial={reduce ? undefined : "hidden"}
-            whileInView="show"
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ delay: 0.06 }}
-            className="mx-auto mb-8 max-w-2xl text-xl text-gray-300"
-          >
-            Join us in extending the healing hand of service—through donations,
-            partnerships, or volunteering.
-          </motion.p>
+    <p className="mt-3 text-sm md:text-base text-gray-300 max-w-2xl mx-auto">
+      Partner with Sainte Thérèse Foundation to expand access to care: support mobile clinics,
+      ensure affordable medicines, and equip local health workers.
+    </p>
 
-          <motion.div
-            variants={sectionTitleUp}
-            initial={reduce ? undefined : "hidden"}
-            whileInView="show"
-            viewport={{ once: true, amount: 0.4 }}
-            className="flex flex-col items-center justify-center gap-4 sm:flex-row"
-          >
-            <Button className="rounded-lg bg-yellow-600 px-8 py-4 text-lg font-semibold text-slate-900 hover:bg-yellow-700">
-              Donate
-            </Button>
-            <Button
-              variant="outline"
-              className="rounded-lg border-2 border-white px-8 py-4 text-lg  hover:bg-white text-slate-900"
-            >
-              Become a Partner
-            </Button>
-          </motion.div>
-        </div>
-      </div>
-
-      <Footer />
+    <div className="mt-6 flex justify-center">
+      {/* shadcn/ui: Button should wrap Link when using `asChild` */}
+      <Button
+        asChild
+        className="bg-yellow-500 hover:bg-yellow-600 text-slate-900 font-semibold shadow-none focus-visible:ring-yellow-400"
+      >
+        <Link href="/contact" aria-label="Get in touch with Sainte Thérèse Foundation">
+          Get in touch
+        </Link>
+      </Button>
+    </div>
+  </div>
+</section>
     </div>
   );
 }
