@@ -346,10 +346,10 @@ export default function About() {
             className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
             <Button asChild className="bg-yellow-600 hover:bg-yellow-700 text-slate-900 font-semibold">
-              <Link href="/donate">Support Our Work</Link>
+              <Link href="/impact">Our work</Link>
             </Button>
             <Button asChild variant="outline" className="border-slate-300 text-slate-900 hover:bg-slate-100">
-              <Link href="/partners">Become a Partner</Link>
+              <Link href="/contact">call us</Link>
             </Button>
           </motion.div>
         </div>
