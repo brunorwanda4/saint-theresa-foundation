@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { GridPattern } from "@/components/ui/grid-patterns";
 import { cn } from "@/lib/utils";
 
 export default function Hero() {
@@ -26,23 +26,19 @@ export default function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative isolate min-h-screen bg-white text-black overflow-hidden"
+      className="relative isolate min-h-screen bg-white overflow-hidden"
     >
-      {/* Grid background — more visible, still tasteful */}
+      {/* Background image with darker overlay */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <GridPattern
-          width={30}
-          height={30}
-          x={0}
-          y={0}
-          className={cn(
-            "stroke-slate-300 opacity-50",                           // ↑ visibility
-            "inset-0 h-full -skew-y-2",
-            "[mask-image:radial-gradient(1000px_1000px_at_center,white_25%,transparent_85%)]" // wider, softer mask
-          )}
+        <Image
+          src="/assets/images/nurse.jpg"
+          alt="Healthcare background with medical equipment and caring hands"
+          fill
+          className="object-cover object-center"
+          priority
         />
-        {/* Lighter wash so lines show through */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-white/60" />
+        {/* Darker overlay for text readability */}
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid min-h-[100svh] place-items-center">
@@ -53,7 +49,7 @@ export default function Hero() {
           </span>
 
           {/* Title (smaller) with rotating focus */}
-          <h1 id="hero-heading" className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight">
+          <h1 id="hero-heading" className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-white">
             Expanding{" "}
             <span className="relative inline-flex w-full justify-center overflow-hidden text-center align-baseline md:pb-2 md:pt-0.5">
               &nbsp;
@@ -78,7 +74,7 @@ export default function Hero() {
             across Rwanda
           </h1>
 
-          <p className="mt-3 text-base md:text-lg leading-relaxed">
+          <p className="mt-3 text-white md:text-lg leading-relaxed">
             Sainte Theresa Foundation brings compassionate care closer—through mobile clinics,
             affordable medicines, digital consultations, and community health education.
           </p>
@@ -91,7 +87,7 @@ export default function Hero() {
               className="w-full sm:w-auto gap-3 bg-yellow-500 text-slate-900 hover:bg-yellow-600 transition-transform duration-200 ease-out hover:-translate-y-0.5 sm:hover:-translate-y-1"
             >
               <Link href="/contact">
-              Get in touch <MoveRight className="w-4 h-4" />
+                Get in touch <MoveRight className="w-4 h-4" />
               </Link>
             </Button>
 
@@ -107,7 +103,7 @@ export default function Hero() {
             </Button>
           </div>
 
-          <p className="mt-4 text-xs text-slate-500">Sainte Theresa Foundation · 2013 — Present</p>
+          <p className="mt-4 text-xs text-slate-300">Sainte Theresa Foundation · 2013 — Present</p>
         </div>
       </div>
     </section>
