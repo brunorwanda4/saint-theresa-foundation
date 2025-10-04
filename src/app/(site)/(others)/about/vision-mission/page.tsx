@@ -1,0 +1,87 @@
+﻿"use client";
+
+const AboutVisionMissionPage = () => {
+  return (
+    <div className="from-primary-foreground mx-auto max-w-7xl space-y-12 bg-gradient-to-b to-gray-200 px-6 py-16 md:px-12">
+      <section id="vision-mission" className="space-y-6">
+        <h1 className="text-4xl font-bold">Mission & Values</h1>
+
+        <div className="space-y-6 leading-relaxed text-gray-700">
+          {/* Our mandate */}
+          <div>
+            <h2 className="mb-2 text-2xl font-semibold">Our Mandate</h2>
+            <p>Our mandate is to:</p>
+            <ol className="ml-4 list-inside list-decimal space-y-2">
+              <li>
+                Improve access to healthcare for underserved rural communities
+                through mobile clinics, community pharmacies, and digital health
+                services.
+              </li>
+              <li>
+                Empower local communities and health workers with training,
+                resources, and sustainable solutions.
+              </li>
+            </ol>
+          </div>
+
+          {/* Our mission */}
+          <div>
+            <h2 className="mb-2 text-2xl font-semibold">Our Mission</h2>
+            <p>
+              The Sainte Thérèse Foundation is committed to enhancing the
+              well-being of underserved communities by deploying mobile
+              healthcare, digital medical tools, and sustainable community
+              pharmacies. We are guided by human dignity, compassion, and
+              Christian values, working to ensure equitable access to essential
+              health services.
+            </p>
+          </div>
+
+          {/* Our values */}
+          <div>
+            <h2 className="mb-2 text-2xl font-semibold">Our Values</h2>
+            <ul className="ml-4 list-inside list-disc space-y-2">
+              <li>
+                Compassion: Caring for the vulnerable with empathy and respect.
+              </li>
+              <li>
+                Dignity: Treating every individual with fairness and humanity.
+              </li>
+              <li>
+                Solidarity: Collaborating with communities and partners for
+                lasting impact.
+              </li>
+              <li>
+                Integrity: Acting transparently, ethically, and responsibly.
+              </li>
+              <li>
+                Participation: Engaging communities in decision-making and
+                healthcare solutions.
+              </li>
+            </ul>
+          </div>
+
+          {/* Our working principles */}
+          <div>
+            <h2 className="mb-2 text-2xl font-semibold">
+              Our Working Principles
+            </h2>
+            <p>We adhere to principles that guide our work and interactions:</p>
+            <ul className="ml-4 list-inside list-disc space-y-2">
+              <li>Inclusive and consultative in decision-making.</li>
+              <li>Respectful of local culture and needs.</li>
+              <li>Transparent, honest, and accountable.</li>
+              <li>Knowledge-driven and results-oriented.</li>
+              <li>Empathetic and caring in our approach.</li>
+              <li>
+                Innovative, always seeking better ways to serve communities.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default AboutVisionMissionPage;
