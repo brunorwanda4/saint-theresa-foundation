@@ -4,9 +4,9 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white px-6 py-20">
+    <div className="global-px min-h-screen py-8">
       <div className="mx-auto max-w-5xl text-center">
-        <h1 className="text-primary mb-4 text-4xl font-bold">
+        <h1 className="mb-4 text-4xl font-bold">
           Contact Sainte Thérèse Foundation
         </h1>
         <p className="mb-12 text-gray-600">
@@ -15,7 +15,7 @@ export default function ContactPage() {
         </p>
 
         <div className="grid gap-8 md:grid-cols-3">
-          <div className="rounded-2xl bg-white p-6 shadow-lg transition hover:shadow-xl">
+          <div className="border-foreground bg-primary-foreground hover:border-primary border p-6 shadow-lg duration-200 hover:scale-105">
             <MapPin className="text-primary mx-auto mb-4 h-10 w-10" />
             <h2 className="mb-2 text-lg font-semibold">Our Address</h2>
             <p className="text-gray-600">
@@ -24,13 +24,13 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="rounded-2xl bg-white p-6 shadow-lg transition hover:shadow-xl">
+          <div className="border-foreground bg-primary-foreground hover:border-primary border p-6 shadow-lg duration-200 hover:scale-105">
             <Phone className="text-primary mx-auto mb-4 h-10 w-10" />
             <h2 className="mb-2 text-lg font-semibold">Call Us</h2>
             <p className="text-gray-600">+250 789 123 456</p>
           </div>
 
-          <div className="rounded-2xl bg-white p-6 shadow-lg transition hover:shadow-xl">
+          <div className="border-foreground bg-primary-foreground hover:border-primary border p-6 shadow-lg duration-200 hover:scale-105">
             <Mail className="text-primary mx-auto mb-4 h-10 w-10" />
             <h2 className="mb-2 text-lg font-semibold">Email Us</h2>
             <p className="text-gray-600">info@sainte-therese.org</p>

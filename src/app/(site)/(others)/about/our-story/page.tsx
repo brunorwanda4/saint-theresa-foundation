@@ -1,4 +1,8 @@
 import MyImage from "@/components/common/images/MyImage";
+import { Metadata } from "next";
+export const metaData: Metadata = {
+  title: "Statistics - saint theresa foundation",
+};
 
 const OurStory = () => {
   return (
@@ -6,7 +10,7 @@ const OurStory = () => {
       <MyImage src="/images/nurse.jpg" className="z-0 h-full w-full" original />
       <div className="from-primary-foreground via-primary-foreground/80 absolute top-0 z-10 h-full w-full bg-gradient-to-r to-transparent" />
       <section id="our-story" className="global-px absolute top-0 z-20 py-8">
-        <h1 className="mb-4 text-4xl font-bold text-blue-950">Our Story</h1>
+        <h1 className="text-foreground mb-4 text-4xl font-bold">Our Story</h1>
         <p className="text-muted-foreground text-lg leading-relaxed">
           The Sainte Thérèse Foundation is a faith-driven, nonprofit initiative
           founded by AHAYO Anita together with seasoned humanitarian

@@ -1,5 +1,10 @@
 ﻿import MyImage from "@/components/common/images/MyImage";
 import { leaders } from "@/lib/const/member-const";
+import { Metadata } from "next";
+
+export const metaData: Metadata = {
+  title: "Founder - saint theresa foundation",
+};
 
 const AboutFounderPage = () => {
   return (
@@ -14,7 +19,7 @@ const AboutFounderPage = () => {
         <div className="">
           <h4 className="font-semibold">{leaders[0].name}</h4>
           <span className="text-primary text-sm">{leaders[0].role}</span>
-          <p className="max-w-xl text-sm">{leaders[0].bio}</p>
+          <p className="mt-4 max-w-xl">{leaders[0].bio}</p>
         </div>
       </div>
     </div>

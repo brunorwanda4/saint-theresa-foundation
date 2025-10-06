@@ -3,30 +3,35 @@ import {
   ContactIcon,
   Newsletter,
   PeaceTalk,
-} from '@/components/site/landing/icons/lading-links-icon';
+} from "@/components/site/landing/icons/lading-links-icon";
+
 export const LandingLinks = [
   {
-    title: 'NEWSLETTER',
+    title: "Biography & Stories",
     description:
-      ' Keep up-to-date with the latest news and stories from Interpeace. Our newsletter includes poignant insights and latest news from our peacebuilding work.',
+      "Read inspiring stories and updates from Sainte Thérèse Foundation’s outreach missions, training workshops, and conferences across Rwanda.",
     icon: Newsletter,
+    href: "/biography/outreach",
   },
   {
-    title: 'PEACETALKS',
+    title: "Faith & Service Talks",
     description:
-      'Keep up-to-date with the latest news and stories from Interpeace. Our newsletter includes poignant insights and latest news from our peacebuilding work.',
+      "Join our community dialogues and reflections inspired by St. Thérèse’s mission of compassion, service, and hope in healthcare.",
     icon: PeaceTalk,
+    href: "/biography/conferences",
   },
   {
-    title: 'SOCIAL MEDIA',
+    title: "Connect With Us",
     description:
-      'Get involved on our social media pages and get the latest news about our peacebuilding programmes.',
+      "Follow Sainte Thérèse Foundation on social media to stay informed, volunteer, or collaborate with our growing community of change-makers.",
     icon: ContactIcon,
+    href: "/get-involved/partner",
   },
   {
-    title: 'UPCOMING EVENTS',
+    title: "Upcoming Events",
     description:
-      'Interspace works in over 15 countries around the world. Learn about our upcoming events and register to attend.',
+      "Explore our upcoming workshops, health campaigns, and outreach missions happening across different regions of Rwanda.",
     icon: CalendarIcon,
+    href: "/biography/press",
   },
 ];

@@ -1,11 +1,9 @@
 ﻿export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-white px-6 py-16">
+    <div className="global-px min-h-screen py-16">
       <div className="mx-auto max-w-4xl">
-        <h1 className="text-primary mb-6 text-4xl font-bold">
-          Terms & Conditions
-        </h1>
-        <p className="mb-4 text-gray-700">
+        <h1 className="mb-6 text-4xl font-bold">Terms & Conditions</h1>
+        <p className="mb-4">
           By accessing and using the Sainte Thérèse Foundation website, you
           agree to the following terms and conditions.
         </p>

@@ -1,28 +1,25 @@
 ﻿"use client";
+import MyImage from "@/components/common/images/MyImage";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 export default function TrainingBioPage() {
   return (
-    <section className="min-h-screen bg-gradient-to-tr from-green-50 to-white px-6 py-20">
-      <div className="mx-auto mb-12 max-w-5xl text-center">
-        <h1 className="mb-3 text-4xl font-bold text-green-700">
+    <section className="min-h-screen py-8">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="global-px mb-8 max-w-5xl"
+      >
+        <h1 className="text-foreground mb-2 text-4xl font-bold">
           Workshops & Training
         </h1>
-        <p className="text-gray-600">
+        <p className="max-w-2xl leading-relaxed">
           Empowering local health workers and youth leaders to sustain community
           care.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
-        <Image
-          src="/images/training-session.jpg"
-          alt="Training session"
-          width={600}
-          height={400}
-          className="rounded-2xl shadow-md"
-        />
+      <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -38,6 +35,11 @@ export default function TrainingBioPage() {
             initiative between 2023–2025.
           </p>
         </motion.div>
+        <MyImage
+          src="/images/image-2.jpeg"
+          alt="Training session"
+          className="h-96 w-full shadow-md"
+        />
       </div>
     </section>
   );

@@ -2,34 +2,35 @@
 
 const TrainingPage = () => {
   return (
-    <main className="min-h-screen bg-blue-50 px-6 py-16 md:px-12">
-      <section className="mx-auto max-w-6xl space-y-10">
-        <div className="text-center">
-          <h1 className="mb-4 text-4xl font-bold text-blue-900">
-            Training & Empowerment
-          </h1>
-          <p className="mx-auto max-w-2xl text-gray-700">
+    <main className="min-h-screen py-16">
+      <h1 className="text-foreground global-px text-4xl font-bold">
+        Training & Empowerment
+      </h1>
+      <section className="bg-foreground text-primary-foreground global-px mt-4 space-y-8 py-6">
+        <div className="space-y-8">
+          <p className="">
             Building local capacity through professional training for health
             workers and community leaders.
           </p>
         </div>
 
-        <div className="grid items-center gap-10 md:grid-cols-2">
-          <img
-            src="/images/training.jpg"
-            alt="Training"
-            className="h-80 rounded-xl object-cover shadow-md"
-          />
+        <div className="flex flex-row gap-10">
           <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-blue-800">
+            <h2 className="text-primary-foreground text-2xl font-semibold">
               Key Focus Areas
             </h2>
-            <ul className="list-inside list-disc space-y-2 text-gray-700">
+            <ul className="text-primary-content list-inside list-disc space-y-1">
               <li>Workshops on basic healthcare and disease prevention</li>
               <li>Leadership and community mobilization skills</li>
               <li>Continuous mentorship and certification programs</li>
             </ul>
           </div>
+          <img
+            src="/images/training.jpg"
+            alt="Training"
+            className="h-80 object-cover shadow-md"
+            loading="lazy"
+          />
         </div>
       </section>
     </main>

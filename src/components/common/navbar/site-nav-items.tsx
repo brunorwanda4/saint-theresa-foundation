@@ -19,7 +19,7 @@ const SiteNavItems = () => {
   return (
     <NavigationMenu viewport={false} className="bg-background p-1">
       <div className={cn("flex items-center")}>
-        <NavigationMenuList className="flex max-md:hidden">
+        <NavigationMenuList className="flex max-lg:hidden">
           {/* About Us */}
           <NavigationMenuItem>
             <NavigationMenuTrigger>

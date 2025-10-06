@@ -2,19 +2,19 @@
 
 const CommunityPharmaciesPage = () => {
   return (
-    <main className="min-h-screen bg-white px-6 py-16 md:px-12">
-      <section className="mx-auto max-w-7xl">
-        <div className="flex flex-col items-center gap-10 md:flex-row">
+    <main className="min-h-screen py-16">
+      <h1 className="text-foreground global-px text-4xl font-bold">
+        Community Pharmacies
+      </h1>
+      <section className="bg-foreground text-primary-foreground global-px mt-4 space-y-8 py-6">
+        <div className="flex flex-col gap-10 md:flex-row">
           <div className="flex-1">
-            <h1 className="mb-4 text-4xl font-bold text-green-800">
-              Community Pharmacies
-            </h1>
-            <p className="mb-6 leading-relaxed text-gray-700">
+            <p className="">
               The Sainte Thérèse Foundation establishes community-based
               pharmacies that ensure affordable and reliable access to essential
               medicines in rural areas.
             </p>
-            <ul className="list-inside list-disc space-y-2 text-gray-700">
+            <ul className="text-primary-content mt-4 list-inside list-disc space-y-1">
               <li>Locally managed with professional supervision</li>
               <li>Affordable essential medicines</li>
               <li>Pharmacist training and community education</li>
@@ -23,7 +23,8 @@ const CommunityPharmaciesPage = () => {
           <img
             src="/images/pharmacy.jpg"
             alt="Community Pharmacy"
-            className="h-72 w-full rounded-lg object-cover shadow-lg md:w-1/2"
+            className="h-72 w-full object-cover shadow-lg md:w-1/2"
+            loading="lazy"
           />
         </div>
       </section>

@@ -23,7 +23,7 @@ const DigitalHealthPage = () => {
         <h2 className="text-2xl font-semibold">
           Technology for Better Healthcare
         </h2>
-        <p className="text-gray-700">
+        <p className="text-foreground">
           Sainte Thérèse Foundation leverages digital tools to connect patients
           and doctors remotely. Our e-health solutions make consultations,
           follow-ups, and prescriptions accessible even in areas without
@@ -33,7 +33,7 @@ const DigitalHealthPage = () => {
 
       <section className="space-y-4">
         <h3 className="text-xl font-semibold">Digital Solutions Include</h3>
-        <ul className="list-inside list-disc space-y-2 text-gray-700">
+        <ul className="text-foreground list-inside list-disc space-y-2">
           <li>Telemedicine consultations</li>
           <li>Digital health records and follow-up systems</li>
           <li>SMS and mobile app health education programs</li>
@@ -42,7 +42,7 @@ const DigitalHealthPage = () => {
 
       <section>
         <h3 className="mb-2 text-xl font-semibold">Why It Matters</h3>
-        <p className="text-gray-700">
+        <p className="text-foreground">
           Our digital health initiatives close the gap between rural communities
           and quality healthcare, improving efficiency and continuity of care.
         </p>

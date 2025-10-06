@@ -6,10 +6,8 @@ import Link from "next/link";
 export default function SiteFooter() {
   return (
     <footer className="bg-[#002b5c] text-white">
-      {/* Top Section */}
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-12 md:grid-cols-6">
-        {/* About Us */}
-        <div className="border-r-2">
+        <div className="border-r-2 max-md:border-r-0">
           <h3 className="mb-3 font-bold">About Us</h3>
           <ul className="space-y-2 text-sm">
             <li>
@@ -54,9 +52,7 @@ export default function SiteFooter() {
             </li>
           </ul>
         </div>
-
-        {/* Our Work */}
-        <div className="border-r-2">
+        <div className="border-r-2 max-md:border-r-0">
           <h3 className="mb-3 font-bold">Our Work</h3>
           <ul className="space-y-2 text-sm">
             <li>
@@ -101,9 +97,7 @@ export default function SiteFooter() {
             </li>
           </ul>
         </div>
-
-        {/* Programs & Plan */}
-        <div className="border-r-2">
+        <div className="border-r-2 max-md:border-r-0">
           <h3 className="mb-3 font-bold">Programs & Plan</h3>
           <ul className="space-y-2 text-sm">
             <li>
@@ -132,9 +126,7 @@ export default function SiteFooter() {
             </li>
           </ul>
         </div>
-
-        {/* Get Involved */}
-        <div className="border-r-2">
+        <div className="border-r-2 max-md:border-r-0">
           <h3 className="mb-3 font-bold">Get Involved</h3>
           <ul className="space-y-2 text-sm">
             <li>
@@ -163,14 +155,12 @@ export default function SiteFooter() {
             </li>
           </ul>
         </div>
-
-        {/* News & Events */}
-        <div className="border-r-2">
-          <h3 className="mb-3 font-bold">News & Events</h3>
+        <div className="border-r-2 max-md:border-r-0">
+          <h3 className="mb-3 font-bold">biography</h3>
           <ul className="space-y-2 text-sm">
             <li>
               <Link
-                href="/news/outreach"
+                href="/biography/outreach"
                 className="hover:text-primary duration-200"
               >
                 Community Outreach
@@ -178,7 +168,7 @@ export default function SiteFooter() {
             </li>
             <li>
               <Link
-                href="/news/training"
+                href="/biography/training"
                 className="hover:text-primary duration-200"
               >
                 Workshops & Training
@@ -186,7 +176,7 @@ export default function SiteFooter() {
             </li>
             <li>
               <Link
-                href="/news/conferences"
+                href="/biography/conferences"
                 className="hover:text-primary duration-200"
               >
                 Conferences & Advocacy
@@ -194,7 +184,7 @@ export default function SiteFooter() {
             </li>
             <li>
               <Link
-                href="/news/press"
+                href="/biography/press"
                 className="hover:text-primary duration-200"
               >
                 Press Releases
@@ -202,8 +192,6 @@ export default function SiteFooter() {
             </li>
           </ul>
         </div>
-
-        {/* Resources */}
         <div>
           <h3 className="mb-3 font-bold">Resources</h3>
           <ul className="space-y-2 text-sm">
@@ -234,8 +222,6 @@ export default function SiteFooter() {
           </ul>
         </div>
       </div>
-
-      {/* Social */}
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between border-t border-gray-600 px-6 py-6 md:flex-row">
         <div className="mb-4 flex space-x-4 md:mb-0">
           <Link href="#" className="hover:text-primary duration-200">
@@ -259,8 +245,6 @@ export default function SiteFooter() {
           <p>Together for Accessible Healthcare in Rwanda</p>
         </div>
       </div>
-
-      {/* Bottom Bar */}
       <div className="bg-black py-3 text-sm text-gray-400">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between px-6 md:flex-row">
           <p>© {new Date().getFullYear()} Sainte Thérèse Foundation</p>

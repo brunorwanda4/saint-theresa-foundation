@@ -1,11 +1,11 @@
-'use client';
-import MobileSiteNavItems from '@/components/common/navbar/mobile-site-nav-items';
-import SiteNavContact from '@/components/common/navbar/site-nav-contact';
-import SiteNavItems from '@/components/common/navbar/site-nav-items';
-import { useScrollPosition } from '@/lib/hooks/useScrollPosition';
-import { cn } from '@/lib/utils';
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
+import MobileSiteNavItems from "@/components/common/navbar/mobile-site-nav-items";
+import SiteNavContact from "@/components/common/navbar/site-nav-contact";
+import SiteNavItems from "@/components/common/navbar/site-nav-items";
+import { useScrollPosition } from "@/lib/hooks/useScrollPosition";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 const SiteNav = () => {
   const isScrolled = useScrollPosition(18);
@@ -13,20 +13,18 @@ const SiteNav = () => {
   return (
     <div
       className={cn(
-        'flex z-50  justify-between global-px items-center w-full fixed transition-colors duration-300',
-        isScrolled && ' border-b-secondary border-b bg-background shadow-md',
+        "global-px fixed z-50 flex w-full items-center justify-between transition-colors duration-300",
+        isScrolled && "border-b-secondary bg-background border-b shadow-md",
       )}
     >
       <div className="max-md:flex max-md:items-center max-md:gap-4">
         {/* Mobile */}
-        <MobileSiteNavItems />
-
         <div className="flex items-center gap-2">
           <Link href={`/`}>
             <div className="relative size-16">
               <Image
                 className="object-contain"
-                src={'/logo.png'}
+                src={"/logo.png"}
                 alt="saint theresa foundation"
                 fill
                 priority
@@ -37,18 +35,25 @@ const SiteNav = () => {
       </div>
 
       {/* Nav items wrapper */}
-      <div className="flex justify-center w-full">
+      <div className="flex w-full justify-center">
         <div
           className={cn(
-            'transition-all duration-500 ease-in-out w-fit',
-            isScrolled ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-100',
+            "w-fit transition-all duration-500 ease-in-out",
+            isScrolled
+              ? "translate-y-0 opacity-100"
+              : "translate-y-16 opacity-100",
           )}
         >
           <SiteNavItems />
         </div>
       </div>
 
-      <SiteNavContact />
+      <div className="max-lg:hidden">
+        <SiteNavContact />
+      </div>
+      <div className="flex lg:hidden">
+        <MobileSiteNavItems />
+      </div>
     </div>
   );
 };
