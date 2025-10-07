@@ -13,7 +13,7 @@ export const biography = [
     categories: ["History", "Faith", "Community Service"],
     tags: ["Foundation Origin", "Saint Thérèse", "Compassion"],
     publishedAt: "2020-01-12T09:00:00+02:00",
-    image: "/images/bio-1.jpg",
+    image: "/images/image-9-a.jpeg",
     isFeatured: true,
   },
   {
@@ -30,7 +30,7 @@ export const biography = [
     categories: ["Mission", "Faith", "Education"],
     tags: ["Service", "Outreach", "Spiritual Growth"],
     publishedAt: "2021-05-10T14:30:00+02:00",
-    image: "/images/bio-2.jpg",
+    image: "/images/image-10-a.jpeg",
     isFeatured: true,
   },
   {
@@ -47,7 +47,7 @@ export const biography = [
     categories: ["Growth", "Partnerships", "Community Impact"],
     tags: ["Expansion", "Faith in Action", "Partnerships"],
     publishedAt: "2024-07-01T11:00:00+02:00",
-    image: "/images/bio-3.jpg",
+    image: "/images/image-11-a.jpeg",
     isFeatured: false,
   },
 ];

@@ -1,32 +1,109 @@
-import SiteLink from '@/components/common/site/site-link';
+"use client";
+import SiteLink from "@/components/common/site/site-link";
+import gsap from "gsap";
+import { useLayoutEffect, useRef } from "react";
 
 const InterpeaceComponent = () => {
+  // Create refs for animated elements
+  const leftCardRef = useRef<HTMLDivElement>(null);
+  const rightCardRef = useRef<HTMLDivElement>(null);
+  const linkRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
+
+  useLayoutEffect(() => {
+    if (!leftCardRef.current || !rightCardRef.current || !linkRef.current)
+      return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline();
+
+      tl.from(leftCardRef.current, {
+        x: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      })
+        .from(
+          rightCardRef.current,
+          {
+            x: 50,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "-=0.6",
+        )
+        .from(
+          linkRef.current,
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.7,
+            ease: "back.out(1.4)",
+          },
+          "-=0.4",
+        );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const handleCardHover = (e: React.MouseEvent<HTMLDivElement>) => {
+    gsap.to(e.currentTarget, {
+      backgroundColor: "rgba(0, 0, 139, 0.1)",
+      scale: 1.02,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
+
+  const handleCardHoverOut = (e: React.MouseEvent<HTMLDivElement>) => {
+    gsap.to(e.currentTarget, {
+      backgroundColor: "transparent",
+      scale: 1,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
+
   return (
-    <section className=" global-px ">
-      <div className="flex flex-col md:gap-8 gap-4 md:flex-row">
-        <div className="w-full md:w-1/2 space-y-4 hover:bg-primary/20 p-4 duration-200">
-          <h2 className=" font-bold text-4xl text-blue-950">Who We Are</h2>
+    <section ref={containerRef} className="global-px">
+      <div className="flex flex-col gap-4 md:flex-row md:gap-8">
+        <div
+          ref={leftCardRef}
+          onMouseEnter={handleCardHover}
+          onMouseLeave={handleCardHoverOut}
+          className="w-full cursor-pointer space-y-4 rounded-lg p-4 duration-200 md:w-1/2"
+        >
+          <h2 className="text-4xl font-bold text-blue-950">Who We Are</h2>
           <p>
-            Interpeace is an international organization that prevents violence and builds lasting
-            peace. We have 30 years of experience working in Africa, the Middle East, Asia, Europe
-            and Latin America. <br /> Interpeace builds trust as the glue that bring societies back
-            together and works to have solutions designed and led locally from the grassroot
-            communities to the most senior decision-making levels.
+            Interpeace is an international organization that prevents violence
+            and builds lasting peace. We have 30 years of experience working in
+            Africa, the Middle East, Asia, Europe and Latin America. <br />{" "}
+            Interpeace builds trust as the glue that bring societies back
+            together and works to have solutions designed and led locally from
+            the grassroot communities to the most senior decision-making levels.
           </p>
         </div>
 
-        <div className="w-full md:w-1/2 space-y-4 hover:bg-primary/20 p-4 duration-200">
-          <h2 className=" font-bold text-4xl text-blue-950">Our Mandate</h2>
+        <div
+          ref={rightCardRef}
+          onMouseEnter={handleCardHover}
+          onMouseLeave={handleCardHoverOut}
+          className="w-full cursor-pointer space-y-4 rounded-lg p-4 duration-200 md:w-1/2"
+        >
+          <h2 className="text-4xl font-bold text-blue-950">Our Mandate</h2>
           <p>
-            Interpeace is an international organization that prevents violence and builds lasting
-            peace. We have 30 years of experience working in Africa, the Middle East, Asia, Europe
-            and Latin America. Interpeace builds trust as the glue that bring societies back
-            together and works to have solutions designed and led locally from the grassroot
+            Interpeace is an international organization that prevents violence
+            and builds lasting peace. We have 30 years of experience working in
+            Africa, the Middle East, Asia, Europe and Latin America. Interpeace
+            builds trust as the glue that bring societies back together and
+            works to have solutions designed and led locally from the grassroot
             communities to the most senior decision-making levels.
           </p>
         </div>
       </div>
-      <div className=" flex justify-center items-center mt-8">
+      <div ref={linkRef} className="mt-8 flex items-center justify-center">
         <SiteLink link="/programs">Our Peacebuilding Pillars</SiteLink>
       </div>
     </section>

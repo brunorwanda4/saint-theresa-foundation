@@ -1,116 +1,80 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const slides = [
-  {
-    id: 1,
-    title: "Mobile Health Clinics",
-    description:
-      "Delivering essential healthcare directly to rural and underserved communities through mobile clinics.",
-    image: "/images/mobile-clinic.jpg",
-  },
-  {
-    id: 2,
-    title: "Community Pharmacies",
-    description:
-      "Creating access to affordable, reliable medicine through locally managed pharmacies.",
-    image: "/images/community-pharmacy.jpg",
-  },
-  {
-    id: 3,
-    title: "Digital Health Platform",
-    description:
-      "Connecting patients and doctors via telehealth, reducing travel time and improving accessibility.",
-    image: "/images/digital-health.jpg",
-  },
-  {
-    id: 4,
-    title: "Youth Empowerment",
-    description:
-      "Training the next generation of healthcare leaders and community volunteers.",
-    image: "/images/training.jpg",
-  },
-  {
-    id: 5,
-    title: "Public Health Education",
-    description:
-      "Raising awareness about nutrition, hygiene, and preventive healthcare practices.",
-    image: "/images/public-health.jpeg",
-  },
+  { id: 1, src: "/images/hero1.jpg" },
+  { id: 2, src: "/images/hero2.jpg" },
+  { id: 3, src: "/images/hero3.jpg" },
+  { id: 4, src: "/images/hero4.jpg" },
 ];
 
-export default function LandingPrograms() {
-  const [index, setIndex] = useState(0);
+export default function HeroCarousel() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(1); // start from middle
+  const total = slides.length;
 
-  // Auto-slide every 4 seconds
+  // autoplay effect
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % slides.length);
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % total);
     }, 4000);
-    return () => clearInterval(timer);
-  }, []);
+    return () => clearInterval(interval);
+  }, [total]);
 
-  // Duplicate slides for seamless infinite scroll illusion
-  const extendedSlides = [...slides, ...slides];
+  useGSAP(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const items = gsap.utils.toArray<HTMLDivElement>(".slide-item");
+
+    // animate active width
+    items.forEach((item, i) => {
+      const isActive = i === activeIndex;
+      const targetWidth = isActive ? "50%" : "25%";
+      gsap.to(item, {
+        width: targetWidth,
+        duration: 1.2,
+        ease: "power3.inOut",
+      });
+    });
+
+    // slide horizontal movement
+    gsap.to(container, {
+      xPercent: -100 * (activeIndex - 1) * 0.5, // control offset
+      duration: 1.2,
+      ease: "power3.inOut",
+    });
+  }, [activeIndex]);
 
   return (
-    <section className="relative mx-auto mt-10 flex max-w-7xl justify-center overflow-hidden py-12">
-      <motion.div
-        className="flex"
-        animate={{
-          x: `-${index * 25}%`, // move 25% per step (since each visible portion = 25vw)
-        }}
-        transition={{
-          duration: 1,
-          ease: "easeInOut",
-        }}
-        style={{
-          width: `${extendedSlides.length * 25}%`, // each item takes 25% of total width
-        }}
+    <section className="flex w-full justify-center overflow-hidden">
+      <div
+        ref={containerRef}
+        className="flex w-full transition-transform duration-700 ease-out"
       >
-        {extendedSlides.map((slide, i) => {
-          // Determine which is center
-          const relativeIndex = (i - index + slides.length) % slides.length;
-          const isCenter = relativeIndex === 0;
-
-          const width = isCenter ? "50vw" : "25vw";
-          const scale = isCenter ? 1 : 0.9;
-          const opacity = isCenter ? 1 : 0.7;
-
-          return (
-            <motion.div
-              key={`${slide.id}-${i}`}
-              className="relative flex-shrink-0 overflow-hidden"
-              style={{
-                width,
-                scale,
-                opacity,
-                transition: "all 0.8s ease-in-out",
-              }}
-            >
-              <div className="relative h-[420px] w-full overflow-hidden rounded-3xl shadow-xl">
-                <Image
-                  src={slide.image}
-                  alt={slide.title}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
-                  <h2 className="text-2xl font-semibold">{slide.title}</h2>
-                  {isCenter && (
-                    <p className="mt-2 text-sm opacity-90">
-                      {slide.description}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          );
-        })}
-      </motion.div>
+        {slides.map((slide, i) => (
+          <div
+            key={slide.id}
+            className="slide-item relative flex-shrink-0 overflow-hidden"
+            style={{
+              width: i === activeIndex ? "50%" : "25%",
+              height: "70vh",
+              transition: "width 0.6s ease",
+            }}
+          >
+            <Image
+              src={slide.src}
+              alt={`Slide ${i}`}
+              fill
+              className="object-cover"
+            />
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

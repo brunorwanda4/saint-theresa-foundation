@@ -2,7 +2,7 @@ import MyImage from "@/components/common/images/MyImage";
 
 const LandingHero1 = () => {
   return (
-    <div className="relative h-full w-full">
+    <div className="relative h-[70vh] w-full">
       <MyImage
         src="/images/image-1-a.jpg"
         className="h-full w-full"

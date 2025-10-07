@@ -4,7 +4,15 @@ import MyImage from "@/components/common/images/MyImage";
 import SiteLink from "@/components/common/site/site-link";
 import { Timeline } from "@/components/ui/timeline";
 import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Globe2, GraduationCap, HeartPulse, Users } from "lucide-react";
+import { useEffect, useRef } from "react";
+
+// Register ScrollTrigger plugin
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function TimelinePage() {
   const timelineData = [
@@ -80,6 +88,157 @@ export default function TimelinePage() {
     },
   ];
 
+  // Refs for GSAP animations
+  const heroContentRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement[]>([]);
+  const timelineSectionRef = useRef<HTMLElement>(null);
+  const highlightSectionRef = useRef<HTMLElement>(null);
+  const highlightContentRef = useRef<HTMLDivElement>(null);
+  const highlightImageRef = useRef<HTMLDivElement>(null);
+
+  // Add to stats ref array
+  const addToStatsRef = (el: HTMLDivElement | null) => {
+    if (el && !statsRef.current.includes(el)) {
+      statsRef.current.push(el);
+    }
+  };
+
+  useEffect(() => {
+    // Hero content animation
+    if (heroContentRef.current) {
+      gsap.fromTo(
+        heroContentRef.current,
+        {
+          opacity: 0,
+          y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: heroContentRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+            once: true,
+          },
+        },
+      );
+    }
+
+    // Stats animation
+    statsRef.current.forEach((stat, index) => {
+      gsap.fromTo(
+        stat,
+        {
+          opacity: 0,
+          y: 60,
+          scale: 0.8,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.7,
+          delay: index * 0.15,
+          scrollTrigger: {
+            trigger: stat,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+            once: true,
+          },
+        },
+      );
+    });
+
+    // Timeline section animation
+    if (timelineSectionRef.current) {
+      gsap.fromTo(
+        timelineSectionRef.current,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: timelineSectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+            once: true,
+          },
+        },
+      );
+    }
+
+    // Highlight section animation
+    if (highlightSectionRef.current) {
+      gsap.fromTo(
+        highlightSectionRef.current,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: highlightSectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+            once: true,
+          },
+        },
+      );
+    }
+
+    // Highlight content animation
+    if (highlightContentRef.current) {
+      gsap.fromTo(
+        highlightContentRef.current,
+        {
+          opacity: 0,
+          x: -50,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: highlightContentRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+            once: true,
+          },
+        },
+      );
+    }
+
+    // Highlight image animation
+    if (highlightImageRef.current) {
+      gsap.fromTo(
+        highlightImageRef.current,
+        {
+          opacity: 0,
+          x: 50,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: highlightImageRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+            once: true,
+          },
+        },
+      );
+    }
+
+    // Clean up ScrollTrigger instances
+    return () => {
+      if (typeof window !== "undefined") {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      }
+    };
+  }, []);
+
   return (
     <main className="min-h-screen pb-16">
       <div className="relative h-[70vh] w-full">
@@ -91,7 +250,10 @@ export default function TimelinePage() {
           priority
         />
         <div className="global-px absolute bottom-0 w-full">
-          <div className="bg-primary-foreground/60 px-8 py-6">
+          <div
+            ref={heroContentRef}
+            className="bg-primary-foreground/60 px-8 py-6"
+          >
             <motion.h1
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -119,6 +281,7 @@ export default function TimelinePage() {
         ].map((stat, i) => (
           <motion.div
             key={i}
+            ref={addToStatsRef}
             whileHover={{ scale: 1.05 }}
             className="border-foreground bg-primary-foreground hover:border-primary flex flex-col items-center border p-6 text-center shadow-md"
           >
@@ -132,13 +295,16 @@ export default function TimelinePage() {
       </section>
 
       {/* Timeline Section */}
-      <section className="mt-16 px-4 md:px-8">
+      <section ref={timelineSectionRef} className="mt-16 px-4 md:px-8">
         <Timeline data={timelineData} />
       </section>
 
       {/* Highlight Section */}
-      <section className="mx-auto mt-20 grid max-w-6xl gap-10 px-6 md:grid-cols-2">
-        <div>
+      <section
+        ref={highlightSectionRef}
+        className="mx-auto mt-20 grid max-w-6xl gap-10 px-6 md:grid-cols-2"
+      >
+        <div ref={highlightContentRef}>
           <h2 className="text-foreground mb-4 text-3xl font-semibold">
             Our Journey Continues
           </h2>
@@ -154,11 +320,13 @@ export default function TimelinePage() {
             Explore Our Impact Stories
           </SiteLink>
         </div>
-        <MyImage
-          src="/images/digital-health.jpg"
-          alt="Community team"
-          className="mt-4 h-96 w-full shadow-md"
-        />
+        <div ref={highlightImageRef}>
+          <MyImage
+            src="/images/digital-health.jpg"
+            alt="Community team"
+            className="mt-4 h-96 w-full shadow-md"
+          />
+        </div>
       </section>
     </main>
   );

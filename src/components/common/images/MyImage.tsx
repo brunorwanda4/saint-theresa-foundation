@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { cn } from '@/lib/utils';
-import NextImage from 'next/image';
-import { SyntheticEvent, useEffect, useState } from 'react';
+import { cn } from "@/lib/utils";
+import NextImage from "next/image";
+import { RefObject, SyntheticEvent, useEffect, useState } from "react";
 
 const TINY_TRANSPARENT_GIF =
-  'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+  "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
 
 interface MyImageProps {
   src: string;
   alt?: string;
   className?: string;
   classname?: string;
-  role?: 'ICON' | 'AVATAR';
+  role?: "ICON" | "AVATAR";
   fallbackSrc?: string;
   priority?: boolean;
   quality?: number;
@@ -25,58 +25,65 @@ interface MyImageProps {
   draggable?: boolean;
 
   /** Control how image loads */
-  loading?: 'lazy' | 'eager';
+  loading?: "lazy" | "eager";
 
   /** Keep full capacity (disable Next.js optimization/compression) */
   original?: boolean;
+
+  ref?: RefObject<HTMLImageElement | null>;
 }
 
 const MyImage = ({
   src: initialSrc,
-  alt = 'Default alt text',
+  alt = "Default alt text",
   className,
   classname,
   role,
   draggable,
   useSkeleton = false,
-  fallbackSrc = '/icons/photo.svg',
+  fallbackSrc = "/icons/photo.svg",
   priority = false,
   quality = 75,
   onClick,
-  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   width,
   height,
-  loading = 'lazy',
+  ref,
+  loading = "lazy",
   original = false,
 }: MyImageProps) => {
   const [currentAttemptSrc, setCurrentAttemptSrc] = useState(initialSrc);
   const [imageStatus, setImageStatus] = useState<
-    'loading' | 'loaded' | 'failedInitial' | 'failedFallback'
-  >('loading');
+    "loading" | "loaded" | "failedInitial" | "failedFallback"
+  >("loading");
 
   useEffect(() => {
     setCurrentAttemptSrc(initialSrc);
-    setImageStatus('loading');
+    setImageStatus("loading");
   }, [initialSrc]);
 
-  const handleLoadingComplete = () => setImageStatus('loaded');
+  const handleLoadingComplete = () => setImageStatus("loaded");
 
   const handleError = (_e: SyntheticEvent<HTMLImageElement, Event>) => {
-    if (imageStatus === 'loading' && currentAttemptSrc === initialSrc) {
+    if (imageStatus === "loading" && currentAttemptSrc === initialSrc) {
       if (initialSrc === fallbackSrc) {
-        setImageStatus('failedFallback');
+        setImageStatus("failedFallback");
       } else {
         setCurrentAttemptSrc(fallbackSrc);
-        setImageStatus('failedInitial');
+        setImageStatus("failedInitial");
       }
-    } else if (imageStatus === 'failedInitial' && currentAttemptSrc === fallbackSrc) {
-      setImageStatus('failedFallback');
+    } else if (
+      imageStatus === "failedInitial" &&
+      currentAttemptSrc === fallbackSrc
+    ) {
+      setImageStatus("failedFallback");
     }
   };
 
-  const showSkeleton = imageStatus === 'loading' || imageStatus === 'failedInitial';
-  const showImage = imageStatus === 'loaded';
-  const showPermanentFailurePlaceholder = imageStatus === 'failedFallback';
+  const showSkeleton =
+    imageStatus === "loading" || imageStatus === "failedInitial";
+  const showImage = imageStatus === "loaded";
+  const showPermanentFailurePlaceholder = imageStatus === "failedFallback";
 
   const imageElement = !showPermanentFailurePlaceholder ? (
     <NextImage
@@ -84,14 +91,17 @@ const MyImage = ({
       src={currentAttemptSrc || fallbackSrc} // fallback to avoid undefined src
       draggable={draggable}
       onClick={onClick}
+      ref={ref}
       alt={alt}
       className={cn(
-        'object-cover transition-opacity duration-300 ease-in-out',
-        showImage ? 'opacity-100' : 'opacity-0',
-        role === 'AVATAR' && 'mask mask-squircle size-8',
+        "object-cover transition-opacity duration-300 ease-in-out",
+        showImage ? "opacity-100" : "opacity-0",
+        role === "AVATAR" && "mask mask-squircle size-8",
         classname,
       )}
-      {...(width && height ? { width: Number(width), height: Number(height) } : { fill: true })}
+      {...(width && height
+        ? { width: Number(width), height: Number(height) }
+        : { fill: true })}
       sizes={original ? undefined : sizes}
       placeholder="blur"
       blurDataURL={TINY_TRANSPARENT_GIF}
@@ -102,7 +112,7 @@ const MyImage = ({
       onError={handleError}
       unoptimized={
         original ||
-        (currentAttemptSrc?.startsWith?.('data:') ?? false) ||
+        (currentAttemptSrc?.startsWith?.("data:") ?? false) ||
         currentAttemptSrc === TINY_TRANSPARENT_GIF
       }
     />
@@ -110,14 +120,19 @@ const MyImage = ({
 
   return (
     <div
-      className={cn('relative overflow-hidden', role === 'ICON' ? 'size-4' : 'size-32', className)}
+      ref={ref}
+      className={cn(
+        "relative overflow-hidden",
+        role === "ICON" ? "size-4" : "size-32",
+        className,
+      )}
     >
       {showSkeleton && (
         <div
           className={cn(
-            'absolute inset-0',
-            role === 'AVATAR' && 'mask mask-squircle',
-            useSkeleton ? 'skeleton' : 'bg-muted',
+            "absolute inset-0",
+            role === "AVATAR" && "mask mask-squircle",
+            useSkeleton ? "skeleton" : "bg-muted",
           )}
           aria-hidden="true"
         />
@@ -128,11 +143,11 @@ const MyImage = ({
       {showPermanentFailurePlaceholder && (
         <div
           className={cn(
-            'absolute inset-0 flex flex-col items-center justify-center text-gray-500 dark:text-gray-400 p-2',
-            role === 'AVATAR' && 'mask mask-squircle',
+            "absolute inset-0 flex flex-col items-center justify-center p-2 text-gray-500 dark:text-gray-400",
+            role === "AVATAR" && "mask mask-squircle",
           )}
           role="img"
-          aria-label={alt || 'Image not available'}
+          aria-label={alt || "Image not available"}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -1,28 +1,23 @@
 ﻿"use client";
 import MyImage from "@/components/common/images/MyImage";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-
-const stories = [
-  {
-    name: "Claudine, 32 — Gakenke District",
-    image: "/images/image-3.jpeg",
-    text: "Before the Sainte Thérèse mobile clinic, I had to walk 3 hours to get medicine. Now, they come to our village every month. My children are healthier than ever.",
-  },
-  {
-    name: "Jean Paul, Volunteer Nurse",
-    image: "/images/image-4.jpeg",
-    text: "Serving in the community pharmacy taught me the power of compassion and teamwork. We’re building a healthier Rwanda, one patient at a time.",
-  },
-  {
-    name: "Sister Thérèse, Program Coordinator",
-    image: "/images/image-5.jpeg",
-    text: "We believe faith and service must walk hand in hand. Our mission is not only to heal bodies but to restore hope and dignity.",
-  },
-];
+import { stories } from "@/lib/const/stories-const";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 export default function StoriesPage() {
   const [index, setIndex] = useState(0);
+
+  const titleRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const featuredStoryRef = useRef(null);
+  const storyCardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const containerRef = useRef(null);
+
+  const addToCardsRef = (el: HTMLDivElement | null, i: number) => {
+    storyCardsRef.current[i] = el;
+  };
+
   useEffect(() => {
     const interval = setInterval(
       () => setIndex((i) => (i + 1) % stories.length),
@@ -31,56 +26,154 @@ export default function StoriesPage() {
     return () => clearInterval(interval);
   }, []);
 
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // Header animation
+      const tl = gsap.timeline();
+      tl.from(titleRef.current, {
+        opacity: 0,
+        y: -20,
+        duration: 0.8,
+        ease: "power2.out",
+      }).from(
+        descriptionRef.current,
+        {
+          opacity: 0,
+          y: -20,
+          duration: 0.6,
+          ease: "power2.out",
+        },
+        "-=0.4",
+      );
+
+      // Story cards animation on scroll
+      gsap.from(storyCardsRef.current, {
+        scrollTrigger: {
+          trigger: ".grid",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out",
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  // Enhanced featured story transition
+  useEffect(() => {
+    if (featuredStoryRef.current) {
+      const tl = gsap.timeline();
+
+      tl.to(featuredStoryRef.current, {
+        opacity: 0,
+        y: 30,
+        scale: 0.95,
+        duration: 0.4,
+        ease: "power2.in",
+      }).to(featuredStoryRef.current, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        ease: "back.out(1.4)",
+      });
+    }
+  }, [index]);
+
+  // Hover animations (same as above)
+  const handleCardHover = (i: number) => {
+    const card = storyCardsRef.current[i];
+    if (card) {
+      gsap.to(card, {
+        scale: 1.05,
+        y: -5,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    }
+  };
+
+  const handleCardHoverOut = (i: number) => {
+    const card = storyCardsRef.current[i];
+    if (card) {
+      gsap.to(card, {
+        scale: 1,
+        y: 0,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    }
+  };
+
   return (
-    <section className="mt-8 min-h-screen">
+    <section ref={containerRef} className="mt-8 min-h-screen">
       <div className="global-px mb-8 max-w-4xl">
-        <h1 className="text-foreground mb-3 text-4xl font-bold">
+        <h1 ref={titleRef} className="text-foreground mb-3 text-4xl font-bold">
           Stories of Hope
         </h1>
-        <p className="">
+        <p ref={descriptionRef} className="">
           Real voices, real change — powered by compassion and community.
         </p>
       </div>
 
-      {/* Featured Rotating Story */}
       <div className="global-px bg-foreground py-8">
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="border-foreground hover:border-primary bg-primary-foreground mx-auto mb-20 w-fit border p-8 shadow-lg duration-200 hover:scale-105"
+        <div
+          ref={featuredStoryRef}
+          className="border-foreground hover:border-primary bg-primary-foreground mx-auto mb-20 w-fit cursor-pointer border p-8 shadow-lg"
+          onMouseEnter={() => {
+            gsap.to(featuredStoryRef.current, {
+              scale: 1.02,
+              y: -3,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+          }}
+          onMouseLeave={() => {
+            gsap.to(featuredStoryRef.current, {
+              scale: 1,
+              y: 0,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+          }}
         >
           <div className="flex flex-col items-center gap-4 md:flex-row">
             <MyImage
               src={stories[index].image}
               alt={stories[index].name}
-              classname=""
               className="size-52 object-cover"
             />
             <div>
               <h2 className="text-primary text-xl font-semibold">
                 {stories[index].name}
               </h2>
-              <p className="mt-2 max-w-md italic">“{stories[index].text}”</p>
+              <p className="mt-2 max-w-md italic">"{stories[index].text}"</p>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Grid of All Stories */}
         <div className="grid max-w-6xl gap-10 md:grid-cols-2 lg:grid-cols-3">
           {stories.map((story, i) => (
-            <motion.div
+            <div
               key={story.name}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2 }}
-              className="relative h-80 w-full duration-200 hover:scale-105"
+              ref={(el) => addToCardsRef(el, i)}
+              onMouseEnter={() => handleCardHover(i)}
+              onMouseLeave={() => handleCardHoverOut(i)}
+              className="relative h-80 w-full cursor-pointer overflow-hidden"
             >
               <MyImage
                 src={story.image}
                 original
                 loading="lazy"
-                className="h-full w-full"
+                className="h-full w-full object-cover"
               />
               <div className="absolute bottom-0 h-fit w-full bg-blue-950/70 px-4 py-2">
                 <h4 className="text-primary-foreground font-medium">
@@ -90,7 +183,7 @@ export default function StoriesPage() {
                   {story.text}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

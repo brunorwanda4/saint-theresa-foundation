@@ -1,18 +1,21 @@
-import { cn } from '@/lib/utils';
-import Link from 'next/link';
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { RefObject } from "react";
 
 interface props {
   link: string;
   children: string;
   className?: string;
+  ref?: RefObject<HTMLAnchorElement | null>;
 }
 
-const SiteLink = ({ children, link, className }: props) => {
+const SiteLink = ({ children, link, className, ref }: props) => {
   return (
     <Link
+      ref={ref}
       href={link}
       className={cn(
-        'bg-gradient-to-r text-primary-foreground from-primary to-blue-950 rounded-full px-4 py-2',
+        "text-primary-foreground from-primary hover:from-secondary rounded-full bg-gradient-to-r to-blue-950 px-4 py-2 duration-200 hover:to-orange-950",
         className,
       )}
     >

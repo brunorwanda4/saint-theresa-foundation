@@ -1,14 +1,91 @@
 ﻿"use client";
 
+import gsap from "gsap";
+import { useLayoutEffect, useRef } from "react";
+
 const AboutVisionMissionPage = () => {
+  // Create refs for all animated elements
+  const titleRef = useRef(null);
+  const mandateRef = useRef(null);
+  const missionRef = useRef(null);
+  const valuesRef = useRef(null);
+  const principlesRef = useRef(null);
+  const containerRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // Create a timeline for sequenced animations
+      const tl = gsap.timeline();
+
+      // Animate main title
+      tl.from(titleRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      })
+        // Animate mandate section
+        .from(
+          mandateRef.current,
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          },
+          "-=0.3",
+        )
+        // Animate mission section
+        .from(
+          missionRef.current,
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          },
+          "-=0.2",
+        )
+        // Animate values section
+        .from(
+          valuesRef.current,
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          },
+          "-=0.2",
+        )
+        // Animate principles section
+        .from(
+          principlesRef.current,
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          },
+          "-=0.2",
+        );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="from-primary-foreground mx-auto max-w-7xl space-y-12 bg-gradient-to-b to-gray-200 px-6 py-16 md:px-12">
+    <div
+      ref={containerRef}
+      className="from-primary-foreground mx-auto max-w-7xl space-y-12 bg-gradient-to-b to-gray-200 px-6 py-16 md:px-12"
+    >
       <section id="vision-mission" className="space-y-6">
-        <h1 className="text-4xl font-bold">Mission & Values</h1>
+        <h1 ref={titleRef} className="text-4xl font-bold">
+          Mission & Values
+        </h1>
 
         <div className="space-y-6 leading-relaxed text-gray-700">
           {/* Our mandate */}
-          <div>
+          <div ref={mandateRef}>
             <h2 className="mb-2 text-2xl font-semibold">Our Mandate</h2>
             <p>Our mandate is to:</p>
             <ol className="ml-4 list-inside list-decimal space-y-2">
@@ -25,7 +102,7 @@ const AboutVisionMissionPage = () => {
           </div>
 
           {/* Our mission */}
-          <div>
+          <div ref={missionRef}>
             <h2 className="mb-2 text-2xl font-semibold">Our Mission</h2>
             <p>
               The Sainte Thérèse Foundation is committed to enhancing the
@@ -38,7 +115,7 @@ const AboutVisionMissionPage = () => {
           </div>
 
           {/* Our values */}
-          <div>
+          <div ref={valuesRef}>
             <h2 className="mb-2 text-2xl font-semibold">Our Values</h2>
             <ul className="ml-4 list-inside list-disc space-y-2">
               <li>
@@ -62,7 +139,7 @@ const AboutVisionMissionPage = () => {
           </div>
 
           {/* Our working principles */}
-          <div>
+          <div ref={principlesRef}>
             <h2 className="mb-2 text-2xl font-semibold">
               Our Working Principles
             </h2>

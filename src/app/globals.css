@@ -152,5 +152,5 @@
 }
 
 .site-card {
-  @apply bg-primary-foreground border-foreground hover:border-primary rounded-xl border p-6 shadow-md transition duration-200 hover:scale-105 hover:shadow-xl;
+  @apply bg-primary-foreground border-foreground hover:border-primary border p-6 shadow-md transition duration-200 hover:scale-105 hover:shadow-xl;
 }

@@ -17,7 +17,6 @@ const LadingPage = () => {
       <InterpeaceComponent />
       <LandingBiography />
       <LandingStrategy />
-      {/* <LandingPrograms /> */}
       <LandingResources />
       <div className="h-24" />
       <LandingLink />
