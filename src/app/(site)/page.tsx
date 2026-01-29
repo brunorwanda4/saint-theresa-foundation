@@ -6,6 +6,7 @@ import LandingResources from "@/components/site/landing/LandingResources";
 import LandingStrategy from "@/components/site/landing/LandingStrategy";
 import LandingHero from "@/components/site/landing/landing-hero";
 import HomeHero from "./_components/home/home-hero";
+import WhoWeAre from "./_components/home/who-we-are";
 
 export const metaData: Metadata = {
 	title: "Home - saint theresa foundation",
@@ -15,6 +16,7 @@ const LadingPage = () => {
 	return (
 		<div className="space-y-8 px-8">
 			<HomeHero />
+			<WhoWeAre />
 			<InterpeaceComponent />
 			<LandingBiography />
 			<LandingStrategy />

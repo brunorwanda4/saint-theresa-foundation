@@ -44,10 +44,10 @@ const HomeHero = () => {
 		>
 			{/* Left Content */}
 			<div className="col-span-12 lg:col-span-5 flex flex-col gap-8">
-				<h1 className="text-5xl text-foreground leading-[1.1] tracking-tight">
-					Health Care for All: Extending the Healing Hand of Service
+				<h1 className="h1">
+					Health Care for All Extending the Healing Hand of Service
 				</h1>
-				<p className="text-lg opacity-80 max-w-md leading-relaxed">
+				<p className="p max-w-md">
 					Inspired by the "little way" of St. Thérèse, we provide underserved
 					communities with equitable access to preventive screenings, mobile
 					clinics, and digital health tools to ensure that geography and income
