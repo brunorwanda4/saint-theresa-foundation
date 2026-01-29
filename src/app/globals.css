@@ -47,48 +47,42 @@
 :root {
   --radius: 0.625rem;
 
-  /* Base */
-  --background: oklch(1 0 0); /* white */
-  --foreground: #093754; /* near black */
+  /* Base - From Figma */
+  --background: #ffffff;
+  --foreground: #022236;
 
-  /* Surfaces */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0 0);
+  /* Brand - From Figma */
+  --primary: oklch(0.48 0.13 234.33); /* #126CAA */
+  --primary-foreground: #ffffff;
 
-  /* Brand */
-  --primary: oklch(0.54 0.15 240); /* #126caa */
-  --primary-foreground: oklch(0.98 0 0); /* white */
-  --secondary: oklch(0.78 0.14 80); /* #ecae2d */
-  --secondary-foreground: oklch(0.15 0 0); /* dark text */
+  --secondary: oklch(0.77 0.17 76.53); /* #ECAE2D */
+  --secondary-foreground: #022236;
 
-  /* Supporting */
-  --muted: oklch(0.95 0.02 240); /* light blue-gray */
-  --muted-foreground: oklch(0.45 0.05 240);
-  --accent: oklch(0.95 0.03 80); /* soft amber */
-  --accent-foreground: oklch(0.2 0 0);
+  /* Supporting - From Figma */
+  --muted: #4f5d67;
+  --muted-foreground: #8c9da8; /* #e5e7eb (muted) vs #8c9da8 (muted foreground) from your screenshot labels */
 
-  --destructive: oklch(0.62 0.21 27.3); /* red */
-  --border: oklch(0.92 0 0);
-  --input: oklch(0.92 0 0);
-  --ring: oklch(0.54 0.15 240 / 70%); /* blue glow */
+  /* UI Elements */
+  --card: #ffffff;
+  --card-foreground: #022236;
+  --popover: #ffffff;
+  --popover-foreground: #022236;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: oklch(0.48 0.13 234.33 / 70%);
 
-  /* Charts */
-  --chart-1: oklch(0.54 0.15 240); /* primary */
-  --chart-2: oklch(0.78 0.14 80); /* secondary */
-  --chart-3: oklch(0.6 0.16 160); /* teal */
-  --chart-4: oklch(0.65 0.18 300); /* purple */
-  --chart-5: oklch(0.72 0.14 30); /* warm orange */
+  /* Charts - Updated to follow brand palette */
+  --chart-1: oklch(0.48 0.13 234.33);
+  --chart-2: oklch(0.77 0.17 76.53);
 
-  /* Sidebar */
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.15 0 0);
+  /* Sidebar - Matches Foreground/Background Logic */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #022236;
   --sidebar-primary: var(--primary);
-  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: var(--secondary);
   --sidebar-accent-foreground: var(--secondary-foreground);
-  --sidebar-border: var(--border);
+  --sidebar-border: #e5e7eb;
   --sidebar-ring: var(--ring);
 }
 
@@ -153,4 +147,28 @@
 
 .site-card {
   @apply bg-primary-foreground border-foreground hover:border-primary border p-6 shadow-md transition duration-200 hover:scale-105 hover:shadow-xl;
+}
+
+.h1 {
+  @apply text-3xl font-semibold;
+}
+
+.h2 {
+  @apply text-2xl font-semibold;
+}
+
+.h3 {
+  @apply text-xl font-medium;
+}
+
+.h4 {
+  @apply text-lg font-medium;
+}
+
+.h5 {
+  @apply text-lg font-normal;
+}
+
+.h6 {
+  @apply text-base font-normal; /* This is the standard 1rem/16px size */
 }
