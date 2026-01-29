@@ -1,47 +1,43 @@
 "use client";
+
 import SiteLink from "@/components/common/site/site-link";
 import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
 
 const InterpeaceComponent = () => {
-  // Create refs for animated elements
   const leftCardRef = useRef<HTMLDivElement>(null);
   const rightCardRef = useRef<HTMLDivElement>(null);
   const linkRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
-    if (!leftCardRef.current || !rightCardRef.current || !linkRef.current)
+    if (
+      !containerRef.current ||
+      !leftCardRef.current ||
+      !rightCardRef.current ||
+      !linkRef.current
+    )
       return;
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
+      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
-      tl.from(leftCardRef.current, {
-        x: -50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-      })
-        .from(
+      tl.fromTo(
+        leftCardRef.current,
+        { x: -50, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8 }
+      )
+        .fromTo(
           rightCardRef.current,
-          {
-            x: 50,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power2.out",
-          },
-          "-=0.6",
+          { x: 50, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.8 },
+          "-=0.6"
         )
-        .from(
+        .fromTo(
           linkRef.current,
-          {
-            y: 30,
-            opacity: 0,
-            duration: 0.7,
-            ease: "back.out(1.4)",
-          },
-          "-=0.4",
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.7, ease: "back.out(1.4)" },
+          "-=0.4"
         );
     }, containerRef);
 
