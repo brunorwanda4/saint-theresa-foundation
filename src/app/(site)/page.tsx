@@ -17,7 +17,6 @@ const LadingPage = () => {
 		<div className="space-y-8 px-8">
 			<HomeHero />
 			<WhoWeAre />
-			<InterpeaceComponent />
 			<LandingBiography />
 			<LandingStrategy />
 			<LandingResources />
