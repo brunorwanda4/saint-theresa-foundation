@@ -45,16 +45,17 @@ const HomeHero = () => {
 			{/* Left Content */}
 			<div className="col-span-12 lg:col-span-5 flex flex-col gap-8">
 				<h1 className="text-5xl text-foreground leading-[1.1] tracking-tight">
-					Extending Healing <br /> Hands to the Most Vulnerable
+					Health Care for All: Extending the Healing Hand of Service
 				</h1>
-				<p className="text-lg text-slate-600 max-w-md leading-relaxed">
-					Bringing healthcare closer to poor and rural communities through
-					mobile clinics, digital health, and community pharmacies — guided by
-					Christian compassion and dignity.
+				<p className="text-lg opacity-80 max-w-md leading-relaxed">
+					Inspired by the "little way" of St. Thérèse, we provide underserved
+					communities with equitable access to preventive screenings, mobile
+					clinics, and digital health tools to ensure that geography and income
+					never stand in the way of human dignity.
 				</p>
 				<div className="flex gap-4">
 					<Button size="lg" className="rounded-md px-8 py-6  gap-2 group">
-						Donate Now{" "}
+						Partner With Us
 						<IoMdArrowForward className="group-hover:translate-x-1 transition-transform" />
 					</Button>
 					<Button
@@ -111,9 +112,6 @@ const HomeHero = () => {
 					<div>
 						<p className="text-[11px] uppercase tracking-wider font-bold text-slate-600">
 							2 Mobile Clinics
-						</p>
-						<p className="text-sm font-semibold text-slate-800">
-							launching by 2026
 						</p>
 					</div>
 					<Truck className="w-8 h-8 text-slate-900" />
