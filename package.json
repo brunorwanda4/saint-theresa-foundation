@@ -32,7 +32,7 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
+    "@eslint/eslintrc": "^3.3.3",
     "@tailwindcss/postcss": "^4",
     "@types/gsap": "^3.0.0",
     "@types/node": "^20",
@@ -40,7 +40,7 @@
     "@types/react-dom": "^19",
     "@types/react-slick": "^0.23.13",
     "daisyui": "^5.1.26",
-    "eslint": "^9",
+    "eslint": "^9.39.2",
     "eslint-config-next": "15.5.4",
     "i": "^0.3.7",
     "tailwindcss": "^4",

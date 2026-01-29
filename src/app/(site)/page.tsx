@@ -13,7 +13,7 @@ export const metaData: Metadata = {
 
 const LadingPage = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 px-8">
       <HomeHero />
       <LandingHero />
       <InterpeaceComponent />
