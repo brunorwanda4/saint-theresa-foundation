@@ -21,10 +21,10 @@ const SiteNav = () => {
         {/* Mobile */}
         <div className="flex items-center gap-2">
           <Link href={`/`}>
-            <div className="relative size-16">
+            <div className="relative size-14">
               <Image
                 className="object-contain"
-                src={"/logo.png"}
+                src={"/logo-icon.png"}
                 alt="saint theresa foundation"
                 fill
                 priority
@@ -38,11 +38,7 @@ const SiteNav = () => {
       <div className="flex w-full justify-center">
         <div
           className={cn(
-            "w-fit transition-all duration-500 ease-in-out",
-            isScrolled
-              ? "translate-y-0 opacity-100"
-              : "translate-y-16 opacity-100",
-          )}
+            "w-fit transition-all duration-500 ease-in-out",          )}
         >
           <SiteNavItems />
         </div>
