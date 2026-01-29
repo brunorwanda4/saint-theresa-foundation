@@ -4,7 +4,6 @@ import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
 
 const AboutVisionMissionPage = () => {
-  // Create refs for all animated elements
   const titleRef = useRef(null);
   const mandateRef = useRef(null);
   const missionRef = useRef(null);
@@ -14,17 +13,14 @@ const AboutVisionMissionPage = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Create a timeline for sequenced animations
       const tl = gsap.timeline();
 
-      // Animate main title
       tl.from(titleRef.current, {
         y: 50,
         opacity: 0,
         duration: 0.8,
         ease: "power2.out",
       })
-        // Animate mandate section
         .from(
           mandateRef.current,
           {
@@ -35,7 +31,6 @@ const AboutVisionMissionPage = () => {
           },
           "-=0.3",
         )
-        // Animate mission section
         .from(
           missionRef.current,
           {
@@ -46,7 +41,6 @@ const AboutVisionMissionPage = () => {
           },
           "-=0.2",
         )
-        // Animate values section
         .from(
           valuesRef.current,
           {
@@ -57,7 +51,6 @@ const AboutVisionMissionPage = () => {
           },
           "-=0.2",
         )
-        // Animate principles section
         .from(
           principlesRef.current,
           {

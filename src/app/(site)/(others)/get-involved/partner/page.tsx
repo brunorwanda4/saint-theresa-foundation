@@ -261,7 +261,6 @@ export default function PartnerPage() {
 
   return (
     <main className="min-h-screen">
-      {/* 🌟 Hero Section */}
       <section ref={heroRef} className="global-px py-8">
         <h1 className="mb-4 text-4xl font-bold">Partner With Us</h1>
         <p className="max-w-3xl text-lg">
@@ -334,7 +333,6 @@ export default function PartnerPage() {
         </div>
       </section>
 
-      {/* 💬 Testimonials */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-5xl text-center">
           <h2 ref={testimonialsTitleRef} className="mb-10 text-3xl font-bold">
@@ -359,7 +357,6 @@ export default function PartnerPage() {
         </div>
       </section>
 
-      {/* 🚀 CTA */}
       <section
         ref={ctaRef}
         className="bg-foreground text-primary-foreground px-6 py-14 text-center"

@@ -47,8 +47,8 @@ const InterpeaceComponent = () => {
   const handleCardHover = (e: React.MouseEvent<HTMLDivElement>) => {
     gsap.to(e.currentTarget, {
       backgroundColor: "rgba(0, 0, 139, 0.1)",
-      scale: 1.02,
-      duration: 0.3,
+      scale: 1.01,
+      duration: 0.2,
       ease: "power2.out",
     });
   };
@@ -57,7 +57,7 @@ const InterpeaceComponent = () => {
     gsap.to(e.currentTarget, {
       backgroundColor: "transparent",
       scale: 1,
-      duration: 0.3,
+      duration: 0.2,
       ease: "power2.out",
     });
   };
@@ -69,16 +69,11 @@ const InterpeaceComponent = () => {
           ref={leftCardRef}
           onMouseEnter={handleCardHover}
           onMouseLeave={handleCardHoverOut}
-          className="w-full cursor-pointer space-y-4 rounded-lg p-4 duration-200 md:w-1/2"
+          className="w-full space-y-4 rounded-lg p-4 duration-200 md:w-1/2"
         >
           <h2 className="text-4xl font-bold text-blue-950">Who We Are</h2>
           <p>
-            Interpeace is an international organization that prevents violence
-            and builds lasting peace. We have 30 years of experience working in
-            Africa, the Middle East, Asia, Europe and Latin America. <br />{" "}
-            Interpeace builds trust as the glue that bring societies back
-            together and works to have solutions designed and led locally from
-            the grassroot communities to the most senior decision-making levels.
+           The Sainte Thérèsa Foundation (STF) is a community-focused organization dedicated to promoting human dignity and community well-being through practical, compassionate, and sustainable healthcare interventions. We specialize in providing preventive healthcare and ensuring equitable access to essential health services for those who need them most.
           </p>
         </div>
 
@@ -86,16 +81,11 @@ const InterpeaceComponent = () => {
           ref={rightCardRef}
           onMouseEnter={handleCardHover}
           onMouseLeave={handleCardHoverOut}
-          className="w-full cursor-pointer space-y-4 rounded-lg p-4 duration-200 md:w-1/2"
+          className="w-full space-y-4 rounded-lg p-4 duration-200 md:w-1/2"
         >
           <h2 className="text-4xl font-bold text-blue-950">Our Mandate</h2>
           <p>
-            Interpeace is an international organization that prevents violence
-            and builds lasting peace. We have 30 years of experience working in
-            Africa, the Middle East, Asia, Europe and Latin America. Interpeace
-            builds trust as the glue that bring societies back together and
-            works to have solutions designed and led locally from the grassroot
-            communities to the most senior decision-making levels.
+           The mandate of the Sainte Thérèsa Foundation (STF) is to promote human dignity and community well-being by ensuring equitable access to essential health services. The Foundation is committed to providing practical, compassionate, and sustainable interventions that focus on preventive healthcare and early disease detection.
           </p>
         </div>
       </div>
