@@ -47,7 +47,7 @@ const HomeHero = () => {
 				<h1 className="h1">
 					Health Care for All Extending the Healing Hand of Service
 				</h1>
-				<p className="p max-w-md">
+				<p className="p lg:max-w-md max-w-lg">
 					Inspired by the "little way" of St. Thérèse, we provide underserved
 					communities with equitable access to preventive screenings, mobile
 					clinics, and digital health tools to ensure that geography and income

@@ -11,7 +11,7 @@ const SiteNav = () => {
 	return (
 		<div
 			className={cn(
-				"global-px fixed z-50 flex w-full items-center justify-between transition-colors duration-300 pt-4 backdrop-blur-2xl bg-background/90",
+				"global-px fixed z-50 flex w-full items-center justify-between transition-colors duration-300 pt-4 backdrop-blur-2xl bg-background/80",
 			)}
 		>
 			<div className=" flex flex-row gap-4 items-center">
