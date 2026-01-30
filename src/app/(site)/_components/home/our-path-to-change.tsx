@@ -1,3 +1,4 @@
+"use client";
 import PathToChangeCard from "@/components/cards/path-to-change-card";
 
 const OurPathToChange = () => {
