@@ -103,7 +103,9 @@ const PathToChangeCard = ({
 				{/* Overlay Title - Always visible at bottom of image */}
 				<div className="absolute bottom-0 left-0 right-0 bg-foreground/30  p-4 text-white">
 					<div className="flex justify-between items-center">
-						<h3 className="font-bold text-lg leading-tight">{title}</h3>
+						<Link href={link} className="font-bold text-lg leading-tight">
+							{title}
+						</Link>
 						{index !== undefined && (
 							<span className="text-xs opacity-70 font-mono">
 								{index < 10 ? `0${index}` : index}
