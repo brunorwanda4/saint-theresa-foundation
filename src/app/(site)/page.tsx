@@ -4,6 +4,7 @@ import LandingLink from "@/components/site/landing/LandingLink";
 import LandingResources from "@/components/site/landing/LandingResources";
 import LandingStrategy from "@/components/site/landing/LandingStrategy";
 import HomeHero from "./_components/home/home-hero";
+import LeadershipTeam from "./_components/home/leadership-team";
 import MissionVision from "./_components/home/mission-vision";
 import OurCorePrograms from "./_components/home/our-core-programs";
 import OurGrowingImpact from "./_components/home/our-growing-impact";
@@ -25,6 +26,7 @@ const LadingPage = () => {
 			<OurCorePrograms />
 			<OurPathToChange />
 			<OurGrowingImpact />
+			<LeadershipTeam />
 			<LandingBiography />
 			<LandingStrategy />
 			<LandingResources />

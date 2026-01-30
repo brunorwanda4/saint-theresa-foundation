@@ -33,7 +33,7 @@ const OurGrowingImpact = () => {
 		<div className="relative w-full max-w-6xl mx-auto overflow-hidden bg-[#0a1d2e] rounded-xl p-8 ">
 			{/* Background Decorative Slants */}
 			<div className="absolute top-0 right-0 w-full h-full pointer-events-none">
-				<div className="absolute top-0 right-[15%] w-16 h-[200%] bg-[#f2b33d] transform rotate-[30deg] -translate-y-1/4 opacity-90"></div>
+				<div className="absolute top-0 right-[20%] w-16 h-[200%] bg-[#f2b33d] transform rotate-[40deg] -translate-y-1/4 opacity-90"></div>
 				<div className="absolute top-0 right-[5%] w-16 h-[200%] bg-[#1a73e8] transform rotate-[30deg] -translate-y-1/4 opacity-90"></div>
 			</div>
 
