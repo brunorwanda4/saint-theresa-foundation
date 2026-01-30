@@ -3,6 +3,7 @@ import LandingBiography from "@/components/site/landing/LandingBiography";
 import LandingLink from "@/components/site/landing/LandingLink";
 import LandingResources from "@/components/site/landing/LandingResources";
 import LandingStrategy from "@/components/site/landing/LandingStrategy";
+import BeTheLightOfHope from "./_components/home/be-the-light-of-hope";
 import HomeHero from "./_components/home/home-hero";
 import LeadershipTeam from "./_components/home/leadership-team";
 import MissionVision from "./_components/home/mission-vision";
@@ -27,10 +28,7 @@ const LadingPage = () => {
 			<OurPathToChange />
 			<OurGrowingImpact />
 			<LeadershipTeam />
-			<LandingBiography />
-			<LandingStrategy />
-			<LandingResources />
-			<div className="h-24" />
+			<BeTheLightOfHope />
 			<LandingLink />
 		</div>
 	);

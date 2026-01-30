@@ -29,7 +29,7 @@ const LeadershipTeam = () => {
 	const [hoveredImage, setHoveredImage] = useState<string | null>(null);
 
 	return (
-		<section className="font-sans  min-h-[600px]">
+		<section className="font-sans  ">
 			<div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 				<div className="flex flex-col space-y-12">
 					<h2 className=" h1">Leadership team</h2>
