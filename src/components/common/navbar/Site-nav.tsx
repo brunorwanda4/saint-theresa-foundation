@@ -4,7 +4,7 @@ import Link from "next/link";
 import MobileSiteNavItems from "@/components/common/navbar/mobile-site-nav-items";
 import SiteNavContact from "@/components/common/navbar/site-nav-contact";
 import SiteNavItems from "@/components/common/navbar/site-nav-items";
-import { useScrollPosition } from "@/lib/hooks/useScrollPosition";
+
 import { cn } from "@/lib/utils";
 
 const SiteNav = () => {

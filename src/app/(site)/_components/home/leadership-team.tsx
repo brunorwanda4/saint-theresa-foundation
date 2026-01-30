@@ -1,5 +1,4 @@
 "use client";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -25,7 +24,6 @@ const leaders = [
 ];
 
 const LeadershipTeam = () => {
-	// We store the URL of the hovered leader. If null, no image is shown.
 	const [hoveredImage, setHoveredImage] = useState<string | null>(null);
 
 	return (
@@ -86,7 +84,7 @@ const LeadershipTeam = () => {
 							buttonVariants({ size: "lg", variant: "outline" }),
 							"group w-fit mt-4",
 						)}
-						href=""
+						href="/about/team"
 					>
 						Learn More{" "}
 						<IoMdArrowForward className="group-hover:translate-x-1 transition-transform" />
