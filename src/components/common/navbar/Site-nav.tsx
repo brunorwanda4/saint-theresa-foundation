@@ -8,13 +8,10 @@ import { useScrollPosition } from "@/lib/hooks/useScrollPosition";
 import { cn } from "@/lib/utils";
 
 const SiteNav = () => {
-	const isScrolled = useScrollPosition(18);
-
 	return (
 		<div
 			className={cn(
-				"global-px fixed z-50 flex w-full items-center justify-between transition-colors duration-300 top-4",
-				isScrolled && "border-b-secondary bg-background border-b shadow-md",
+				"global-px fixed z-50 flex w-full items-center justify-between transition-colors duration-300 pt-4 backdrop-blur-2xl bg-background/90",
 			)}
 		>
 			<div className=" flex flex-row gap-4 items-center">

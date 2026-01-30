@@ -40,11 +40,11 @@ const SiteNavItems = () => {
 		},
 	];
 	return (
-		<NavigationMenu viewport={false} className="bg-background p-1">
+		<NavigationMenu viewport={false} className="bg-none p-1">
 			<div className={cn("flex items-center")}>
 				<NavigationMenuList className="flex max-lg:hidden">
 					<NavigationMenuItem>
-						<NavigationMenuTrigger>
+						<NavigationMenuTrigger className=" bg-none">
 							<AnimatedLink href="/about" pathname={pathname}>
 								Who we are
 							</AnimatedLink>
