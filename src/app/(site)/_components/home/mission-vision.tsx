@@ -9,7 +9,9 @@ const MissionVision = () => {
 			<h2 className="h2">Our Mission and Vision</h2>
 			<div className=" flex flex-row  gap-6">
 				<div className="p-4 rounded-xl bg-primary">
-					<h4 className="h4">Mission</h4>
+					<Link href={"/about/vision-mission"} className="w-fit">
+						<h4 className="h4">Mission</h4>
+					</Link>
 					<p className="p">
 						Enhancing well-being for underserved communities through mobile
 						healthcare, digital tools, and community pharmacies, rooted in human
@@ -17,26 +19,15 @@ const MissionVision = () => {
 					</p>
 				</div>
 				<div className="p-4 rounded-xl bg-muted">
-					<h4 className="h4">Vision</h4>
+					<Link href={"/about/vision-mission"} className="w-fit">
+						<h4 className="h4">Vision</h4>
+					</Link>
 					<p className="p">
 						A Rwanda where every individual, regardless of economic status or
 						geography, can access affordable, quality healthcare and essential
 						medicines.
 					</p>
 				</div>
-			</div>
-			<div className=" flex flex-row justify-center items-center">
-				<Link
-					href={"/about/vision-mission"}
-					className={cn(
-						"rounded-md   gap-2 group mt-4 ",
-						buttonVariants({ size: "lg", variant: "outline" }),
-						"bg-foreground",
-					)}
-				>
-					Learn More{" "}
-					<GoArrowRight className="group-hover:translate-x-1 transition-transform" />
-				</Link>
 			</div>
 		</div>
 	);

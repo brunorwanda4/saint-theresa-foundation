@@ -1,36 +1,39 @@
-'use client';
-import { useEffect, useLayoutEffect, useState } from 'react';
+"use client";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 export const useIsomorphicLayoutEffect =
-  typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+	typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 type UseMediaQueryOptions = {
-  defaultValue?: boolean;
-  initializeWithValue?: boolean;
+	defaultValue?: boolean;
+	initializeWithValue?: boolean;
 };
 
-const IS_SERVER = typeof window === 'undefined';
+const IS_SERVER = typeof window === "undefined";
 
 export function useMediaQuery(
-  query: string,
-  { defaultValue = false, initializeWithValue = true }: UseMediaQueryOptions = {},
+	query: string,
+	{
+		defaultValue = false,
+		initializeWithValue = true,
+	}: UseMediaQueryOptions = {},
 ): boolean {
-  const getMatches = (q: string): boolean =>
-    IS_SERVER ? defaultValue : window.matchMedia(q).matches;
+	const getMatches = (q: string): boolean =>
+		IS_SERVER ? defaultValue : window.matchMedia(q).matches;
 
-  const [matches, setMatches] = useState<boolean>(() =>
-    initializeWithValue ? getMatches(query) : defaultValue,
-  );
+	const [matches, setMatches] = useState<boolean>(() =>
+		initializeWithValue ? getMatches(query) : defaultValue,
+	);
 
-  useIsomorphicLayoutEffect(() => {
-    const matchMedia = window.matchMedia(query);
+	useIsomorphicLayoutEffect(() => {
+		const matchMedia = window.matchMedia(query);
 
-    const handleChange = () => setMatches(getMatches(query));
-    handleChange();
+		const handleChange = () => setMatches(getMatches(query));
+		handleChange();
 
-    matchMedia.addEventListener('change', handleChange);
-    return () => matchMedia.removeEventListener('change', handleChange);
-  }, [query]);
+		matchMedia.addEventListener("change", handleChange);
+		return () => matchMedia.removeEventListener("change", handleChange);
+	}, [query]);
 
-  return matches;
+	return matches;
 }
