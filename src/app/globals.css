@@ -154,11 +154,11 @@
 }
 
 .h1 {
-  @apply text-foreground text-5xl leading-[1.1] tracking-tight;
+  @apply text-5xl leading-[1.1] tracking-tight;
 }
 
 .h2 {
-  @apply text-2xl font-semibold;
+  @apply text-3xl font-semibold;
 }
 
 .h3 {
