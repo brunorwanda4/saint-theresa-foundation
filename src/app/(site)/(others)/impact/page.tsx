@@ -184,7 +184,11 @@ export default function ImpactPage() {
 
 			<div className="global-px mx-auto grid max-w-4xl gap-6">
 				{items.map((item, i) => (
-					<div key={i} ref={addCardToRefs} className="site-card cursor-pointer">
+					<div
+						key={`${item.title}-${i}`}
+						ref={addCardToRefs}
+						className="site-card cursor-pointer"
+					>
 						<h2 className="mb-2 text-xl font-semibold">
 							<Link href={item.href}>{item.title}</Link>
 						</h2>

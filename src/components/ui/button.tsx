@@ -49,8 +49,8 @@ function Button({
 		<Comp
 			data-slot="button"
 			className={cn(
-				buttonVariants({ variant, size, className }),
 				"[&_*]:rounded-none",
+				buttonVariants({ variant, size, className }),
 			)}
 			{...props}
 		/>

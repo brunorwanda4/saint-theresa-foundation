@@ -120,9 +120,9 @@ export default function SiteFooter() {
 						<Button
 							onClick={scrollToTop}
 							variant="outline"
-							className=" bg-foreground hover:bg-background hover:text-foreground duration-150 cursor-pointer"
+							className=" bg-foreground hover:bg-background hover:text-foreground duration-150 cursor-pointer rounded-full size-10"
 						>
-							<FaArrowUp className="w-5 h-5" />
+							<FaArrowUp size={20} />
 						</Button>
 
 						<div className="bg-[#334155]/40 border border-white/10 p-6 rounded-2xl w-full max-w-[300px]">
