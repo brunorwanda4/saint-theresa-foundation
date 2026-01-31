@@ -243,7 +243,7 @@ export default function DonatePage() {
 
 					<div ref={bankDetailsRef} className="space-y-1">
 						<p ref={(el) => addToBankItemsRefs(el, 0)}>
-							<strong>Account Name:</strong> Sainte Thérèse Foundation
+							<strong>Account Name:</strong> Sainte ThÃ©rÃ¨se Foundation
 						</p>
 						<p ref={(el) => addToBankItemsRefs(el, 1)}>
 							<strong>Bank:</strong> Bank of Kigali

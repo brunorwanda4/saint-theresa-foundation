@@ -102,7 +102,7 @@ const DigitalHealthPage = () => {
           Technology for Better Healthcare
         </h2>
         <p className="text-foreground">
-          Sainte Thérèse Foundation leverages digital tools to connect patients
+          Sainte ThÃ©rÃ¨se Foundation leverages digital tools to connect patients
           and doctors remotely. Our e-health solutions make consultations,
           follow-ups, and prescriptions accessible even in areas without
           physical clinics.

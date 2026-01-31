@@ -98,7 +98,7 @@ const AboutVisionMissionPage = () => {
           <div ref={missionRef}>
             <h2 className="mb-2 text-2xl font-semibold">Our Mission</h2>
             <p>
-              The Sainte Thérèse Foundation is committed to enhancing the
+              The Sainte ThÃ©rÃ¨se Foundation is committed to enhancing the
               well-being of underserved communities by deploying mobile
               healthcare, digital medical tools, and sustainable community
               pharmacies. We are guided by human dignity, compassion, and

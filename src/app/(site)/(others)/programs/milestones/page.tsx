@@ -41,7 +41,7 @@ export default function MilestonesPage() {
     {
       title: "Regional Expansion",
       year: "2027",
-      desc: "Sainte Thérèse Foundation operational in 5 Rwandan districts.",
+      desc: "Sainte ThÃ©rÃ¨se Foundation operational in 5 Rwandan districts.",
       icon: MapPin,
     },
   ];
@@ -234,7 +234,7 @@ export default function MilestonesPage() {
           Our Milestones
         </h1>
         <p ref={descriptionRef} className="global-px mt-3 max-w-3xl">
-          Each milestone represents progress toward our shared mission —
+          Each milestone represents progress toward our shared mission â€“
           advancing health, dignity, and hope for every community we serve.
         </p>
       </section>
@@ -283,7 +283,7 @@ export default function MilestonesPage() {
               foundation for better health and stronger futures.
             </p>
             <p className="">
-              With your help, the next milestones will go even further —
+              With your help, the next milestones will go even further â€“
               reaching more families and transforming lives.
             </p>
           </div>

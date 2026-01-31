@@ -125,7 +125,7 @@ export default function ContactPage() {
     <div className="global-px min-h-screen py-8" ref={containerRef}>
       <div className="mx-auto max-w-5xl text-center">
         <h1 ref={titleRef} className="mb-4 text-4xl font-bold">
-          Contact Sainte Thérèse Foundation
+          Contact Sainte ThÃ©rÃ¨se Foundation
         </h1>
         <p ref={descriptionRef} className="mb-12 text-gray-600">
           We would love to hear from you. Reach out for partnerships, donations,
@@ -140,7 +140,7 @@ export default function ContactPage() {
             <MapPin className="text-primary mx-auto mb-4 h-10 w-10" />
             <h2 className="mb-2 text-lg font-semibold">Our Address</h2>
             <p className="text-gray-600">
-              Sainte Thérèse Foundation
+              Sainte ThÃ©rÃ¨se Foundation
               <br /> Kigali, Rwanda
             </p>
           </div>

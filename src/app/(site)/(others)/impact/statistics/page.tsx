@@ -98,12 +98,12 @@ export default function StatisticsPage() {
 		{
 			name: "Marie, Community Nurse",
 			quote:
-				"I've seen how our small efforts make a big difference — the statistics remind us that hope grows with every life touched.",
+				"I've seen how our small efforts make a big difference â€“ the statistics remind us that hope grows with every life touched.",
 		},
 		{
 			name: "Joseph, Program Manager",
 			quote:
-				"Each number here isn't just data — it's a child, a parent, a family who now has a chance at a healthier future.",
+				"Each number here isn't just data â€“ it's a child, a parent, a family who now has a chance at a healthier future.",
 		},
 	];
 
@@ -344,7 +344,7 @@ export default function StatisticsPage() {
 					Impact in Numbers
 				</h1>
 				<p ref={descriptionRef} className="">
-					Every number represents a story — a healed patient, a supported
+					Every number represents a story â€“ a healed patient, a supported
 					family, a stronger community.
 				</p>
 			</div>
@@ -447,7 +447,7 @@ export default function StatisticsPage() {
 							className="border-foreground hover:border-primary bg-primary-foreground max-w-md border p-6 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-lg"
 						>
 							<p className="mb-3 italic">"{t.quote}"</p>
-							<p className="text-primary font-semibold">— {t.name}</p>
+							<p className="text-primary font-semibold">â€“ {t.name}</p>
 						</div>
 					))}
 				</div>

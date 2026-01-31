@@ -154,7 +154,7 @@ const CommunityPharmaciesPage = () => {
         <div className="flex flex-col gap-10 md:flex-row">
           <div ref={textContentRef} className="flex-1">
             <p className="">
-              The Sainte Thérèse Foundation establishes community-based
+              The Sainte ThÃ©rÃ¨se Foundation establishes community-based
               pharmacies that ensure affordable and reliable access to essential
               medicines in rural areas.
             </p>

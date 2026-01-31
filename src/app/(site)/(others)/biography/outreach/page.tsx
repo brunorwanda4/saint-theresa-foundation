@@ -226,8 +226,8 @@ export default function OutreachBioPage() {
           Community Outreach
         </h1>
         <p className="max-w-2xl leading-relaxed">
-          How Sainte Thérèse Foundation brings health and hope to the most
-          remote areas — through compassion, care, and faith in action.
+          How Sainte ThÃ©rÃ¨se Foundation brings health and hope to the most
+          remote areas â€“ through compassion, care, and faith in action.
         </p>
       </div>
 
@@ -242,7 +242,7 @@ export default function OutreachBioPage() {
               medicines, and preventive education.
             </p>
             <p>
-              Every mission is guided by St. Thérèse's belief — "Do small things
+              Every mission is guided by St. ThÃ©rÃ¨se's belief â€“ "Do small things
               with great love." From small villages to refugee settlements, our
               teams bring healing and hope wherever it's needed most.
             </p>

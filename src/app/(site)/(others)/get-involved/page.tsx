@@ -27,7 +27,7 @@ export default function GetInvolvedPage() {
 		{
 			title: "Volunteer",
 			icon: Users,
-			desc: "Join hands with our team on the ground — serve, learn, and transform lives together.",
+			desc: "Join hands with our team on the ground â€“ serve, learn, and transform lives together.",
 			href: "/get-involved/volunteer",
 		},
 		{
@@ -137,8 +137,8 @@ export default function GetInvolvedPage() {
 					Get Involved
 				</h1>
 				<p className="">
-					The Sainte Thérèse Foundation thrives through collective effort.
-					Whether you give, serve, or collaborate — your involvement creates
+					The Sainte ThÃ©rÃ¨se Foundation thrives through collective effort.
+					Whether you give, serve, or collaborate â€“ your involvement creates
 					real, lasting change in lives across Rwanda.
 				</p>
 			</div>

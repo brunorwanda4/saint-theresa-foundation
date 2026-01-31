@@ -156,7 +156,7 @@ const OurTeamPage = () => {
         <h1 className="mb-4 text-4xl font-bold">Our Team</h1>
         <p className="text-lg leading-relaxed text-gray-700">
           Meet the dedicated professionals and leaders who drive the Sainte
-          Thérèse Foundation's mission to improve healthcare access for
+          ThÃ©rÃ¨se Foundation's mission to improve healthcare access for
           underserved communities in Rwanda.
         </p>
       </section>

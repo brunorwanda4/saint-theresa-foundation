@@ -74,7 +74,7 @@ export default function PrivacyPolicyPage() {
           Privacy Policy
         </h1>
         <p ref={introRef} className="mb-6">
-          Sainte Thérèse Foundation values your privacy. This policy outlines
+          Sainte ThÃ©rÃ¨se Foundation values your privacy. This policy outlines
           how we collect, use, and protect your information.
         </p>
 

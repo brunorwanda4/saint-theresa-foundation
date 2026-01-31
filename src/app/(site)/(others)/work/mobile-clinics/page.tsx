@@ -236,7 +236,7 @@ const MobileClinicsPage = () => {
 				<div className="space-y-8">
 					<p ref={introRef} className="text-lg leading-relaxed">
 						Our mobile clinics bring essential healthcare directly to people
-						living in remote and underserved communities — bridging the gap
+						living in remote and underserved communities â€“ bridging the gap
 						between medical access and those in need.
 					</p>
 				</div>

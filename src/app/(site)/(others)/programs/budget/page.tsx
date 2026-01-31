@@ -47,14 +47,14 @@ export default function BudgetChartSection() {
       category: "Training, Empowerment & Capacity Building",
       amount: 60000,
       description:
-        "Workshops and leadership programs for healthcare workers, volunteers, and youth — strengthening long-term community capacity for independent growth and sustainable impact.",
+        "Workshops and leadership programs for healthcare workers, volunteers, and youth ï¿½ strengthening long-term community capacity for independent growth and sustainable impact.",
       color: "oklch(0.74 0.09 240)", // Lighter shade
     },
     {
       category: "Public Health Education & Awareness",
       amount: 30000,
       description:
-        "Outreach campaigns and educational materials to promote hygiene, nutrition, and preventive healthcare — reaching families and schools across local communities.",
+        "Outreach campaigns and educational materials to promote hygiene, nutrition, and preventive healthcare ï¿½ reaching families and schools across local communities.",
       color: "oklch(0.80 0.07 240)", // Lightest shade
     },
   ];
@@ -301,10 +301,10 @@ export default function BudgetChartSection() {
         ref={headingRef}
         className="text-foreground global-px text-4xl font-bold"
       >
-        Budget Allocation Overview (2025–2027)
+        Budget Allocation Overview (2025â€“2027)
       </h1>
       <p ref={descriptionRef} className="global-px mt-3 max-w-3xl">
-        Our financial distribution reflects our mission — combining healthcare
+        Our financial distribution reflects our mission â€“ combining healthcare
         innovation, education, and local empowerment to create sustainable
         community well-being.
       </p>
@@ -358,12 +358,12 @@ export default function BudgetChartSection() {
             The chart below provides a clear visualization of how the
             foundation's resources are distributed across our five main
             operational pillars. Each segment represents a key area of
-            investment — ensuring that our impact reaches both immediate
+            investment ï¿½ ensuring that our impact reaches both immediate
             healthcare needs and long-term community development goals.
           </p>
           <p className="max-w-3xl text-sm leading-relaxed text-gray-600">
             This breakdown helps our donors and partners understand where their
-            contributions go. It emphasizes our commitment to transparency —
+            contributions go. It emphasizes our commitment to transparency â€“
             ensuring that every dollar is used responsibly to improve access to
             healthcare, education, and sustainable livelihoods.
           </p>

@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import ProjectPlaceholder from "./ProjectPlaceholder";
 
 interface CarouselProps {
 	projects: {

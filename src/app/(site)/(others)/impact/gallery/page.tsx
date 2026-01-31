@@ -173,7 +173,7 @@ export default function GalleryPage() {
           Photo & Video Gallery
         </h1>
         <p ref={descriptionRef}>
-          A glimpse into our work and the lives touched by the Sainte Thérèse
+          A glimpse into our work and the lives touched by the Sainte ThÃ©rÃ¨se
           Foundation.
         </p>
       </div>

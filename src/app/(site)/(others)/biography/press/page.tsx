@@ -116,7 +116,7 @@ export default function PressBioPage() {
           Press Releases
         </h1>
         <p ref={paragraphRef} className="text-lg">
-          Official communications from the Sainte Thérèse Foundation.
+          Official communications from the Sainte ThÃ©rÃ¨se Foundation.
         </p>
       </div>
 

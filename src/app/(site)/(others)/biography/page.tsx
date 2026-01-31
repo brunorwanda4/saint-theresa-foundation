@@ -116,9 +116,9 @@ export default function BiographyPage() {
           Biography & Events
         </h1>
         <p className="text-gray-700">
-          The Sainte Thérèse Foundation continues to grow through faith,
+          The Sainte ThÃ©rÃ¨se Foundation continues to grow through faith,
           leadership, and community engagement. Explore how our work extends
-          beyond clinics — through outreach, advocacy, and the sharing of hope.
+          beyond clinics â€“ through outreach, advocacy, and the sharing of hope.
         </p>
       </div>
 

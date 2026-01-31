@@ -141,7 +141,7 @@ export default function VolunteerPage() {
           </ul>
           <p className="mt-4">
             Whether you're a medical professional, a student, or simply
-            passionate about helping others — there's a place for you.
+            passionate about helping others â€“ there's a place for you.
           </p>
           <SiteLink
             className="text-primary-foreground mt-3 inline-block rounded-full px-8 py-3 font-semibold transition"

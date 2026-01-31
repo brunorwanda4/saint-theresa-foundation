@@ -73,7 +73,7 @@ export default function TimelinePage() {
           </p>
           <ul className="text-foreground ml-6 list-disc space-y-2">
             <li>Expansion to 5 districts with stable funding</li>
-            <li>Launch of Sainte Thérèse Health Research Center</li>
+            <li>Launch of Sainte ThÃ©rÃ¨se Health Research Center</li>
             <li>Publication of 2030 Vision and annual impact report</li>
           </ul>
           <MyImage
@@ -260,7 +260,7 @@ export default function TimelinePage() {
               transition={{ duration: 0.6 }}
               className="text-foreground text-4xl font-bold"
             >
-              2025–2027 Action Timeline
+              2025â€“2027 Action Timeline
             </motion.h1>
             <p className="max-w-3xl text-start">
               A three-year roadmap dedicated to improving public health, digital
@@ -309,7 +309,7 @@ export default function TimelinePage() {
             Our Journey Continues
           </h2>
           <p className="text-foreground mb-4">
-            As we move forward, Sainte Thérèse Foundation remains committed to
+            As we move forward, Sainte ThÃ©rÃ¨se Foundation remains committed to
             innovation and compassion. Our next phase will strengthen community
             resilience and empower local leadership in health care delivery.
           </p>

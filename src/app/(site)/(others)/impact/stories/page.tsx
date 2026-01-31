@@ -120,7 +120,7 @@ export default function StoriesPage() {
 					Stories of Hope
 				</h1>
 				<p ref={descriptionRef} className="">
-					Real voices, real change — powered by compassion and community.
+					Real voices, real change â€“ powered by compassion and community.
 				</p>
 			</div>
 

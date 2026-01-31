@@ -86,7 +86,7 @@ export default function TrainingBioPage() {
           </p>
           <p className="mt-3">
             Over 200 workers have been trained under our "Healthy Villages"
-            initiative between 2023–2025.
+            initiative between 2023â€“2025.
           </p>
         </div>
         <div ref={imageRef}>

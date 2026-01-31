@@ -19,7 +19,7 @@ export default function ImpactPage() {
 	const items: ImpactItem[] = [
 		{
 			title: "Statistics",
-			desc: "Our numbers tell a story — lives touched, communities reached, and medicines delivered.",
+			desc: "Our numbers tell a story â€“ lives touched, communities reached, and medicines delivered.",
 			href: "/impact/statistics",
 		},
 		{
@@ -29,7 +29,7 @@ export default function ImpactPage() {
 		},
 		{
 			title: "Photo & Video Gallery",
-			desc: "See our impact in action — visual moments of service and compassion.",
+			desc: "See our impact in action ï¿½ visual moments of service and compassion.",
 			href: "/impact/gallery",
 		},
 	];
