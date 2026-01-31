@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import { Minus, Plus } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -12,12 +13,13 @@ interface OurHistoriesProps {
 
 const OurHistories = ({ isOnPage = false }: OurHistoriesProps) => {
 	const [isExpanded, setIsExpanded] = useState(isOnPage);
+
 	const foundationHistory = [
 		{
 			year: "2013",
 			title: "Founding of Sainte Thérèse Polyclinic",
 			description:
-				"Established a private medical polyclinic in the Rwamagana District to provide quality healthcare to the Eastern Province.",
+				"Established a private medical polyclinic in the Rwamagana District...",
 			impact: "Serves 40,000 to 50,000 patients annually.",
 			image: "/icons/trowel.png",
 		},
@@ -51,62 +53,105 @@ const OurHistories = ({ isOnPage = false }: OurHistoriesProps) => {
 		{
 			year: "2026 & Beyond",
 			title: "The Mobile Clinic Era",
-			description:
-				"Transitioning to a mobile-first healthcare model with the procurement of specialized medical vehicles.",
-			impact:
-				"Goal to eliminate geographical barriers for the 43% of rural Rwandans lacking clinic access.",
+			description: "Transitioning to a mobile-first healthcare model...",
+			impact: "Goal to eliminate geographical barriers.",
 			image: "/icons/ambulance.png",
 		},
 	];
 
-	const histories = isExpanded
-		? [...foundationHistory].reverse()
-		: [...foundationHistory].reverse().slice(0, 3);
+	// Reverse once, then slice based on state
+	const allHistories = [...foundationHistory].reverse();
+	const displayedHistories = isExpanded
+		? allHistories
+		: allHistories.slice(0, 3);
+
+	const containerVariants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				staggerChildren: 0.1,
+			},
+		},
+	};
+
+	const itemVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: { opacity: 1, y: 0 },
+	};
 
 	return (
-		<div className=" flex flex-col lg:flex-row lg:gap-16 gap-8">
-			<div className=" lg:w-1/2">
+		<motion.div
+			className="flex flex-col lg:flex-row lg:gap-16 gap-8"
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true, amount: 0.1 }}
+		>
+			<motion.div
+				className="lg:w-1/2"
+				variants={{
+					hidden: { opacity: 0, x: -20 },
+					visible: { opacity: 1, x: 0 },
+				}}
+			>
 				<h2 className="h1">Key Highlights of Our Journey</h2>
-			</div>
-			<div className=" lg:w-1/2 flex flex-col  divide-y divide-gray-200">
-				{histories.map((history) => (
-					<div
-						key={history.title}
-						className={cn("flex flex-col gap-4 items-start py-6")}
-					>
-						<div className="flex flex-row gap-4 items-center">
-							<Image
-								src={history.image}
-								alt={history.title}
-								width={40}
-								height={40}
-								loading="lazy"
-								className="group-hover:animate-bounce object-contain"
-							/>
-							<div>
-								<h1 className="h2">{history.year}</h1>
-								<h2 className=" h3 opacity-70">{history.title}</h2>
+			</motion.div>
+
+			<motion.div
+				className="lg:w-1/2 flex flex-col divide-y divide-gray-200"
+				variants={containerVariants}
+				layout // This makes the container expand smoothly
+			>
+				{/* AnimatePresence handles the smooth entrance/exit of new items */}
+				<AnimatePresence mode="popLayout">
+					{displayedHistories.map((history) => (
+						<motion.div
+							key={history.title} // Ensure this is unique
+							layout
+							variants={itemVariants}
+							initial="hidden"
+							animate="visible"
+							exit={{ opacity: 0, height: 0 }}
+							className="flex flex-col gap-4 items-start py-6"
+						>
+							<div className="flex flex-row gap-4 items-center">
+								<Image
+									src={history.image}
+									alt={history.title}
+									width={40}
+									height={40}
+									className="object-contain"
+								/>
+								<div>
+									<h1 className="h2">{history.year}</h1>
+									<h2 className="h3 opacity-70">{history.title}</h2>
+								</div>
 							</div>
-						</div>
-						<div className="flex flex-col">
-							<p className="  p">
-								{history.impact} <br /> {history.description}
+							<p className="p">
+								<strong>{history.impact}</strong> <br /> {history.description}
 							</p>
-						</div>
-					</div>
-				))}
+						</motion.div>
+					))}
+				</AnimatePresence>
+
 				{foundationHistory.length > 3 && (
-					<Button
-						onClick={() => setIsExpanded(!isExpanded)}
-						className="mt-4  transition-all w-fit"
-						variant="outline"
-					>
-						{isExpanded ? "Show Less" : "Show All History"}{" "}
-						{isExpanded ? <Minus /> : <Plus />}
-					</Button>
+					<motion.div layout>
+						<Button
+							onClick={() => setIsExpanded(!isExpanded)}
+							className="mt-4 transition-all w-fit"
+							variant="outline"
+						>
+							{isExpanded ? "Show Less" : "Show All History"}
+							{isExpanded ? (
+								<Minus className="ml-2" />
+							) : (
+								<Plus className="ml-2" />
+							)}
+						</Button>
+					</motion.div>
 				)}
-			</div>
-		</div>
+			</motion.div>
+		</motion.div>
 	);
 };
 

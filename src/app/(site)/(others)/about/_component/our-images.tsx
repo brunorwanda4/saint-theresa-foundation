@@ -156,18 +156,37 @@ const projects = [
 ];
 
 const OurImages = () => {
+	const containerVariants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				duration: 0.6
+			}
+		}
+	};
+
 	return (
 		<motion.section
 			className="relative flex flex-col items-center"
-			initial={{ opacity: 0, y: 20 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: true, margin: "-100px" }}
-			transition={{ duration: 0.8 }}
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true, amount: 0.2 }}
+			variants={containerVariants}
 		>
-			{/* Carousel */}
-			<div className="max-w-[1280px] mx-auto w-full">
+			{/* Carousel with enhanced animation */}
+			<motion.div 
+				className="max-w-[1280px] mx-auto w-full"
+				initial={{ scale: 0.95, opacity: 0 }}
+				whileInView={{ scale: 1, opacity: 1 }}
+				viewport={{ once: true, amount: 0.2 }}
+				transition={{ 
+					duration: 0.8, 
+					delay: 0.2
+				}}
+			>
 				<Carousel projects={projects} />
-			</div>
+			</motion.div>
 		</motion.section>
 	);
 };
