@@ -7,7 +7,7 @@ export const metadata = {
 
 const AboutTimeLine = () => {
 	return (
-		<div className=" pt-12">
+		<div className=" pt-12 px-8">
 			<OurHistories isOnPage />
 		</div>
 	);

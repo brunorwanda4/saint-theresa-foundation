@@ -1,7 +1,7 @@
 "use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import { motion } from "framer-motion";
 import { Separator } from "@/components/ui/separator";
 import LeadershipTeam from "../../_components/home/leadership-team";
 import ContactWithUs from "./_component/contact-with-us";
@@ -14,59 +14,59 @@ export default function AboutPage() {
 
 	// Animation variants
 	const maskRevealVariants = {
-		hidden: { 
+		hidden: {
 			clipPath: "inset(0 100% 0 0)",
-			opacity: 0 
+			opacity: 0,
 		},
-		visible: { 
+		visible: {
 			clipPath: "inset(0 0% 0 0)",
 			opacity: 1,
-			transition: { 
-				duration: 1.2, 
-				ease: "easeInOut" as const
-			}
-		}
+			transition: {
+				duration: 1.2,
+				ease: "easeInOut" as const,
+			},
+		},
 	};
 
 	const fadeInFromLeft = {
-		hidden: { 
-			x: -50, 
-			opacity: 0 
+		hidden: {
+			x: -50,
+			opacity: 0,
 		},
-		visible: { 
-			x: 0, 
+		visible: {
+			x: 0,
 			opacity: 1,
-			transition: { 
-				duration: 0.8, 
-				ease: "easeOut" as const
-			}
-		}
+			transition: {
+				duration: 0.8,
+				ease: "easeOut" as const,
+			},
+		},
 	};
 
 	const fadeInFromRight = {
-		hidden: { 
-			x: 50, 
-			opacity: 0 
+		hidden: {
+			x: 50,
+			opacity: 0,
 		},
-		visible: { 
-			x: 0, 
+		visible: {
+			x: 0,
 			opacity: 1,
-			transition: { 
-				duration: 0.8, 
-				ease: "easeOut" as const
-			}
-		}
+			transition: {
+				duration: 0.8,
+				ease: "easeOut" as const,
+			},
+		},
 	};
 
 	const separatorVariants = {
 		hidden: { width: 0 },
-		visible: { 
+		visible: {
 			width: "100%",
-			transition: { 
-				duration: 1.2, 
-				ease: "easeInOut" as const
-			}
-		}
+			transition: {
+				duration: 1.2,
+				ease: "easeInOut" as const,
+			},
+		},
 	};
 
 	return (
@@ -75,7 +75,7 @@ export default function AboutPage() {
 			<div className=" flex justify-between  items-end w-full mt-12">
 				<div className=" lg:min-w-1/2 hidden lg:block" />
 				<div ref={headerRef} className=" mb-8 flex flex-col w-full">
-					<motion.h1 
+					<motion.h1
 						className=" h1 max-w-2xl"
 						variants={maskRevealVariants}
 						initial="hidden"
@@ -83,7 +83,7 @@ export default function AboutPage() {
 					>
 						Bringing the Healing Hand of Service to the Hard-to-Reach
 					</motion.h1>
-					<motion.p 
+					<motion.p
 						className="max-w-2xl leading-relaxed p mt-12"
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
@@ -100,7 +100,7 @@ export default function AboutPage() {
 			</div>
 
 			{/* Main Image */}
-			<motion.div 
+			<motion.div
 				className="  "
 				initial={{ scale: 1.1, opacity: 0 }}
 				animate={{ scale: 1, opacity: 1 }}
@@ -120,21 +120,18 @@ export default function AboutPage() {
 			</motion.div>
 
 			{/* Who We Are Section */}
-			<motion.div 
+			<motion.div
 				className=" flex flex-col lg:flex-row lg:gap-16 gap-8"
 				initial="hidden"
 				whileInView="visible"
 				viewport={{ once: true, amount: 0.2 }}
 			>
-				<motion.div 
-					className=" lg:w-1/2"
-					variants={fadeInFromLeft}
-				>
+				<motion.div className=" lg:w-1/2" variants={fadeInFromLeft}>
 					<h2 className="h1">
 						Extending the Healing Hand of Service to the Hard-to-Reach
 					</h2>
 				</motion.div>
-				<motion.div 
+				<motion.div
 					className=" lg:w-1/2 flex flex-col gap-4 lg:gap-8"
 					variants={fadeInFromRight}
 				>
@@ -164,8 +161,8 @@ export default function AboutPage() {
 			</motion.div>
 
 			<ThingsWeDid />
-			<OurHistories />
-			
+			<OurHistories isOnPage />
+
 			<motion.div
 				initial="hidden"
 				whileInView="visible"
@@ -177,7 +174,7 @@ export default function AboutPage() {
 
 			<OurImages />
 			<LeadershipTeam />
-			
+
 			<motion.div
 				initial="hidden"
 				whileInView="visible"
