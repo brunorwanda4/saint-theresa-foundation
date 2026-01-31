@@ -1,5 +1,6 @@
 "use client";
 import gsap from "gsap";
+import Image from "next/image";
 import Link from "next/link";
 import { useLayoutEffect, useRef } from "react";
 import MyImage from "@/components/common/images/MyImage";
@@ -63,16 +64,59 @@ export default function AboutPage() {
 	};
 
 	return (
-		<main ref={containerRef} className="min-h-screen py-8">
-			<div ref={headerRef} className="global-px mb-8 max-w-5xl">
-				<h1 className="text-foreground mb-2 text-4xl font-bold">Who We Are</h1>
-				<p className="max-w-2xl leading-relaxed">
-					The Sainte Thérèse Foundation is a faith-inspired health organization
-					dedicated to transforming lives through compassionate care, education,
-					and empowerment. From humble beginnings, we've grown into a movement
-					of service across Rwanda.
-				</p>
+		<main ref={containerRef} className="min-h-screen py-8 space-y-8">
+			<div className=" flex justify-between px-8 items-end w-full mt-12">
+				<div className=" min-w-1/2" />
+				<div ref={headerRef} className=" mb-8 flex flex-col w-full">
+					<h1 className=" h1 max-w-2xl">
+						Bringing the Healing Hand of Service to the Hard-to-Reach
+					</h1>
+					<p className="max-w-2xl leading-relaxed p mt-12">
+						The <strong>Sainte Thérèse Foundation</strong> is a faith-driven
+						initiative founded by seasoned humanitarian professionals to bridge
+						the gap between quality medical care and the world's most vulnerable
+						populations. Rooted in the <strong>"little way"</strong> of St.
+						Thérèse of Lisieux, we view healthcare as a sacred duty and a humble
+						contribution to the <strong>healing ministry of Christ.</strong>
+					</p>
+				</div>
 			</div>
+
+			<div className=" px-8 ">
+				<div className="max-w-[1280px] mx-auto w-full relative flex-shrink-0 h-screen">
+					<Image
+						fill
+						quality={95}
+						sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+						src={"/images/our/we.jpg"}
+						alt="Our Team"
+						className="object-cover rounded-2xl"
+						priority
+					/>
+				</div>
+			</div>
+			<div className="px-8 flex flex-col lg:flex-row lg:gap-16">
+				<div className=" w-1/2">
+					<h2 className="h1">
+						Extending the Healing Hand of Service to the Hard-to-Reach
+					</h2>
+				</div>
+				<div className=" w-1/2 flex flex-col gap-8">
+					<p className="text-lg font-medium">
+						Who We Are The Sainte Thérèse Foundation is a faith-driven,
+						nonprofit initiative that serves as an extension of the Sainte
+						Thérèse Polyclinic, which currently provides care to approximately
+						40,000 to 50,000 patients annually.
+					</p>
+					<p className="text-lg font-medium opacity-80">
+						Founded by seasoned humanitarian professionals, we blend global
+						strategic vision with local, hands-on action to bring healthcare
+						closer to vulnerable rural communities.
+					</p>
+				</div>
+			</div>
+
+			<div></div>
 
 			<section className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2">
 				{AboutLinks.map((item, i) => (

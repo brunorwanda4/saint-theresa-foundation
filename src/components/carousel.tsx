@@ -172,7 +172,7 @@ export default function Carousel({ projects }: CarouselProps) {
 				>
 					{extendedProjects.map((project, index) => (
 						<div
-							key={`slide-${index}`}
+							key={`slide-${index}-${project.title}`}
 							className="relative min-w-full h-full flex-shrink-0"
 						>
 							<Image
