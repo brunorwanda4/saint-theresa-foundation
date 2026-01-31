@@ -1,4 +1,4 @@
-﻿"use client"; // Add this since we're using client-side animations
+"use client"; // Add this since we're using client-side animations
 
 import MyImage from "@/components/common/images/MyImage";
 import { leaders } from "@/lib/const/member-const";

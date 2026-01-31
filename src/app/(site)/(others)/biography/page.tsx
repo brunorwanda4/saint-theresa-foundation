@@ -1,4 +1,4 @@
-ï»¿"use client";
+"use client";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -116,9 +116,9 @@ export default function BiographyPage() {
           Biography & Events
         </h1>
         <p className="text-gray-700">
-          The Sainte ThÃ©rÃ¨se Foundation continues to grow through faith,
+          The Sainte Thérèse Foundation continues to grow through faith,
           leadership, and community engagement. Explore how our work extends
-          beyond clinics â€” through outreach, advocacy, and the sharing of hope.
+          beyond clinics — through outreach, advocacy, and the sharing of hope.
         </p>
       </div>
 
@@ -135,7 +135,7 @@ export default function BiographyPage() {
             </h2>
             <p className="mb-3">{item.desc}</p>
             <Link href={item.href} className="font-medium hover:underline">
-              Explore â†’
+              Explore ?
             </Link>
           </motion.div>
         ))}

@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import PathToChangeCard from "@/components/cards/path-to-change-card";
 
 const OurPathToChange = () => {
@@ -47,21 +48,58 @@ const OurPathToChange = () => {
 		},
 	];
 
+	const containerVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.8,
+
+				staggerChildren: 0.1,
+			},
+		},
+	};
+
+	const itemVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.8,
+
+			},
+		},
+	};
+
 	return (
-		<section className="space-y-8 flex flex-col justify-between h-full">
-			<h1 className="h1">Our Path To Change</h1>
-			<main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+		<motion.section 
+			className="space-y-8 flex flex-col justify-between h-full"
+			variants={containerVariants}
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true, margin: "-100px" }}
+		>
+			<motion.h1 className="h1" variants={itemVariants}>
+				Our Path To Change
+			</motion.h1>
+			<motion.main 
+				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+				variants={containerVariants}
+			>
 				{pathToChange.map((item, index) => (
-					<PathToChangeCard
-						key={`${index}-${item.step}`}
-						title={item.step}
-						description={item.action}
-						link={item.href} // Passing the mapped href here
-						image={item.image}
-					/>
+					<motion.div key={`${index}-${item.step}`} variants={itemVariants}>
+						<PathToChangeCard
+							title={item.step}
+							description={item.action}
+							link={item.href} // Passing the mapped href here
+							image={item.image}
+						/>
+					</motion.div>
 				))}
-			</main>
-		</section>
+			</motion.main>
+		</motion.section>
 	);
 };
 

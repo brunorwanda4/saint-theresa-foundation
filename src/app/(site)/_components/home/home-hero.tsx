@@ -1,68 +1,81 @@
 "use client";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
+import { motion } from "framer-motion";
 import { Pill, Truck } from "lucide-react"; // Icons for the floating cards
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
 import { IoMdArrowForward } from "react-icons/io";
 import { Button } from "@/components/ui/button";
 
-gsap.registerPlugin(useGSAP);
-
 const HomeHero = () => {
-	const containerRef = useRef<HTMLDivElement>(null);
-	const bubblesRef = useRef<HTMLDivElement[]>([]);
+	const containerVariants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				staggerChildren: 0.2,
+				delayChildren: 0.3,
+			},
+		},
+	};
 
-	useGSAP(() => {
-		const ctx = gsap.context(() => {
-			gsap.from(bubblesRef.current, {
-				opacity: 0,
-				y: 20,
+	const itemVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
 				duration: 0.8,
-				stagger: 0.2,
+			},
+		},
+	};
+
+	const floatingVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.8,
 				delay: 0.5,
-				ease: "power2.out",
-			});
-
-			gsap.to(".blob", {
-				y: "+=20",
-				repeat: -1,
-				yoyo: true,
-				ease: "sine.inOut",
+			},
+		},
+		float: {
+			y: [0, -10, 0],
+			transition: {
 				duration: 3,
-			});
-		}, containerRef);
-
-		return () => ctx.revert();
-	}, []);
+				repeat: Infinity,
+			},
+		},
+	};
 
 	return (
-		<section
-			ref={containerRef}
-			className=" mx-auto min-h-[80vh] grid grid-cols-12 gap-8  relative  py-8"
+		<motion.section
+			className="mx-auto min-h-[80vh] grid grid-cols-12 gap-8 relative py-8"
+			variants={containerVariants}
+			initial="hidden"
+			animate="visible"
 		>
 			{/* Left Content */}
-			<div className="col-span-12 lg:col-span-5  flex flex-col lg:gap-8 gap-4">
-				<h1 className="h1">
+			<div className="col-span-12 lg:col-span-5 flex flex-col lg:gap-8 gap-4">
+				<motion.h1 className="h1" variants={itemVariants}>
 					Health Care for All Extending the Healing Hand of Service
-				</h1>
-				<p className="p lg:max-w-md max-w-2xl">
+				</motion.h1>
+				<motion.p className="p lg:max-w-md max-w-2xl" variants={itemVariants}>
 					Inspired by the "little way" of St. Thérèse, we provide underserved
 					communities with equitable access to preventive screenings, mobile
 					clinics, and digital health tools to ensure that geography and income
 					never stand in the way of human dignity.
-				</p>
-				<div className="flex gap-4">
-					<Link href="/get-involved/partner" className=" w-fit">
-						<Button size="lg" className="rounded-md px-8 py-6  gap-2 group">
+				</motion.p>
+				<motion.div className="flex gap-4" variants={itemVariants}>
+					<Link href="/get-involved/partner" className="w-fit">
+						<Button size="lg" className="rounded-md px-8 py-6 gap-2 group">
 							Partner With Us
-							<IoMdArrowForward className="group-hover:translate-x-1 cursor-pointer  transition-transform" />
+							<IoMdArrowForward className="group-hover:translate-x-1 cursor-pointer transition-transform" />
 						</Button>
 					</Link>
 					<Link
 						href="/get-involved/volunteer"
-						className=" w-fit cursor-pointer"
+						className="w-fit cursor-pointer"
 					>
 						<Button
 							variant="outline"
@@ -72,21 +85,30 @@ const HomeHero = () => {
 							Join Our Mission
 						</Button>
 					</Link>
-				</div>
+				</motion.div>
 			</div>
 
-			<div className="col-span-12 lg:col-span-7 relative h-[500px] w-full ">
-				<div className=" relative w-72 h-43 z-20">
+			<motion.div 
+				className="col-span-12 lg:col-span-7 relative h-[500px] w-full"
+				variants={itemVariants}
+			>
+				<motion.div 
+					className="relative w-72 h-43 z-20"
+					variants={itemVariants}
+				>
 					<Image
 						src="/images/digital-health-2.jpg"
 						alt="Digital health"
 						fill
-						className="object-cover rounded-md "
+						className="object-cover rounded-md"
 					/>
-				</div>
+				</motion.div>
 
 				{/* Main Doctor Image */}
-				<div className="absolute bottom-10 left-[15%]  w-67 h-92 z-30">
+				<motion.div 
+					className="absolute bottom-10 left-[15%] w-67 h-92 z-30"
+					variants={itemVariants}
+				>
 					<Image
 						src="/images/doctor.png"
 						alt="Doctor"
@@ -94,16 +116,25 @@ const HomeHero = () => {
 						className="object-contain"
 						priority
 					/>
-				</div>
-				<div
-					className="blob absolute size-60 md:size-40 rounded-full bg-primary opacity-60 to-transparent blur-2xl z-10 "
+				</motion.div>
+				
+				<motion.div
+					className="blob absolute size-60 md:size-40 rounded-full bg-primary opacity-60 to-transparent blur-2xl z-10"
 					style={{ zIndex: 0 }}
+					variants={floatingVariants}
+					animate="float"
 				/>
-				<div className="z-35 absolute bottom-10 lg:left-[-20px] bg-background/40  backdrop-blur-md lg:py-2 lg:px-4 px-2 rounded-2xl shadow-xl flex items-center gap-4 border border-background max-w-65">
+				
+				<motion.div 
+					className="z-35 absolute bottom-10 lg:left-[-20px] bg-background/40 backdrop-blur-md lg:py-2 lg:px-4 px-2 rounded-2xl shadow-xl flex items-center gap-4 border border-background max-w-65"
+					variants={floatingVariants}
+					initial="hidden"
+					animate={["visible", "float"]}
+				>
 					<p className="text-sm font-medium text-slate-800 leading-tight">
 						2 Community Pharmacies in development
 					</p>
-					<div className=" lg:size-18 relative size-14">
+					<div className="lg:size-18 relative size-14">
 						<Image
 							src={"/icons/pill.png"}
 							fill
@@ -112,16 +143,21 @@ const HomeHero = () => {
 							alt="pill"
 						/>
 					</div>
-				</div>
+				</motion.div>
 
 				{/* Floating Card: Mobile Clinics */}
-				<div className="absolute bottom-24 right-4 bg-muted-foreground/20 p-4 rounded-xl shadow-lg flex items-center gap-4  max-w-[220px] z-35">
+				<motion.div 
+					className="absolute bottom-24 right-4 bg-muted-foreground/20 p-4 rounded-xl shadow-lg flex items-center gap-4 max-w-[220px] z-35"
+					variants={floatingVariants}
+					initial="hidden"
+					animate={["visible", "float"]}
+				>
 					<div>
-						<p className="text-[11px] uppercase tracking-wider font-bold ">
+						<p className="text-[11px] uppercase tracking-wider font-bold">
 							2 Mobile Clinics
 						</p>
 					</div>
-					<div className=" lg:size-14 relative size-10">
+					<div className="lg:size-14 relative size-10">
 						<Image
 							src={"/icons/ambulance.png"}
 							fill
@@ -130,10 +166,13 @@ const HomeHero = () => {
 							alt="pill"
 						/>
 					</div>
-				</div>
+				</motion.div>
 
 				{/* Right Side Stats */}
-				<div className="absolute right-0 top-0 flex flex-col gap-12 pl-10 z-35 max-md:hidden">
+				<motion.div 
+					className="absolute right-0 top-0 flex flex-col gap-12 pl-10 z-35 max-md:hidden"
+					variants={itemVariants}
+				>
 					<div>
 						<h3 className="text-5xl font-bold text-slate-900">50,000+</h3>
 						<p className="text-slate-500 font-medium">
@@ -146,13 +185,16 @@ const HomeHero = () => {
 							years of medical leadership experience
 						</p>
 					</div>
-				</div>
-				<div
+				</motion.div>
+				
+				<motion.div
 					className="max-md:top-2 max-md:right-2 blob absolute size-60 md:size-40 rounded-full bg-secondary right-1/3 top-1/4 opacity-60 to-transparent blur-2xl z-10"
 					style={{ zIndex: 0 }}
+					variants={floatingVariants}
+					animate="float"
 				/>
-			</div>
-		</section>
+			</motion.div>
+		</motion.section>
 	);
 };
 

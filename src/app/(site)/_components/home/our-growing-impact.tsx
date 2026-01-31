@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import React from "react";
 
 const OurGrowingImpact = () => {
@@ -29,8 +31,39 @@ const OurGrowingImpact = () => {
 		},
 	];
 
+	const containerVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.8,
+
+				staggerChildren: 0.1,
+			},
+		},
+	};
+
+	const itemVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.8,
+
+			},
+		},
+	};
+
 	return (
-		<div className="relative w-full max-w-6xl mx-auto overflow-hidden bg-[#0a1d2e] rounded-xl p-8 ">
+		<motion.div 
+			className="relative w-full max-w-6xl mx-auto overflow-hidden bg-[#0a1d2e] rounded-xl p-8"
+			initial={{ opacity: 0, y: 20 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, margin: "-100px" }}
+			transition={{ duration: 0.8, }}
+		>
 			{/* Background Decorative Slants */}
 			<div className="absolute top-0 right-0 w-full h-full pointer-events-none">
 				<div className="absolute top-0 right-[20%] w-16 h-[200%] bg-[#f2b33d] transform rotate-[40deg] -translate-y-1/4 opacity-90"></div>
@@ -38,19 +71,32 @@ const OurGrowingImpact = () => {
 			</div>
 
 			{/* Title */}
-			<h2 className="relative z-10 h2 text-background mb-6">
+			<motion.h2 
+				className="relative z-10 h2 text-background mb-6"
+				initial={{ opacity: 0, y: 20 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, margin: "-100px" }}
+				transition={{ duration: 0.8, delay: 0.2 }}
+			>
 				Our Growing Impact
-			</h2>
+			</motion.h2>
 
 			{/* Stats Container */}
-			<div className="relative z-10 flex flex-col md:flex-row bg-[#e9ecef] rounded-2xl overflow-hidden shadow-2xl">
+			<motion.div 
+				className="relative z-10 flex flex-col md:flex-row bg-[#e9ecef] rounded-2xl overflow-hidden shadow-2xl"
+				variants={containerVariants}
+				initial="hidden"
+				whileInView="visible"
+				viewport={{ once: true, margin: "-100px" }}
+			>
 				{stats.map((stat, index) => (
-					<div
+					<motion.div
 						key={`${index}-${stat.label}`}
 						className={`flex-1 flex flex-col items-center justify-center text-center lg:p-6 p-4 min-h-[180px]
               ${index !== stats.length - 1 ? "border-b md:border-b-0 md:border-r border-gray-400" : ""}`}
+						variants={itemVariants}
 					>
-						<div className="text-[#0a1d2e]  mb-2 leading-tight h2">
+						<div className="text-[#0a1d2e] mb-2 leading-tight h2">
 							{stat.value}
 						</div>
 						<div className="text-[#0a1d2e] text text-lg lg:text-base font-normal lg:max-w-[150px]">
@@ -61,10 +107,10 @@ const OurGrowingImpact = () => {
 								</span>
 							)}
 						</div>
-					</div>
+					</motion.div>
 				))}
-			</div>
-		</div>
+			</motion.div>
+		</motion.div>
 	);
 };
 

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import MyImage from "@/components/common/images/MyImage";
 import SiteLink from "@/components/common/site/site-link";

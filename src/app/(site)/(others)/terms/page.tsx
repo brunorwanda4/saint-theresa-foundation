@@ -1,4 +1,4 @@
-ï»¿"use client";
+"use client";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -152,7 +152,7 @@ export default function TermsPage() {
           Terms & Conditions
         </h1>
         <p ref={introRef} className="mb-4">
-          By accessing and using the Sainte ThÃ©rÃ¨se Foundation website, you
+          By accessing and using the Sainte Thérèse Foundation website, you
           agree to the following terms and conditions.
         </p>
 
@@ -209,7 +209,7 @@ export default function TermsPage() {
           ref={(el) => addToSectionParagraphsRefs(el, 3)}
           className="text-gray-600 transition-colors duration-300 hover:text-gray-800"
         >
-          Sainte ThÃ©rÃ¨se Foundation is not responsible for any damages resulting
+          Sainte Thérèse Foundation is not responsible for any damages resulting
           from the use or inability to use this site or its materials.
         </p>
 

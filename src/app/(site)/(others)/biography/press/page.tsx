@@ -1,4 +1,4 @@
-ï»¿"use client";
+"use client";
 
 import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
@@ -116,7 +116,7 @@ export default function PressBioPage() {
           Press Releases
         </h1>
         <p ref={paragraphRef} className="text-lg">
-          Official communications from the Sainte ThÃ©rÃ¨se Foundation.
+          Official communications from the Sainte Thérèse Foundation.
         </p>
       </div>
 

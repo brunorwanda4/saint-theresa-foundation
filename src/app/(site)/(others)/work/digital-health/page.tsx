@@ -1,4 +1,4 @@
-ï»¿"use client";
+"use client";
 import MyImage from "@/components/common/images/MyImage";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
@@ -102,7 +102,7 @@ const DigitalHealthPage = () => {
           Technology for Better Healthcare
         </h2>
         <p className="text-foreground">
-          Sainte ThÃ©rÃ¨se Foundation leverages digital tools to connect patients
+          Sainte Thérèse Foundation leverages digital tools to connect patients
           and doctors remotely. Our e-health solutions make consultations,
           follow-ups, and prescriptions accessible even in areas without
           physical clinics.

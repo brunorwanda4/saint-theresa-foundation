@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import MyImage from "@/components/common/images/MyImage";
 import SiteLink from "@/components/common/site/site-link";
 import gsap from "gsap";
@@ -141,7 +141,7 @@ export default function VolunteerPage() {
           </ul>
           <p className="mt-4">
             Whether you're a medical professional, a student, or simply
-            passionate about helping others — there's a place for you.
+            passionate about helping others � there's a place for you.
           </p>
           <SiteLink
             className="text-primary-foreground mt-3 inline-block rounded-full px-8 py-3 font-semibold transition"

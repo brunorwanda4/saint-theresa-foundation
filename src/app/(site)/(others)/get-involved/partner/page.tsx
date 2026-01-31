@@ -1,4 +1,4 @@
-ï»¿"use client";
+"use client";
 import MyImage from "@/components/common/images/MyImage";
 import SiteLink from "@/components/common/site/site-link";
 import {
@@ -264,8 +264,8 @@ export default function PartnerPage() {
       <section ref={heroRef} className="global-px py-8">
         <h1 className="mb-4 text-4xl font-bold">Partner With Us</h1>
         <p className="max-w-3xl text-lg">
-          Join hands with the <strong>Sainte ThÃ©rÃ¨se Foundation</strong> to
-          build a future where every person â€” regardless of background â€” has
+          Join hands with the <strong>Sainte Thérèse Foundation</strong> to
+          build a future where every person — regardless of background — has
           access to compassionate healthcare and hope.
         </p>
       </section>
@@ -365,7 +365,7 @@ export default function PartnerPage() {
           Let's Build a Healthier Tomorrow Together
         </h2>
         <p className="text-primary-foreground mx-auto mb-8 max-w-2xl">
-          Partner with Sainte ThÃ©rÃ¨se Foundation and help us extend care,
+          Partner with Sainte Thérèse Foundation and help us extend care,
           education, and faith-based healing across Rwanda and beyond.
         </p>
         <SiteLink

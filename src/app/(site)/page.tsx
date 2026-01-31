@@ -1,4 +1,6 @@
+"use client";
 import type { Metadata } from "next";
+import { motion } from "framer-motion";
 import LandingLink from "@/components/site/landing/LandingLink";
 import BeTheLightOfHope from "./_components/home/be-the-light-of-hope";
 import HomeHero from "./_components/home/home-hero";
@@ -14,20 +16,65 @@ export const metaData: Metadata = {
 	title: "Home - saint theresa foundation",
 };
 
+const containerVariants = {
+	hidden: { opacity: 0 },
+	visible: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.2,
+			delayChildren: 0.1,
+		},
+	},
+};
+
+const itemVariants = {
+	hidden: { opacity: 0, y: 20 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.8,
+		},
+	},
+};
+
 const LadingPage = () => {
 	return (
-		<div className="space-y-8 px-8">
+		<motion.div 
+			className="space-y-8 px-8"
+			variants={containerVariants}
+			initial="hidden"
+			animate="visible"
+		>
 			<HomeHero />
-			<WhoWeAre />
-			<ThingsWeDone />
-			<MissionVision />
-			<OurCorePrograms />
-			<OurPathToChange />
-			<OurGrowingImpact />
-			<LeadershipTeam />
-			<BeTheLightOfHope />
-			<LandingLink />
-		</div>
+			<motion.div variants={itemVariants}>
+				<WhoWeAre />
+			</motion.div>
+			<motion.div variants={itemVariants}>
+				<ThingsWeDone />
+			</motion.div>
+			<motion.div variants={itemVariants}>
+				<MissionVision />
+			</motion.div>
+			<motion.div variants={itemVariants}>
+				<OurCorePrograms />
+			</motion.div>
+			<motion.div variants={itemVariants}>
+				<OurPathToChange />
+			</motion.div>
+			<motion.div variants={itemVariants}>
+				<OurGrowingImpact />
+			</motion.div>
+			<motion.div variants={itemVariants}>
+				<LeadershipTeam />
+			</motion.div>
+			<motion.div variants={itemVariants}>
+				<BeTheLightOfHope />
+			</motion.div>
+			<motion.div variants={itemVariants}>
+				<LandingLink />
+			</motion.div>
+		</motion.div>
 	);
 };
 

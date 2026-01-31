@@ -1,4 +1,4 @@
-ï»¿"use client";
+"use client";
 import { gallery } from "@/lib/data/gallery";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -173,7 +173,7 @@ export default function GalleryPage() {
           Photo & Video Gallery
         </h1>
         <p ref={descriptionRef}>
-          A glimpse into our work and the lives touched by the Sainte ThÃ©rÃ¨se
+          A glimpse into our work and the lives touched by the Sainte Thérèse
           Foundation.
         </p>
       </div>

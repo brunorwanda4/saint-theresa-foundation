@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Carousel from "@/components/carousel";
 
@@ -63,12 +65,18 @@ const projects = [
 
 const ThingsWeDone = () => {
 	return (
-		<section className="relative  flex flex-col items-center ">
+		<motion.section 
+			className="relative flex flex-col items-center"
+			initial={{ opacity: 0, y: 20 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, margin: "-100px" }}
+			transition={{ duration: 0.8, }}
+		>
 			{/* Carousel */}
 			<div className="max-w-[1280px] mx-auto w-full">
 				<Carousel projects={projects} />
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 
