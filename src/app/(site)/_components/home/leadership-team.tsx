@@ -35,7 +35,7 @@ const LeadershipTeam = () => {
 					<div className="relative w-full max-w-md h-90 flex items-center justify-center">
 						<div
 							className={`relative overflow-hidden rounded-3xl transform -rotate-3 transition-all duration-500 ease-in-out shadow-2xl aspect-[4/3] w-full
-                ${hoveredImage ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}
+                ${hoveredImage ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}  `}
 						>
 							{hoveredImage && (
 								<div className=" relative w-full h-full">

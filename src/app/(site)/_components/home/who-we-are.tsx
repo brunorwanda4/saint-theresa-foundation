@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils";
 
 const WhoWeAre = () => {
 	return (
-		<div className=" flex gap-4">
-			<div className=" w-1/3">
+		<div className=" flex flex-col lg:flex-row gap-4">
+			<div className=" w-full lg:w-1/3">
 				<h1 className="h1">Who We Are</h1>
 			</div>
-			<div className=" w-2/3">
+			<div className="w-full lg:w-2/3">
 				<p className="p ">
 					The Sainte Thérèsa Foundation is a faith-driven nonprofit extension of
 					the Sainte Thérèse Polyclinic that brings essential care to

@@ -36,12 +36,12 @@ const OurCorePrograms = () => {
 	return (
 		<section className=" space-y-8 flex flex-col justify-between h-full">
 			<h1 className=" h1">Our Core Programs</h1>
-			<div className=" grid-cols-2 grid gap-4">
+			<div className="grid-cols-1 lg:grid-cols-2 grid gap-4">
 				{corePrograms.map((program, index) => (
 					<div
 						key={`${program.title}-${index}`}
 						className={cn(
-							"rounded-md px-6 py-4 text-background",
+							"rounded-md px-4 lg:px-6 py-4 text-background group",
 							program.className,
 						)}
 					>
@@ -51,7 +51,7 @@ const OurCorePrograms = () => {
 							className=" mt-4 flex flex-row items-center justify-between"
 						>
 							<h2 className="   font-light">{program.title}</h2>
-							<Plus size={28} />
+							<Plus size={28} className=" group-hover:rotate-45 duration-150" />
 						</Link>
 					</div>
 				))}

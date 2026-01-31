@@ -40,41 +40,48 @@ const HomeHero = () => {
 	return (
 		<section
 			ref={containerRef}
-			className=" mx-auto min-h-[80vh] grid grid-cols-12 gap-8  relative overflow-hidden py-8"
+			className=" mx-auto min-h-[80vh] grid grid-cols-12 gap-8  relative  py-8"
 		>
 			{/* Left Content */}
-			<div className="col-span-12 lg:col-span-5 flex flex-col gap-8">
+			<div className="col-span-12 lg:col-span-5  flex flex-col lg:gap-8 gap-4">
 				<h1 className="h1">
 					Health Care for All Extending the Healing Hand of Service
 				</h1>
-				<p className="p lg:max-w-md max-w-lg">
+				<p className="p lg:max-w-md max-w-2xl">
 					Inspired by the "little way" of St. Thérèse, we provide underserved
 					communities with equitable access to preventive screenings, mobile
 					clinics, and digital health tools to ensure that geography and income
 					never stand in the way of human dignity.
 				</p>
 				<div className="flex gap-4">
-					<Button size="lg" className="rounded-md px-8 py-6  gap-2 group">
-						Partner With Us
-						<IoMdArrowForward className="group-hover:translate-x-1 transition-transform" />
-					</Button>
-					<Button
-						variant="outline"
-						size="lg"
-						className="rounded-md px-8 py-6 text-base border-slate-300"
+					<Link href="/get-involved/partner" className=" w-fit">
+						<Button size="lg" className="rounded-md px-8 py-6  gap-2 group">
+							Partner With Us
+							<IoMdArrowForward className="group-hover:translate-x-1 cursor-pointer  transition-transform" />
+						</Button>
+					</Link>
+					<Link
+						href="/get-involved/volunteer"
+						className=" w-fit cursor-pointer"
 					>
-						Join Our Mission
-					</Button>
+						<Button
+							variant="outline"
+							size="lg"
+							className="rounded-md px-8 py-6 text-base border-slate-300"
+						>
+							Join Our Mission
+						</Button>
+					</Link>
 				</div>
 			</div>
 
-			<div className="col-span-12 lg:col-span-7 relative h-[500px] w-full">
+			<div className="col-span-12 lg:col-span-7 relative h-[500px] w-full ">
 				<div className=" relative w-72 h-43 z-20">
 					<Image
 						src="/images/digital-health-2.jpg"
 						alt="Digital health"
 						fill
-						className="object-cover rounded-md"
+						className="object-cover rounded-md "
 					/>
 				</div>
 
@@ -89,14 +96,14 @@ const HomeHero = () => {
 					/>
 				</div>
 				<div
-					className="blob absolute size-60 md:size-40 rounded-full bg-primary opacity-60 to-transparent blur-2xl z-10"
+					className="blob absolute size-60 md:size-40 rounded-full bg-primary opacity-60 to-transparent blur-2xl z-10 "
 					style={{ zIndex: 0 }}
 				/>
-				<div className="z-35 absolute bottom-10 left-[-20px] bg-white/90 backdrop-blur-md py-2 px-4 rounded-2xl shadow-xl flex items-center gap-4 border border-slate-100 max-w-65">
+				<div className="z-35 absolute bottom-10 lg:left-[-20px] bg-background/40  backdrop-blur-md lg:py-2 lg:px-4 px-2 rounded-2xl shadow-xl flex items-center gap-4 border border-background max-w-65">
 					<p className="text-sm font-medium text-slate-800 leading-tight">
 						2 Community Pharmacies in development
 					</p>
-					<div className=" size-18 relative">
+					<div className=" lg:size-18 relative size-14">
 						<Image
 							src={"/icons/pill.png"}
 							fill
@@ -108,17 +115,25 @@ const HomeHero = () => {
 				</div>
 
 				{/* Floating Card: Mobile Clinics */}
-				<div className="absolute bottom-24 right-4 bg-[#dce4eb] p-4 rounded-xl shadow-lg flex items-center gap-4  max-w-[220px] z-35">
+				<div className="absolute bottom-24 right-4 bg-muted-foreground/20 p-4 rounded-xl shadow-lg flex items-center gap-4  max-w-[220px] z-35">
 					<div>
-						<p className="text-[11px] uppercase tracking-wider font-bold text-slate-600">
+						<p className="text-[11px] uppercase tracking-wider font-bold ">
 							2 Mobile Clinics
 						</p>
 					</div>
-					<Truck className="w-8 h-8 text-slate-900" />
+					<div className=" lg:size-14 relative size-10">
+						<Image
+							src={"/icons/ambulance.png"}
+							fill
+							priority
+							className="object-contain"
+							alt="pill"
+						/>
+					</div>
 				</div>
 
 				{/* Right Side Stats */}
-				<div className="absolute right-0 top-0 flex flex-col gap-12 pl-10 z-35">
+				<div className="absolute right-0 top-0 flex flex-col gap-12 pl-10 z-35 max-md:hidden">
 					<div>
 						<h3 className="text-5xl font-bold text-slate-900">50,000+</h3>
 						<p className="text-slate-500 font-medium">
@@ -133,7 +148,7 @@ const HomeHero = () => {
 					</div>
 				</div>
 				<div
-					className="blob absolute size-60 md:size-40 rounded-full bg-secondary right-1/3 top-1/4 opacity-60 to-transparent blur-2xl z-10"
+					className="max-md:top-2 max-md:right-2 blob absolute size-60 md:size-40 rounded-full bg-secondary right-1/3 top-1/4 opacity-60 to-transparent blur-2xl z-10"
 					style={{ zIndex: 0 }}
 				/>
 			</div>

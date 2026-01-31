@@ -47,16 +47,16 @@ const OurGrowingImpact = () => {
 				{stats.map((stat, index) => (
 					<div
 						key={`${index}-${stat.label}`}
-						className={`flex-1 flex flex-col items-center justify-center text-center p-6 min-h-[180px]
+						className={`flex-1 flex flex-col items-center justify-center text-center lg:p-6 p-4 min-h-[180px]
               ${index !== stats.length - 1 ? "border-b md:border-b-0 md:border-r border-gray-400" : ""}`}
 					>
 						<div className="text-[#0a1d2e]  mb-2 leading-tight h2">
 							{stat.value}
 						</div>
-						<div className="text-[#0a1d2e] text-sm md:text-base font-normal max-w-[150px]">
+						<div className="text-[#0a1d2e] text text-lg lg:text-base font-normal lg:max-w-[150px]">
 							{stat.label}
 							{stat.subLabel && (
-								<span className="block text-xs mt-1 text-gray-600">
+								<span className="block lg:text-xs mt-1 text-gray-600">
 									{stat.subLabel}
 								</span>
 							)}

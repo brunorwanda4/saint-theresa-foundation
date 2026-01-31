@@ -22,7 +22,7 @@ const BeTheLightOfHope = () => {
 	];
 
 	return (
-		<div className=" flex gap-4">
+		<div className=" flex flex-col lg:flex-row gap-4">
 			<div className="h-1/2">
 				<h1 className="h1">
 					Advancing Human Dignity Through Compassionate Care

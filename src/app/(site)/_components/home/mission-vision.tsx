@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 
 const MissionVision = () => {
 	return (
-		<div className="bg-foreground text-background p-8 rounded-2xl flex flex-col gap-6">
+		<div className="bg-foreground text-background lg:p-8 p-4 rounded-2xl flex flex-col gap-4 lg:gap-6">
 			<h2 className="h2">Our Mission and Vision</h2>
-			<div className=" flex flex-row  gap-6">
+			<div className=" flex flex-col lg:flex-row  lg:gap-6 gap-4">
 				<div className="p-4 rounded-xl bg-primary">
 					<Link href={"/about/vision-mission"} className="w-fit">
 						<h4 className="h4">Mission</h4>
