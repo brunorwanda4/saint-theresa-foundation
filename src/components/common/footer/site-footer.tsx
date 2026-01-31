@@ -1,15 +1,8 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import {
-	FaArrowUp,
-	FaInstagram,
-	FaLinkedinIn,
-	FaWhatsapp,
-	FaYoutube,
-} from "react-icons/fa";
+import { FaArrowUp } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
-import { SiGmail, SiX } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
 const footerSections = [
@@ -86,7 +79,7 @@ export default function SiteFooter() {
 	const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
 	return (
-		<footer className="bg-foreground text-background pt-16 pb-8 px-6 md:px-12 lg:px-20">
+		<footer className="bg-foreground text-background py-8 px-6 md:px-12 lg:px-20">
 			<div className="max-w-7xl mx-auto">
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
 					<div className="lg:col-span-3">
@@ -124,7 +117,11 @@ export default function SiteFooter() {
 					</div>
 
 					<div className="lg:col-span-3 flex flex-col items-end gap-10">
-						<Button onClick={scrollToTop} variant="outline">
+						<Button
+							onClick={scrollToTop}
+							variant="outline"
+							className=" bg-foreground hover:bg-background hover:text-foreground duration-150 cursor-pointer"
+						>
 							<FaArrowUp className="w-5 h-5" />
 						</Button>
 

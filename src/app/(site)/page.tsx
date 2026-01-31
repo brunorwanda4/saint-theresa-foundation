@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import LandingBiography from "@/components/site/landing/LandingBiography";
 import LandingLink from "@/components/site/landing/LandingLink";
-import LandingResources from "@/components/site/landing/LandingResources";
-import LandingStrategy from "@/components/site/landing/LandingStrategy";
 import BeTheLightOfHope from "./_components/home/be-the-light-of-hope";
 import HomeHero from "./_components/home/home-hero";
 import LeadershipTeam from "./_components/home/leadership-team";

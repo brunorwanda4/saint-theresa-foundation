@@ -39,6 +39,120 @@ const SiteNavItems = () => {
 			image: "/icons/calender.png",
 		},
 	];
+
+	const workItems = [
+		{
+			title: "Mobile Clinics",
+			href: "/work/mobile-clinics",
+			description:
+				"Bringing healthcare directly to rural and hard-to-reach communities.",
+		},
+		{
+			title: "Community Pharmacies",
+			href: "/work/community-pharmacies",
+			description: "Establishing local access to affordable medicine.",
+		},
+		{
+			title: "Digital Health",
+			href: "/work/digital-health",
+			description:
+				"E-consultations and digital tools to overcome distance barriers.",
+		},
+		{
+			title: "Public Health Education",
+			href: "/work/public-health",
+			description:
+				"Promoting awareness in hygiene, nutrition, and safe medicine use.",
+		},
+		{
+			title: "Training & Empowerment",
+			href: "/work/training",
+			description: "Building capacity of local health workers and leaders.",
+		},
+		{
+			title: "Partnerships",
+			href: "/work/partnerships",
+			description: "Collaborating with faith-based and global partners.",
+		},
+	];
+	const programItems = [
+		{
+			title: "Timeline 2025–2027",
+			href: "/programs/timeline",
+			description: "Key activities and milestones of the action plan.",
+		},
+		{
+			title: "Budget Overview",
+			href: "/programs/budget",
+			description: "Financial needs to support our 3-year strategy.",
+		},
+		{
+			title: "Milestones",
+			href: "/programs/milestones",
+			description: "Tracking the progress and achievements of our initiatives.",
+		},
+	];
+
+	const impactItems = [
+		{
+			title: "Statistics",
+			href: "/impact/statistics",
+			description:
+				"Patients served, medicines delivered, and communities reached.",
+		},
+		{
+			title: "Stories",
+			href: "/impact/stories",
+			description: "Testimonials and stories from the communities we serve.",
+		},
+		{
+			title: "Photo & Video Gallery",
+			href: "/impact/gallery",
+			description: "Explore visuals of our work in action.",
+		},
+	];
+
+	const involvementItems = [
+		{
+			title: "Donate",
+			href: "/get-involved/donate",
+			description: "Support our mission by making a contribution.",
+		},
+		{
+			title: "Volunteer",
+			href: "/get-involved/volunteer",
+			description: "Join as a volunteer or health worker in the field.",
+		},
+		{
+			title: "Partnerships",
+			href: "/get-involved/partner",
+			description: "Collaborate with us to expand healthcare access.",
+		},
+	];
+
+	const biographyItems = [
+		{
+			title: "Community Outreach",
+			href: "/biography/outreach",
+			description: "Updates from rural outreach missions and mobile clinics.",
+		},
+		{
+			title: "Workshops & Training",
+			href: "/biography/training",
+			description: "Insights from our health and nutrition workshops.",
+		},
+		{
+			title: "Conferences & Advocacy",
+			href: "/biography/conferences",
+			description:
+				"Where we've represented our mission nationally and internationally.",
+		},
+		{
+			title: "Press Releases",
+			href: "/biography/press",
+			description: "Official announcements and publications.",
+		},
+	];
 	return (
 		<NavigationMenu viewport={false} className="bg-none p-1">
 			<div className={cn("flex items-center")}>
@@ -113,53 +227,18 @@ const SiteNavItems = () => {
 								Our Work
 							</AnimatedLink>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent>
-							<ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-								<ListItem
-									pathname={pathname}
-									href="/work/mobile-clinics"
-									title="Mobile Clinics"
-								>
-									Bringing healthcare directly to rural and hard-to-reach
-									communities.
-								</ListItem>
-								<ListItem
-									pathname={pathname}
-									href="/work/community-pharmacies"
-									title="Community Pharmacies"
-								>
-									Establishing local access to affordable medicine.
-								</ListItem>
-								<ListItem
-									pathname={pathname}
-									href="/work/digital-health"
-									title="Digital Health"
-								>
-									E-consultations and digital tools to overcome distance
-									barriers.
-								</ListItem>
-								<ListItem
-									pathname={pathname}
-									href="/work/public-health"
-									title="Public Health Education"
-								>
-									Promoting awareness in hygiene, nutrition, and safe medicine
-									use.
-								</ListItem>
-								<ListItem
-									pathname={pathname}
-									href="/work/training"
-									title="Training & Empowerment"
-								>
-									Building capacity of local health workers and leaders.
-								</ListItem>
-								<ListItem
-									pathname={pathname}
-									href="/work/partnerships"
-									title="Partnerships"
-								>
-									Collaborating with faith-based and global partners.
-								</ListItem>
+						<NavigationMenuContent className="group-data-[viewport=false]/navigation-menu:rounded-2xl">
+							<ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+								{workItems.map((link) => (
+									<ListItem
+										key={link.href}
+										pathname={pathname}
+										href={link.href}
+										title={link.title}
+									>
+										{link.description}
+									</ListItem>
+								))}
 							</ul>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
@@ -171,29 +250,18 @@ const SiteNavItems = () => {
 								Programs & Plan
 							</AnimatedLink>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent>
+						<NavigationMenuContent className="group-data-[viewport=false]/navigation-menu:rounded-2xl">
 							<ul className="grid w-[350px] gap-2 md:w-[450px]">
-								<ListItem
-									pathname={pathname}
-									href="/programs/timeline"
-									title="Timeline 2025–2027"
-								>
-									Key activities and milestones of the action plan.
-								</ListItem>
-								<ListItem
-									pathname={pathname}
-									href="/programs/budget"
-									title="Budget Overview"
-								>
-									Financial needs to support our 3-year strategy.
-								</ListItem>
-								<ListItem
-									pathname={pathname}
-									href="/programs/milestones"
-									title="Milestones"
-								>
-									Tracking the progress and achievements of our initiatives.
-								</ListItem>
+								{programItems.map((link) => (
+									<ListItem
+										key={link.title}
+										pathname={pathname}
+										href={link.href}
+										title={link.title}
+									>
+										{link.description}
+									</ListItem>
+								))}
 							</ul>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
@@ -205,29 +273,18 @@ const SiteNavItems = () => {
 								Impact & Stories
 							</AnimatedLink>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent>
+						<NavigationMenuContent className="group-data-[viewport=false]/navigation-menu:rounded-2xl">
 							<ul className="grid w-[350px] gap-2">
-								<ListItem
-									pathname={pathname}
-									href="/impact/statistics"
-									title="Statistics"
-								>
-									Patients served, medicines delivered, and communities reached.
-								</ListItem>
-								<ListItem
-									pathname={pathname}
-									href="/impact/stories"
-									title="Stories"
-								>
-									Testimonials and stories from the communities we serve.
-								</ListItem>
-								<ListItem
-									pathname={pathname}
-									href="/impact/gallery"
-									title="Photo & Video Gallery"
-								>
-									Explore visuals of our work in action.
-								</ListItem>
+								{impactItems.map((link) => (
+									<ListItem
+										key={link.title}
+										pathname={pathname}
+										href={link.href}
+										title={link.title}
+									>
+										{link.description}
+									</ListItem>
+								))}
 							</ul>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
@@ -239,29 +296,18 @@ const SiteNavItems = () => {
 								Get Involved
 							</AnimatedLink>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent>
+						<NavigationMenuContent className="group-data-[viewport=false]/navigation-menu:rounded-2xl">
 							<ul className="grid w-[350px] gap-2">
-								<ListItem
-									pathname={pathname}
-									href="/get-involved/donate"
-									title="Donate"
-								>
-									Support our mission by making a contribution.
-								</ListItem>
-								<ListItem
-									pathname={pathname}
-									href="/get-involved/volunteer"
-									title="Volunteer"
-								>
-									Join as a volunteer or health worker in the field.
-								</ListItem>
-								<ListItem
-									pathname={pathname}
-									href="/get-involved/partner"
-									title="Partnerships"
-								>
-									Collaborate with us to expand healthcare access.
-								</ListItem>
+								{involvementItems.map((link) => (
+									<ListItem
+										key={link.title}
+										pathname={pathname}
+										href={link.href}
+										title={link.title}
+									>
+										{link.description}
+									</ListItem>
+								))}
 							</ul>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
@@ -273,37 +319,18 @@ const SiteNavItems = () => {
 								Biography
 							</AnimatedLink>
 						</NavigationMenuTrigger>
-						<NavigationMenuContent>
-							<ul className="grid w-[350px] gap-2">
-								<ListItem
-									pathname={pathname}
-									href="/biography/outreach"
-									title="Community Outreach"
-								>
-									Updates from rural outreach missions and mobile clinics.
-								</ListItem>
-								<ListItem
-									pathname={pathname}
-									href="/biography/training"
-									title="Workshops & Training"
-								>
-									Insights from our health and nutrition workshops.
-								</ListItem>
-								<ListItem
-									href="/biography/conferences"
-									title="Conferences & Advocacy"
-									pathname={pathname}
-								>
-									Where we've represented our mission nationally and
-									internationally.
-								</ListItem>
-								<ListItem
-									pathname={pathname}
-									href="/biography/press"
-									title="Press Releases"
-								>
-									Official announcements and publications.
-								</ListItem>
+						<NavigationMenuContent className="group-data-[viewport=false]/navigation-menu:rounded-2xl">
+							<ul className="grid  w-[350px] gap-2">
+								{biographyItems.map((item) => (
+									<ListItem
+										key={item.title}
+										pathname={pathname}
+										href={item.href}
+										title={item.title}
+									>
+										{item.description}
+									</ListItem>
+								))}
 							</ul>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
