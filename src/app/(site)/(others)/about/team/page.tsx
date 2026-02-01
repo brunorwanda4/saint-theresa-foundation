@@ -1,6 +1,8 @@
 "use client";
-import AhayoMarie from "./_components/ahayo-marie";
+import { Separator } from "@/components/ui/separator";
+import LeaderProfile from "./_components/LeaderProfile";
 import TeamHero from "./_components/team-hero";
+import { leadersData } from "./_data/leadersData";
 
 const OurTeamPage = () => {
 	return (
@@ -16,7 +18,10 @@ const OurTeamPage = () => {
 					</p>
 				</div>
 			</section>
-			<AhayoMarie />
+			<Separator />
+			<LeaderProfile leader={leadersData.ahayoMarie} />
+			<Separator />
+			<LeaderProfile leader={leadersData.jeanPaul} />
 		</main>
 	);
 };

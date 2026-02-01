@@ -2,14 +2,14 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface CarouselProps {
 	projects: {
 		image: string;
-		title: string;
-		description: string;
+		title?: string;
+		description?: string;
 	}[];
 	className?: string; // For the outermost wrapper
 	containerClassName?: string; // For the aspect-ratio/relative container
@@ -26,6 +26,7 @@ export default function Carousel({
 }: CarouselProps) {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [prevIndex, setPrevIndex] = useState(0);
+	const id = useId();
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -76,7 +77,7 @@ export default function Carousel({
 					>
 						<Image
 							src={projects[currentIndex].image}
-							alt={projects[currentIndex].title}
+							alt={projects[currentIndex].title || id}
 							fill
 							quality={95}
 							className={cn("object-cover", imageClassName)}

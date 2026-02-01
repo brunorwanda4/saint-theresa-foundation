@@ -24,7 +24,7 @@ const TeamHero = () => {
 					ease: "easeOut",
 				}}
 			>
-				<h2 className="lg:text-3xl md:text-2xl text-xl font-medium">
+				<h2 className="lg:text-3xl md:text-2xl text-xl ">
 					The <strong>Sainte Thérèse Foundation</strong> is led by a team of
 					seasoned humanitarian and healthcare professionals with over{" "}
 					<strong> 40 years of combined global experience</strong> in public
