@@ -180,3 +180,7 @@
 .p {
   @apply text-base leading-relaxed opacity-80 lg:text-lg;
 }
+
+.sm {
+  @apply text-sm leading-relaxed opacity-80 lg:text-base;
+}
