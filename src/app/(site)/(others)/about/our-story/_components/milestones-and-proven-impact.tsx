@@ -45,15 +45,76 @@ const MilestonesAndProvenImpact = () => {
 		},
 	];
 
+	// Animation variants for staggered list animation
+	const containerVariants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				staggerChildren: 0.1, // 0.1s delay between each milestone
+				duration: 0.6,
+			},
+		},
+	};
+
+	const titleVariants = {
+		hidden: { opacity: 0, y: -20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.8,
+				ease: [0.22, 1, 0.36, 1] as const,
+			},
+		},
+	};
+
+	// Each milestone "pops" in sequence
+	const milestoneVariants = {
+		hidden: { 
+			opacity: 0, 
+			scale: 0.8, 
+			y: 30 
+		},
+		visible: {
+			opacity: 1,
+			scale: 1,
+			y: 0,
+			transition: {
+				duration: 0.6,
+				type: "spring" as const,
+				stiffness: 100,
+				damping: 15,
+			},
+		},
+	};
+
 	return (
-		<section className="space-y-8 py-12">
-			<h1 className="h1">Milestones and Proven Impact</h1>
-			<main className="grid grid-cols-1 md:grid-cols-2 gap-6">
+		<motion.section 
+			className="space-y-8 py-12"
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true, amount: 0.2 }}
+			variants={containerVariants}
+		>
+			<motion.h1 
+				className="h1"
+				variants={titleVariants}
+			>
+				Milestones and Proven Impact
+			</motion.h1>
+			<motion.main 
+				className="grid grid-cols-1 md:grid-cols-2 gap-6"
+				variants={containerVariants}
+			>
 				{milestonesAndImpact.map((milestone, index) => (
 					<motion.div
 						key={`${milestone.title}-${index}`}
 						initial="initial"
 						whileHover="hover"
+						whileInView="visible"
+						viewport={{ once: true, amount: 0.3 }}
+						variants={milestoneVariants}
 						className={cn(
 							"relative overflow-hidden isolate flex flex-col gap-6 border border-muted-foreground/30 p-6 lg:p-10 rounded-xl justify-between items-start",
 							"group cursor-default",
@@ -67,7 +128,7 @@ const MilestonesAndProvenImpact = () => {
 							}}
 							transition={{
 								duration: 0.4,
-								ease: [0.33, 1, 0.68, 1], // Custom easeOutExpo for smoothness
+								ease: [0.22, 1, 0.36, 1] as const,
 							}}
 							className="absolute inset-0 bg-primary -z-10"
 						/>
@@ -93,8 +154,8 @@ const MilestonesAndProvenImpact = () => {
 						</div>
 					</motion.div>
 				))}
-			</main>
-		</section>
+			</motion.main>
+		</motion.section>
 	);
 };
 

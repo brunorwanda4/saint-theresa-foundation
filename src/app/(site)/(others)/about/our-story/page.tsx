@@ -7,11 +7,72 @@ import MilestonesAndProvenImpact from "./_components/milestones-and-proven-impac
 import VisionForTheUnderserved from "./_components/vision-for-the-underserved";
 
 const OurStory = () => {
+	// Animation variants for the top section
+	const containerVariants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				staggerChildren: 0.3,
+				duration: 0.6,
+			},
+		},
+	};
+
+	const headingVariants = {
+		hidden: { opacity: 0, x: -50 },
+		visible: {
+			opacity: 1,
+			x: 0,
+			transition: {
+				duration: 0.8,
+				ease: [0.22, 1, 0.36, 1] as const,
+			},
+		},
+	};
+
+	const textVariants = {
+		hidden: { opacity: 0, y: 30 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.8,
+				ease: [0.22, 1, 0.36, 1] as const,
+			},
+		},
+	};
+
+	// Separator animation variants
+	const separatorVariants = {
+		hidden: { width: "0%" },
+		visible: {
+			width: "100%",
+			transition: {
+				duration: 1.2,
+				ease: [0.22, 1, 0.36, 1] as const,
+			},
+		},
+	};
+
 	return (
 		<section className=" px-8 mt-12 space-y-8">
-			<div className=" flex flex-col lg:flex-row gap-8">
-				<h1 className="h1 lg:w-1/2">The Foundation’s Roots (2013–2019)</h1>
-				<p className="p lg:w-1/2">
+			<motion.div 
+				className=" flex flex-col lg:flex-row gap-8"
+				initial="hidden"
+				animate="visible"
+				variants={containerVariants}
+			>
+				<motion.h1 
+					className="h1 lg:w-1/2"
+					variants={headingVariants}
+				>
+					The Foundation's Roots (2013–2019)
+				</motion.h1>
+				<motion.p 
+					className="p lg:w-1/2"
+					variants={textVariants}
+				>
 					The story began in <strong>2013</strong> with the establishment of the
 					<strong>Sainte Thérèse Polyclinic</strong> in Rwamagana, Rwanda.
 					Founded by AHAYO Marie Anita a public health expert with 20 years of
@@ -22,13 +83,17 @@ const OurStory = () => {
 					creation of <strong>TRUST Pharmalab</strong>, a wholesale
 					pharmaceutical company designed to strengthen the medical supply chain
 					across Rwanda and neighboring countries like Congo and Burundi.
-				</p>
-			</div>
+				</motion.p>
+			</motion.div>
 			<motion.div
 				className="  "
 				initial={{ scale: 1.1, opacity: 0 }}
-				animate={{ scale: 1, opacity: 1 }}
-				transition={{ duration: 1.2, ease: "easeOut" }}
+				whileInView={{ scale: 1, opacity: 1 }}
+				viewport={{ once: true }}
+				transition={{ 
+					duration: 1.2, 
+					ease: [0.22, 1, 0.36, 1] as const
+				}}
 			>
 				<div className="max-w-[1280px] mx-auto w-full relative flex-shrink-0 h-screen">
 					<Image
@@ -42,9 +107,25 @@ const OurStory = () => {
 					/>
 				</div>
 			</motion.div>
-			<Separator />
+			<motion.div
+				initial="hidden"
+				whileInView="visible"
+				viewport={{ once: true, amount: 0.3 }}
+				variants={separatorVariants}
+				className="overflow-hidden"
+			>
+				<Separator />
+			</motion.div>
 			<VisionForTheUnderserved />
-			<Separator />
+			<motion.div
+				initial="hidden"
+				whileInView="visible"
+				viewport={{ once: true, amount: 0.3 }}
+				variants={separatorVariants}
+				className="overflow-hidden"
+			>
+				<Separator />
+			</motion.div>
 			<MilestonesAndProvenImpact />
 			<ContactWithUs />
 		</section>
