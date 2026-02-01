@@ -1,7 +1,7 @@
 "use client";
-import { Locate, PlusIcon } from "lucide-react";
-import Image from "next/image";
+import { PlusIcon } from "lucide-react";
 import { Accordion as AccordionPrimitive } from "radix-ui";
+import React from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import Carousel from "@/components/carousel";
 import {
@@ -54,9 +54,10 @@ const AhayoMarie = () => {
 			description: "",
 		},
 	];
+
 	return (
-		<section className=" flex flex-col space-y-4 lg:space-x-8 lg:flex-row">
-			<main className="lg:w-1/2  lg:space-y-8 space-y-4">
+		<section className="flex flex-col lg:flex-row gap-8 lg:gap-12 px-4 py-10 max-w-7xl mx-auto items-start">
+			<main className="w-full lg:w-1/2 space-y-8">
 				<div className="space-y-4">
 					<h2 className="h2">AHAYO Marie Anita</h2>
 					<p className=" p">
@@ -68,6 +69,7 @@ const AhayoMarie = () => {
 						healthcare to the most vulnerable and "hard-to-reach" populations.
 					</p>
 				</div>
+
 				<div className="space-y-4">
 					<h3 className="h3">Professional Leadership & Business Expertise</h3>
 					<p className="sm">
@@ -124,17 +126,18 @@ const AhayoMarie = () => {
 						))}
 					</Accordion>
 				</div>
+				<div className="lg:h-[60vh]" />
 			</main>
-			<section className="relative flex flex-col items-center w-full lg:w-1/2 ">
-				<div className="max-w-full mx-auto w-full">
+
+			<aside className="w-full lg:w-1/2 lg:sticky lg:top-30">
+				<div className="w-full rounded-3xl overflow-hidden">
 					<Carousel
-						className="min-h-120"
-						imageClassName="min-h-120"
-						containerClassName="min-h-120"
+						className="min-h-[500px] lg:min-h-[650px]"
+						imageClassName="object-cover h-full"
 						projects={leaders}
 					/>
 				</div>
-			</section>
+			</aside>
 		</section>
 	);
 };
