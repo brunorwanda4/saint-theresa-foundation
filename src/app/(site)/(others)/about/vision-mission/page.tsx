@@ -1,157 +1,65 @@
 "use client";
 
-import gsap from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import BeTheLightOfHope from "@/app/(site)/_components/home/be-the-light-of-hope";
+import LandingLink from "@/components/site/landing/LandingLink";
+import { Separator } from "@/components/ui/separator";
+import VisionMissionHero from "./_components/vision-mission-hero";
 
 const AboutVisionMissionPage = () => {
-  const titleRef = useRef(null);
-  const mandateRef = useRef(null);
-  const missionRef = useRef(null);
-  const valuesRef = useRef(null);
-  const principlesRef = useRef(null);
-  const containerRef = useRef(null);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-
-      tl.from(titleRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-      })
-        .from(
-          mandateRef.current,
-          {
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power2.out",
-          },
-          "-=0.3",
-        )
-        .from(
-          missionRef.current,
-          {
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power2.out",
-          },
-          "-=0.2",
-        )
-        .from(
-          valuesRef.current,
-          {
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power2.out",
-          },
-          "-=0.2",
-        )
-        .from(
-          principlesRef.current,
-          {
-            y: 30,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power2.out",
-          },
-          "-=0.2",
-        );
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <div
-      ref={containerRef}
-      className="from-primary-foreground mx-auto max-w-7xl space-y-12 bg-gradient-to-b to-gray-200 px-6 py-16 md:px-12"
-    >
-      <section id="vision-mission" className="space-y-6">
-        <h1 ref={titleRef} className="text-4xl font-bold">
-          Mission & Values
-        </h1>
-
-        <div className="space-y-6 leading-relaxed text-gray-700">
-          {/* Our mandate */}
-          <div ref={mandateRef}>
-            <h2 className="mb-2 text-2xl font-semibold">Our Mandate</h2>
-            <p>Our mandate is to:</p>
-            <ol className="ml-4 list-inside list-decimal space-y-2">
-              <li>
-                Improve access to healthcare for underserved rural communities
-                through mobile clinics, community pharmacies, and digital health
-                services.
-              </li>
-              <li>
-                Empower local communities and health workers with training,
-                resources, and sustainable solutions.
-              </li>
-            </ol>
-          </div>
-
-          {/* Our mission */}
-          <div ref={missionRef}>
-            <h2 className="mb-2 text-2xl font-semibold">Our Mission</h2>
-            <p>
-              The Sainte Thérèse Foundation is committed to enhancing the
-              well-being of underserved communities by deploying mobile
-              healthcare, digital medical tools, and sustainable community
-              pharmacies. We are guided by human dignity, compassion, and
-              Christian values, working to ensure equitable access to essential
-              health services.
-            </p>
-          </div>
-
-          {/* Our values */}
-          <div ref={valuesRef}>
-            <h2 className="mb-2 text-2xl font-semibold">Our Values</h2>
-            <ul className="ml-4 list-inside list-disc space-y-2">
-              <li>
-                Compassion: Caring for the vulnerable with empathy and respect.
-              </li>
-              <li>
-                Dignity: Treating every individual with fairness and humanity.
-              </li>
-              <li>
-                Solidarity: Collaborating with communities and partners for
-                lasting impact.
-              </li>
-              <li>
-                Integrity: Acting transparently, ethically, and responsibly.
-              </li>
-              <li>
-                Participation: Engaging communities in decision-making and
-                healthcare solutions.
-              </li>
-            </ul>
-          </div>
-
-          {/* Our working principles */}
-          <div ref={principlesRef}>
-            <h2 className="mb-2 text-2xl font-semibold">
-              Our Working Principles
-            </h2>
-            <p>We adhere to principles that guide our work and interactions:</p>
-            <ul className="ml-4 list-inside list-disc space-y-2">
-              <li>Inclusive and consultative in decision-making.</li>
-              <li>Respectful of local culture and needs.</li>
-              <li>Transparent, honest, and accountable.</li>
-              <li>Knowledge-driven and results-oriented.</li>
-              <li>Empathetic and caring in our approach.</li>
-              <li>
-                Innovative, always seeking better ways to serve communities.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+	const ourMissions = [
+		{
+			title: "Mobile Healthcare",
+			description: "Deploying mobile units to reach those in remote areas.",
+		},
+		{
+			title: "Sustainable Access",
+			description:
+				"Establishing community pharmacies to provide affordable medication.",
+		},
+		{
+			title: "Digital Innovation",
+			description:
+				"Using medical tools and e-consultation platforms to overcome distance.",
+		},
+	];
+	return (
+		<main className="min-h-screen py-8 space-y-8 px-8">
+			<VisionMissionHero />
+			<Separator />
+			<div className=" flex flex-col gap-4 lg:flex-row lg:gap-8">
+				<h1 className=" h1 lg:w-1/2">Vision</h1>
+				<p className="md:text-xl text-lg lg:w-1/2">
+					The foundation envisions a Rwanda where every individual, regardless
+					of their economic status or geographical location, has access to
+					affordable, quality healthcare and essential medicines.
+				</p>
+			</div>
+			<div className=" flex flex-col gap-4 lg:flex-row lg:gap-8 lg:mt-12">
+				<h1 className=" h1 lg:w-1/2">Mission</h1>
+				<div className="lg:w-1/2 space-y-4">
+					<p className="md:text-xl text-lg lg:w-1/2">
+						The foundation's mission is to enhance the well-being of underserved
+						communities through three primary pillars:
+					</p>
+					<section className="flex flex-col gap-4 ">
+						{ourMissions.map((mission, index) => (
+							<div
+								key={`${index}-${mission.title}`}
+								className="flex flex-col gap-2"
+							>
+								<h3 className="h3">
+									{index + 1}. {mission.title}
+								</h3>
+								<p className="p">{mission.description}</p>
+							</div>
+						))}
+					</section>
+				</div>
+			</div>
+			<Separator />
+			<BeTheLightOfHope />
+		</main>
+	);
 };
 
 export default AboutVisionMissionPage;
