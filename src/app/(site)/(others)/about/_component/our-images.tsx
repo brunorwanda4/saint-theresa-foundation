@@ -161,9 +161,9 @@ const OurImages = () => {
 		visible: {
 			opacity: 1,
 			transition: {
-				duration: 0.6
-			}
-		}
+				duration: 0.6,
+			},
+		},
 	};
 
 	return (
@@ -174,15 +174,14 @@ const OurImages = () => {
 			viewport={{ once: true, amount: 0.2 }}
 			variants={containerVariants}
 		>
-			{/* Carousel with enhanced animation */}
-			<motion.div 
+			<motion.div
 				className="max-w-[1280px] mx-auto w-full"
 				initial={{ scale: 0.95, opacity: 0 }}
 				whileInView={{ scale: 1, opacity: 1 }}
 				viewport={{ once: true, amount: 0.2 }}
-				transition={{ 
-					duration: 0.8, 
-					delay: 0.2
+				transition={{
+					duration: 0.8,
+					delay: 0.2,
 				}}
 			>
 				<Carousel projects={projects} />

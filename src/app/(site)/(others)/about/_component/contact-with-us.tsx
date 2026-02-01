@@ -1,79 +1,69 @@
 "use client";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { GoArrowRight } from "react-icons/go";
-import { motion } from "framer-motion";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const ContactWithUs = () => {
 	const containerVariants = {
-		hidden: { 
-			opacity: 0, 
+		hidden: {
+			opacity: 0,
 			y: 50,
-			scale: 0.95
+			scale: 0.95,
 		},
-		visible: { 
-			opacity: 1, 
+		visible: {
+			opacity: 1,
 			y: 0,
 			scale: 1,
 			transition: {
 				duration: 0.8,
-				staggerChildren: 0.2
-			}
-		}
+				staggerChildren: 0.2,
+			},
+		},
 	};
 
 	const textVariants = {
-		hidden: { 
-			opacity: 0, 
-			y: 20 
+		hidden: {
+			opacity: 0,
+			y: 20,
 		},
-		visible: { 
-			opacity: 1, 
+		visible: {
+			opacity: 1,
 			y: 0,
 			transition: {
-				duration: 0.6
-			}
-		}
+				duration: 0.6,
+			},
+		},
 	};
 
 	const buttonAnimationVariants = {
-		hidden: { 
-			opacity: 0, 
-			scale: 0.8 
+		hidden: {
+			opacity: 0,
+			scale: 0.8,
 		},
-		visible: { 
-			opacity: 1, 
+		visible: {
+			opacity: 1,
 			scale: 1,
 			transition: {
-				duration: 0.5
-			}
-		}
+				duration: 0.5,
+			},
+		},
 	};
 
 	return (
-		<motion.div 
+		<motion.div
 			className="bg-gradient-to-br from-primary to-info  from-10% to-90% text-background lg:p-8 p-4 rounded-2xl flex flex-col  justify-between"
 			initial="hidden"
 			whileInView="visible"
 			viewport={{ once: true, amount: 0.2 }}
 			variants={containerVariants}
-			whileHover={{ 
-				scale: 1.02,
-				transition: { duration: 0.3 }
-			}}
 		>
 			<motion.div variants={textVariants}>
-				<motion.span 
-					className="text-lg opacity-80 "
-					variants={textVariants}
-				>
+				<motion.span className="text-lg opacity-80 " variants={textVariants}>
 					Join us in extending the healing hand of service.
 				</motion.span>{" "}
-				<motion.h1 
-					className="h1 max-w-md"
-					variants={textVariants}
-				>
+				<motion.h1 className="h1 max-w-md" variants={textVariants}>
 					Partner with Our Mission
 				</motion.h1>
 			</motion.div>

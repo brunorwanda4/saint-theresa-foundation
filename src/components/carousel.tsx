@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 interface CarouselProps {
 	projects: {
@@ -10,9 +11,19 @@ interface CarouselProps {
 		title: string;
 		description: string;
 	}[];
+	className?: string; // For the outermost wrapper
+	containerClassName?: string; // For the aspect-ratio/relative container
+	imageClassName?: string; // For the Image components
+	overlayClassName?: string; // For an optional dark/gradient overlay
 }
 
-export default function Carousel({ projects }: CarouselProps) {
+export default function Carousel({
+	projects,
+	className,
+	containerClassName,
+	imageClassName,
+	overlayClassName,
+}: CarouselProps) {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [prevIndex, setPrevIndex] = useState(0);
 
@@ -26,24 +37,37 @@ export default function Carousel({ projects }: CarouselProps) {
 	}, [currentIndex, projects.length]);
 
 	return (
-		<div className="w-full">
-			<div className="relative w-full aspect-[16/9] rounded-[20px] overflow-hidden bg-black">
+		<div className={cn("w-full", className)}>
+			<div
+				className={cn(
+					"relative w-full aspect-[16/9] rounded-[20px] overflow-hidden bg-black",
+					containerClassName,
+				)}
+			>
 				<div className="absolute inset-0 z-0">
 					<Image
 						key={`bg-${prevIndex}`}
 						src={projects[prevIndex].image}
 						alt="background"
 						fill
-						className="object-cover"
+						className={cn("object-cover", imageClassName)}
 						priority
 					/>
 				</div>
 
-				<AnimatePresence>
+				<div
+					className={cn(
+						"absolute inset-0 z-[5] pointer-events-none",
+						overlayClassName,
+					)}
+				/>
+
+				<AnimatePresence mode="wait">
 					<motion.div
 						key={currentIndex}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
 						transition={{
 							duration: 0.7,
 							ease: "easeInOut",
@@ -55,7 +79,7 @@ export default function Carousel({ projects }: CarouselProps) {
 							alt={projects[currentIndex].title}
 							fill
 							quality={95}
-							className="object-cover"
+							className={cn("object-cover", imageClassName)}
 							priority
 						/>
 					</motion.div>

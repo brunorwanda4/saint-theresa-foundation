@@ -20,7 +20,7 @@ const SiteNavItems = () => {
 	const aboutUsPages = [
 		{
 			name: "Foundation story",
-			href: "/about",
+			href: "/about/our-story",
 			image: "/icons/history.png",
 		},
 		{
