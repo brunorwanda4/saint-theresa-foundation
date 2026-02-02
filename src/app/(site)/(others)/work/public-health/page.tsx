@@ -144,6 +144,7 @@ const PublicHealthPage = () => {
 						<p className="">{program.description}</p>
 					</motion.div>
 				))}
+				partnerships
 			</motion.div>
 			<Separator />
 			{/* Programs Section */}
