@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
@@ -165,7 +166,17 @@ export default function ImpactPage() {
 	};
 
 	return (
-		<main className="min-h-screen py-8" ref={containerRef}>
+		<main className="min-h-screen py-8 pt-24 lg:gap-y-16 flex flex-col">
+			<div className="flex flex-col lg:flex-row gap-4 lg:gap-8 global-px mb-8 max-w-5xl">
+				<motion.h1 className="h1 lg:w-1/2">Our Work</motion.h1>
+				<p className="lg:w-1/2 max-w-2xl leading-relaxed">
+					The Sainte Thérèse Foundation is a faith-inspired health organization
+					dedicated to transforming lives through compassionate care, education,
+					and empowerment. From humble beginnings, we've grown into a movement
+					of service across Rwanda.
+				</p>
+			</div>
+
 			<div
 				ref={headerRef}
 				className="global-px mx-auto mb-8 max-w-5xl items-center text-center"

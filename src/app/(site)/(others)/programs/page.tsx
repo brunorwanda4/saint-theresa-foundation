@@ -1,120 +1,71 @@
 "use client";
-import { programs } from "@/lib/data/programs";
 import { motion } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import { programs } from "@/lib/data/programs";
 
 export default function ProgramsPage() {
-  // Refs for GSAP animations
-  const headerRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<HTMLDivElement[]>([]);
+	const containerVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.8,
 
-  // Add to cards ref array
-  const addToCardsRef = (el: HTMLDivElement | null) => {
-    if (el && !cardsRef.current.includes(el)) {
-      cardsRef.current.push(el);
-    }
-  };
+				staggerChildren: 0.1,
+			},
+		},
+	};
 
-  useEffect(() => {
-    // Header animation
-    if (headerRef.current) {
-      gsap.fromTo(
-        headerRef.current,
-        {
-          opacity: 0,
-          y: -40,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: headerRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-            once: true,
-          },
-        },
-      );
-    }
+	const visionCardVariants = {
+		hidden: { opacity: 0, scale: 0.9, y: 20 },
+		visible: {
+			opacity: 1,
+			scale: 1,
+			y: 0,
+			transition: {
+				duration: 0.6,
+				ease: [0.22, 1, 0.36, 1] as const,
+			},
+		},
+	};
+	return (
+		<main className="min-h-screen py-8 pt-24 lg:gap-y-16 flex flex-col px-8">
+			<div className="flex flex-col lg:flex-row gap-4 lg:gap-8 global-px mb-8 max-w-5xl">
+				<motion.h1 className="h1 lg:w-1/2">Programs & Action Plan</motion.h1>
+				<p className="lg:w-1/2 max-w-2xl leading-relaxed">
+					Every project of the Sainte Thérèse Foundation aligns with a vision of
+					sustainable healthcare, education, and community empowerment. Our plan
+					ensures that faith-driven compassion translates into measurable,
+					lasting impact.
+				</p>
+			</div>
 
-    // Cards animation with staggered effect
-    cardsRef.current.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        {
-          opacity: 0,
-          y: 60,
-          scale: 0.9,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          delay: index * 0.15,
-          ease: "back.out(1.2)",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-            once: true,
-          },
-        },
-      );
-    });
-
-    // Clean up ScrollTrigger instances
-    return () => {
-      if (typeof window !== "undefined") {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      }
-    };
-  }, []);
-
-  return (
-    <main className="global-px min-h-screen py-8">
-      <div
-        ref={headerRef}
-        className="global-px mx-auto mb-8 max-w-5xl items-center text-center"
-      >
-        <h1 className="text-foreground mb-2 text-4xl font-bold">
-          Programs & Action Plan
-        </h1>
-        <p className="">
-          Every project of the Sainte Thérèse Foundation aligns with a vision of
-          sustainable healthcare, education, and community empowerment. Our plan
-          ensures that faith-driven compassion translates into measurable,
-          lasting impact.
-        </p>
-      </div>
-
-      <div className="mx-auto grid max-w-4xl gap-6">
-        {programs.map((p, i) => (
-          <motion.div
-            key={i}
-            ref={addToCardsRef}
-            whileHover={{ scale: 1.02 }}
-            className="site-card"
-          >
-            <h2 className="mb-2 text-xl font-semibold">
-              <Link href={p.href}>{p.title}</Link>
-            </h2>
-            <p className="mb-3">{p.desc}</p>
-            <Link href={p.href} className="font-medium hover:underline">
-              Learn more →
-            </Link>
-          </motion.div>
-        ))}
-      </div>
-    </main>
-  );
+			<motion.div
+				className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+				variants={containerVariants}
+			>
+				{programs.map((vision, index) => (
+					<motion.div
+						key={`${index}-${vision.title}`}
+						className="flex flex-col gap-2 justify-between bg-foreground text-background p-4 lg:p-8 min-h-32 rounded-md  items-center"
+						variants={visionCardVariants}
+						custom={index}
+					>
+						<div className="flex flex-col gap-2">
+							<Link href={vision.href} className="h3 text-center ">
+								{vision.title}
+							</Link>
+							<Link href={vision.href} className="p text-center">
+								{vision.desc}
+							</Link>
+						</div>
+						<Link href={vision.href} className="font-medium hover:underline">
+							Learn more →
+						</Link>
+					</motion.div>
+				))}
+			</motion.div>
+		</main>
+	);
 }
