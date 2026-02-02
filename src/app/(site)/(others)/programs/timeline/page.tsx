@@ -8,6 +8,7 @@ import { useEffect, useRef } from "react";
 import MyImage from "@/components/common/images/MyImage";
 import SiteLink from "@/components/common/site/site-link";
 import { Timeline } from "@/components/ui/timeline";
+import ContactWithUs from "../../about/_component/contact-with-us";
 
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
@@ -325,6 +326,7 @@ export default function TimelinePage() {
 					/>
 				</div>
 			</section>
+			<ContactWithUs />
 		</main>
 	);
 }
