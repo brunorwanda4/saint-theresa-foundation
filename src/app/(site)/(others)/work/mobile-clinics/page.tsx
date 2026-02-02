@@ -242,7 +242,7 @@ const MobileClinicsPage = () => {
 	];
 
 	return (
-		<main ref={containerRef} className="min-h-screen py-16">
+		<main className=" max-w-7xl space-y-8  py-16 px-8">
 			<div className="space-y-4 flex flex-col lg:flex-row lg:space-x-8 global-px">
 				<h1 ref={headingRef} className="h1  lg:w-1/2">
 					Mobile Clinics
