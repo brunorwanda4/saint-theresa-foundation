@@ -47,11 +47,7 @@ const SiteNavItems = () => {
 			description:
 				"Bringing healthcare directly to rural and hard-to-reach communities.",
 		},
-		{
-			title: "Community Pharmacies",
-			href: "/work/community-pharmacies",
-			description: "Establishing local access to affordable medicine.",
-		},
+
 		{
 			title: "Digital Health",
 			href: "/work/digital-health",

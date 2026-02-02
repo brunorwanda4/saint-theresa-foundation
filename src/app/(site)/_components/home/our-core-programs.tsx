@@ -18,7 +18,6 @@ const OurCorePrograms = () => {
 			description:
 				"Establishing local pharmacies that offer subsidized or low-cost medication to ensure the most vulnerable can afford treatment .",
 			className: " bg-primary",
-			href: "/work/community-pharmacies",
 		},
 		{
 			title: "Digital Health Initiatives",
@@ -56,13 +55,12 @@ const OurCorePrograms = () => {
 			y: 0,
 			transition: {
 				duration: 0.8,
-
 			},
 		},
 	};
 
 	return (
-		<motion.section 
+		<motion.section
 			className="space-y-8 flex flex-col justify-between h-full"
 			variants={containerVariants}
 			initial="hidden"
@@ -72,7 +70,7 @@ const OurCorePrograms = () => {
 			<motion.h1 className="h1" variants={itemVariants}>
 				Our Core Programs
 			</motion.h1>
-			<motion.div 
+			<motion.div
 				className="grid-cols-1 lg:grid-cols-2 grid gap-4"
 				variants={containerVariants}
 			>

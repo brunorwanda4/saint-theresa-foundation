@@ -23,7 +23,6 @@ const footerSections = [
 		title: "Programs",
 		links: [
 			{ name: "Mobile Clinics", href: "/work/mobile-clinics" },
-			{ name: "Community Pharmacies", href: "/work/community-pharmacies" },
 			{ name: "Digital Health Platform", href: "/work/digital-health" },
 			{ name: "Public Health Education", href: "/work/public-health" },
 			{ name: "Community Capacity Building", href: "/work/training" },

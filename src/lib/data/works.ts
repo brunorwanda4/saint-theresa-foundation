@@ -13,12 +13,6 @@ export const works: WorkItem[] = [
 		img: "/images/ambulance.jpg",
 	},
 	{
-		title: "Community Pharmacies",
-		desc: "Building sustainable access to affordable medicines for all.",
-		href: "/work/community-pharmacies",
-		img: "/images/pharmacy.jpg",
-	},
-	{
 		title: "Digital Health",
 		desc: "Harnessing technology to connect patients and doctors across Rwanda.",
 		href: "/work/digital-health",

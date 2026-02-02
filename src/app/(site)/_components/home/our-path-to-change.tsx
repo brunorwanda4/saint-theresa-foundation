@@ -16,7 +16,6 @@ const OurPathToChange = () => {
 			action:
 				"Establishing community pharmacies to provide subsidized medication to those in financial need.",
 			image: "/images/pharmacy-1.jpg",
-			href: "/work/community-pharmacies", // Mapped to Pharmacies
 		},
 		{
 			step: "Innovate Through Technology",
@@ -68,13 +67,12 @@ const OurPathToChange = () => {
 			y: 0,
 			transition: {
 				duration: 0.8,
-
 			},
 		},
 	};
 
 	return (
-		<motion.section 
+		<motion.section
 			className="space-y-8 flex flex-col justify-between h-full"
 			variants={containerVariants}
 			initial="hidden"
@@ -84,7 +82,7 @@ const OurPathToChange = () => {
 			<motion.h1 className="h1" variants={itemVariants}>
 				Our Path To Change
 			</motion.h1>
-			<motion.main 
+			<motion.main
 				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
 				variants={containerVariants}
 			>
