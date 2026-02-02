@@ -2,10 +2,8 @@
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import PathToChangeCard from "@/components/cards/path-to-change-card";
-import MyImage from "@/components/common/images/MyImage";
 import { works } from "@/lib/data/works";
 
 if (typeof window !== "undefined") {
