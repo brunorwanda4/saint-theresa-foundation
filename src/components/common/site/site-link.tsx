@@ -2,20 +2,19 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import type { RefObject } from "react";
+import React, { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
 interface Props {
 	link: string;
-	children: string;
+	children: React.ReactNode;
 	className?: string;
-	ref?: RefObject<HTMLAnchorElement | null>;
 }
 
 // Wrap the Next.js Link with Framer Motion
 const MotionLink = motion(Link);
 
-const SiteLink = ({ children, link, className, ref }: Props) => {
+const SiteLink = forwardRef<HTMLAnchorElement, Props>(({ children, link, className }, ref) => {
 	return (
 		<MotionLink
 			ref={ref}
@@ -35,6 +34,6 @@ const SiteLink = ({ children, link, className, ref }: Props) => {
 			{children}
 		</MotionLink>
 	);
-};
+});
 
 export default SiteLink;

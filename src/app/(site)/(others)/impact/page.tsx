@@ -1,9 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import ContactWithUs from "../about/_component/contact-with-us";
 
 export default function ImpactPage() {
 	const items = [
@@ -45,8 +43,8 @@ export default function ImpactPage() {
 		},
 	};
 	return (
-		<main className="min-h-screen py-8 pt-24 lg:gap-y-16 flex flex-col">
-			<div className="flex flex-col lg:flex-row gap-4 lg:gap-8 global-px mb-8 max-w-5xl">
+		<main className="min-h-screen py-8 pt-24 lg:gap-y-16 flex flex-col global-px">
+			<div className="flex flex-col lg:flex-row gap-4 lg:gap-8  mb-8 max-w-5xl">
 				<motion.h1 className="h1 lg:w-1/2">Impact & Stories</motion.h1>
 				<p className="lg:w-1/2 max-w-2xl leading-relaxed">
 					Behind every number is a human story. Our impact is measured not only
@@ -55,7 +53,7 @@ export default function ImpactPage() {
 			</div>
 			<section className=" flex items-center justify-center">
 				<motion.div
-					className=" flex lg:flex-row flex-col  gap-4 global-px"
+					className=" flex lg:flex-row flex-col  gap-4 "
 					variants={containerVariants}
 				>
 					{items.map((vision, index) => (
@@ -80,6 +78,7 @@ export default function ImpactPage() {
 					))}
 				</motion.div>
 			</section>
+			<ContactWithUs />
 		</main>
 	);
 }

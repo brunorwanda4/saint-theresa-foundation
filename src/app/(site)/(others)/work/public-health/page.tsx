@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
+import Carousel from "@/components/carousel";
 import MyImage from "@/components/common/images/MyImage";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
@@ -102,6 +103,25 @@ const PublicHealthPage = () => {
 			},
 		},
 	};
+
+	const projects = [
+		{
+			image: "/images/d/13.jpg",
+			title: "Coming Soon",
+		},
+		{
+			image: "/images/d/16.jpg",
+			title: "Coming Soon",
+		},
+		{
+			image: "/images/d/22.jpg",
+			title: "Coming Soon",
+		},
+		{
+			image: "/images/d/23.jpg",
+			title: "Coming Soon",
+		},
+	];
 	return (
 		<main className="mx-auto max-w-7xl space-y-8  py-16 px-8">
 			<PublicHealthHero />
@@ -144,8 +164,27 @@ const PublicHealthPage = () => {
 						<p className="">{program.description}</p>
 					</motion.div>
 				))}
-				partnerships
 			</motion.div>
+			<motion.section
+				className="relative flex flex-col items-center"
+				initial="hidden"
+				whileInView="visible"
+				viewport={{ once: true, amount: 0.2 }}
+				variants={containerVariants}
+			>
+				<motion.div
+					className="max-w-[1280px] mx-auto w-full"
+					initial={{ scale: 0.95, opacity: 0 }}
+					whileInView={{ scale: 1, opacity: 1 }}
+					viewport={{ once: true, amount: 0.2 }}
+					transition={{
+						duration: 0.8,
+						delay: 0.2,
+					}}
+				>
+					<Carousel projects={projects} />
+				</motion.div>
+			</motion.section>
 			<Separator />
 			{/* Programs Section */}
 			<section className="">
