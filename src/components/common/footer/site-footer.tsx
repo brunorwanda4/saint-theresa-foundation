@@ -45,12 +45,11 @@ const footerSections = [
 	{
 		title: "Resources",
 		links: [
-			{ name: "Articles, videos, and PDFs", href: "/impact/gallery" },
+			{ name: "Articles, videos, and Images", href: "/impact/gallery" },
 			{
 				name: "Workshops & community event reports",
 				href: "/biography/training",
 			},
-			{ name: "Downloads and guides", href: "/resources/downloads" },
 		],
 	},
 	{

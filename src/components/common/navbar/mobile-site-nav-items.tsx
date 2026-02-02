@@ -176,13 +176,6 @@ const MobileSiteNavItems = () => {
 						<AccordionTrigger>Impact & Stories</AccordionTrigger>
 						<AccordionContent>
 							<MobileLink
-								href="/impact/statistics"
-								pathname={pathname}
-								onClick={handleClose}
-							>
-								Statistics
-							</MobileLink>
-							<MobileLink
 								href="/impact/stories"
 								pathname={pathname}
 								onClick={handleClose}

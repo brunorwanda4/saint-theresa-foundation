@@ -90,12 +90,6 @@ const SiteNavItems = () => {
 
 	const impactItems = [
 		{
-			title: "Statistics",
-			href: "/impact/statistics",
-			description:
-				"Patients served, medicines delivered, and communities reached.",
-		},
-		{
 			title: "Stories",
 			href: "/impact/stories",
 			description: "Testimonials and stories from the communities we serve.",

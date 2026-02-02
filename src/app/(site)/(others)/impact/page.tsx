@@ -19,11 +19,6 @@ interface ImpactItem {
 export default function ImpactPage() {
 	const items: ImpactItem[] = [
 		{
-			title: "Statistics",
-			desc: "Our numbers tell a story – lives touched, communities reached, and medicines delivered.",
-			href: "/impact/statistics",
-		},
-		{
 			title: "Stories",
 			desc: "Personal journeys of healing, resilience, and transformation from the field.",
 			href: "/impact/stories",
