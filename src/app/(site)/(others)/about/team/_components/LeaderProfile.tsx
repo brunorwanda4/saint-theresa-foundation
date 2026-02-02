@@ -1,7 +1,7 @@
 "use client";
 import { PlusIcon } from "lucide-react";
 import { Accordion as AccordionPrimitive } from "radix-ui";
-import React, { useId } from "react";
+import { useId } from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import Carousel from "@/components/carousel";
 import {
@@ -34,9 +34,15 @@ const LeaderProfile = ({ leader }: { leader: Leader }) => {
 								<AccordionPrimitive.Header className="flex">
 									<AccordionPrimitive.Trigger className="flex flex-1 items-center justify-between rounded-md py-2 text-left font-semibold text-[15px] leading-6 outline-none transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 [&[data-state=open]>svg]:rotate-180">
 										<span className="flex items-center gap-3">
-											<div className=" bg-foreground text-background grid place-content-center text-xl font-light rounded-full size-16">
-												{item.startDate}
-											</div>
+											{typeof item.startDate === "number" ? (
+												<div className=" bg-foreground text-background grid place-content-center text-xl font-light rounded-full size-16">
+													{item.startDate}
+												</div>
+											) : (
+												<span className="text-xl font-light">
+													{item.startDate}
+												</span>
+											)}
 											<span className="flex flex-col space-y-1">
 												<span className="h4">{item.organization}</span>
 												<div className="flex flex-row gap-4">

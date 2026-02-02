@@ -24,7 +24,7 @@ const SiteNavItems = () => {
 			image: "/icons/history.png",
 		},
 		{
-			name: "Leadership bios & photos",
+			name: "Leadership bios",
 			href: "/about/team",
 			image: "/icons/group.png",
 		},

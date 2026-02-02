@@ -1,12 +1,14 @@
 "use client";
 import { Separator } from "@/components/ui/separator";
+import ContactWithUs from "../_component/contact-with-us";
 import LeaderProfile from "./_components/LeaderProfile";
+import OperationalTeam from "./_components/operational-team";
 import TeamHero from "./_components/team-hero";
 import { leadersData } from "./_data/leadersData";
 
 const OurTeamPage = () => {
 	return (
-		<main className=" px-8 mt-12 space-y-8">
+		<main className=" px-8 mt-12 space-y-8 lg:space-y-12">
 			<TeamHero />
 			<section>
 				<div className=" space-y-2">
@@ -22,6 +24,9 @@ const OurTeamPage = () => {
 			<LeaderProfile leader={leadersData.ahayoMarie} />
 			<Separator />
 			<LeaderProfile leader={leadersData.jeanPaul} />
+			<Separator />
+			<OperationalTeam />
+			<ContactWithUs />
 		</main>
 	);
 };
