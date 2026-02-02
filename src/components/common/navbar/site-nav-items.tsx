@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import AnimatedLink from "@/components/common/animation/animated-link";
-import MyImage from "@/components/common/images/MyImage";
 import { Button } from "@/components/ui/button";
 import {
 	NavigationMenu,

@@ -12,12 +12,6 @@ const OurPathToChange = () => {
 			href: "/work/mobile-clinics", // Mapped to Mobile Clinics
 		},
 		{
-			step: "Ensure Medicine Equity",
-			action:
-				"Establishing community pharmacies to provide subsidized medication to those in financial need.",
-			image: "/images/pharmacy-1.jpg",
-		},
-		{
 			step: "Innovate Through Technology",
 			action:
 				"Using e-consultation and digital tools to connect remote patients with quality medical expertise.",
@@ -37,6 +31,12 @@ const OurPathToChange = () => {
 				"Training community health workers and local leaders to ensure long-term, self-sustaining health promotion.",
 			image: "/images/d/2.jpg",
 			href: "/work/training", // Mapped to Training & Empowerment
+		},
+		{
+			step: "Timeline 2025–2027",
+			action: "Key activities and milestones of the action plan.",
+			image: "/images/digital-health-2.jpg",
+			href: "/programs/timeline", // Mapped to Partnerships
 		},
 		{
 			step: "Foster Global Solidarity",
