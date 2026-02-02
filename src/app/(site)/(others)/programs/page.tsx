@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { programs } from "@/lib/data/programs";
+import BeTheLightOfHope from "../../_components/home/be-the-light-of-hope";
 
 export default function ProgramsPage() {
 	const containerVariants = {
@@ -66,6 +67,7 @@ export default function ProgramsPage() {
 					</motion.div>
 				))}
 			</motion.div>
+			<BeTheLightOfHope />
 		</main>
 	);
 }
