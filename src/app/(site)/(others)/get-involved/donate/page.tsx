@@ -116,7 +116,6 @@ export default function DonatePage() {
 		visible: {
 			clipPath: "inset(0 0% 0 0)",
 			opacity: 1,
-			transition: { duration: 1.2, ease: "easeInOut" },
 		},
 	};
 
@@ -130,6 +129,7 @@ export default function DonatePage() {
 						variants={maskRevealVariants}
 						initial="hidden"
 						animate="visible"
+						transition={{ duration: 1.2, ease: "easeInOut" }}
 					>
 						Support Community Health & Equity
 					</motion.h1>
@@ -159,7 +159,7 @@ export default function DonatePage() {
 					</h2>
 
 					<ul className="space-y-4 leading-relaxed ">
-						<li ref={(el) => (listItemsRef.current[0] = el)} className="p">
+						<li ref={(el) => { listItemsRef.current[0] = el; }} className="p">
 							<strong>• Financial Contributions (Impact Tiers):</strong> Support
 							our Community Health and Access Initiative with a total budget of{" "}
 							<strong>271,040,000 RWF (~$186,500 USD)</strong>, including mobile
@@ -167,20 +167,20 @@ export default function DonatePage() {
 							digital health platforms.
 						</li>
 
-						<li ref={(el) => (listItemsRef.current[1] = el)} className="p">
+						<li ref={(el) => { listItemsRef.current[1] = el; }} className="p">
 							<strong>• Strategic Partnerships:</strong> Collaborate with us
 							through faith-based networks, pharmaceutical and logistics firms,
 							and development organizations to ensure sustainable healthcare
 							delivery.
 						</li>
 
-						<li ref={(el) => (listItemsRef.current[2] = el)} className="p">
+						<li ref={(el) => { listItemsRef.current[2] = el; }} className="p">
 							<strong>• Capacity Building & Training:</strong> Fund training for
 							community health workers and public education on nutrition,
 							hygiene, and disease prevention under our 2025–2027 plan.
 						</li>
 
-						<li ref={(el) => (listItemsRef.current[3] = el)} className="p">
+						<li ref={(el) => { listItemsRef.current[3] = el; }} className="p">
 							<strong>• Professional & Advocacy Support:</strong> Contribute
 							expertise, staffing, and advocacy to strengthen our institutional
 							capacity and global health engagement.
