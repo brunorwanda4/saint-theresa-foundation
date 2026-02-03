@@ -232,13 +232,6 @@ const MobileSiteNavItems = () => {
 								Community Outreach
 							</MobileLink>
 							<MobileLink
-								href="/biography/training"
-								pathname={pathname}
-								onClick={handleClose}
-							>
-								Workshops & Training
-							</MobileLink>
-							<MobileLink
 								href="/biography/conferences"
 								pathname={pathname}
 								onClick={handleClose}

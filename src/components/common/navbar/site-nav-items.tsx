@@ -126,11 +126,6 @@ const SiteNavItems = () => {
 			description: "Updates from rural outreach missions and mobile clinics.",
 		},
 		{
-			title: "Workshops & Training",
-			href: "/biography/training",
-			description: "Insights from our health and nutrition workshops.",
-		},
-		{
 			title: "Conferences & Advocacy",
 			href: "/biography/conferences",
 			description:

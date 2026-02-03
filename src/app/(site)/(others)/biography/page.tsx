@@ -11,11 +11,6 @@ export default function BiographyPage() {
 			href: "/biography/outreach",
 		},
 		{
-			title: "Workshops & Training",
-			desc: "Highlights from our ongoing workshops for healthcare and nutrition education.",
-			href: "/biography/training",
-		},
-		{
 			title: "Conferences & Advocacy",
 			desc: "Where we've represented our mission nationally and internationally to share our vision of faith-driven care.",
 			href: "/biography/conferences",
