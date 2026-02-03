@@ -66,12 +66,14 @@ const LeadershipTeam = () => {
 					</motion.h2>
 
 					<motion.div
-						className="relative w-full max-w-md lg:h-90 h-0 hidden lg:flex items-center justify-center"
+						className="relative w-full max-w-md h-0 lg:h-90 hidden lg:flex items-center justify-center"
 						variants={itemVariants}
 					>
 						<div
-							className={`relative overflow-hidden rounded-3xl transform -rotate-3 transition-all duration-500 ease-in-out shadow-2xl aspect-[4/3] w-full
-                ${hoveredImage ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}  hidden lg:block`}
+							className={cn(
+								"relative overflow-hidden rounded-3xl transform -rotate-3 transition-all duration-500 ease-in-out shadow-2xl aspect-[4/3] w-full",
+								hoveredImage ? "opacity-100 scale-100" : "opacity-0 scale-95",
+							)}
 						>
 							{hoveredImage && (
 								<div className="relative w-full h-full">
