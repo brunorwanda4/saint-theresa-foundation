@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import React from "react";
 
 const OurGrowingImpact = () => {
 	const stats = [
@@ -51,18 +50,17 @@ const OurGrowingImpact = () => {
 			y: 0,
 			transition: {
 				duration: 0.8,
-
 			},
 		},
 	};
 
 	return (
-		<motion.div 
+		<motion.div
 			className="relative w-full max-w-6xl mx-auto overflow-hidden bg-[#0a1d2e] rounded-xl p-8"
 			initial={{ opacity: 0, y: 20 }}
 			whileInView={{ opacity: 1, y: 0 }}
 			viewport={{ once: true, margin: "-100px" }}
-			transition={{ duration: 0.8, }}
+			transition={{ duration: 0.8 }}
 		>
 			{/* Background Decorative Slants */}
 			<div className="absolute top-0 right-0 w-full h-full pointer-events-none">
@@ -71,7 +69,7 @@ const OurGrowingImpact = () => {
 			</div>
 
 			{/* Title */}
-			<motion.h2 
+			<motion.h2
 				className="relative z-10 h2 text-background mb-6"
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
@@ -82,7 +80,7 @@ const OurGrowingImpact = () => {
 			</motion.h2>
 
 			{/* Stats Container */}
-			<motion.div 
+			<motion.div
 				className="relative z-10 flex flex-col md:flex-row bg-[#e9ecef] rounded-2xl overflow-hidden shadow-2xl"
 				variants={containerVariants}
 				initial="hidden"

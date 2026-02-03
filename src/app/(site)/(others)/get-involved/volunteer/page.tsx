@@ -142,10 +142,7 @@ export default function VolunteerPage() {
 						Whether you're a medical professional, a student, or simply
 						passionate about helping others – there's a place for you.
 					</p>
-					<SiteLink
-						className="text-primary-foreground mt-3 inline-block rounded-full px-8 py-3 font-semibold transition"
-						link="/contact"
-					>
+					<SiteLink className="mt-3 " link="/contact">
 						Apply Now
 					</SiteLink>
 				</div>
