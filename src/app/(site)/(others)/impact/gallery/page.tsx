@@ -9,34 +9,8 @@ import ContactWithUs from "../../about/_component/contact-with-us";
 import { OpenImages } from "./_components/open-images";
 
 export default function GalleryPage() {
-	const videoRef = useRef<HTMLVideoElement>(null);
-	const [isPlaying, setIsPlaying] = useState(false);
 	const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 	const [isImageDialogOpen, setIsImageDialogOpen] = useState(false);
-	const videoSectionRef = useRef<HTMLDivElement>(null);
-	const videoButtonRef = useRef<HTMLButtonElement>(null);
-
-	const handlePlay = () => {
-		const v = videoRef.current;
-		if (!v) return;
-		v.play();
-		v.controls = true;
-		setIsPlaying(true);
-		// Animate the play button away
-		if (videoButtonRef.current) {
-			gsap.to(videoButtonRef.current, {
-				opacity: 0,
-				scale: 0.8,
-				duration: 0.3,
-				ease: "power2.out",
-				onComplete: () => {
-					if (videoButtonRef.current) {
-						videoButtonRef.current.style.display = "none";
-					}
-				},
-			});
-		}
-	};
 
 	const handleImageClick = (index: number) => {
 		setSelectedImageIndex(index);
@@ -75,32 +49,7 @@ export default function GalleryPage() {
 						</div>
 					))}
 			</div>
-			<div ref={videoSectionRef} className="mt-8">
-				<div className="relative">
-					<video
-						ref={videoRef}
-						className="w-full rounded-lg shadow-xl"
-						poster="/images/image-11.jpeg"
-						preload="metadata"
-					>
-						<source src="/videos/video-1.mp4" type="video/mp4" />
-					</video>
-					{!isPlaying && (
-						<button
-							ref={videoButtonRef}
-							type="button"
-							onClick={handlePlay}
-							aria-label="Play mission video"
-							className="absolute inset-0 grid place-items-center rounded-lg bg-black/30 transition-colors"
-						>
-							<span className="inline-flex items-center gap-3 rounded-full bg-white px-5 py-3 font-medium text-black shadow-lg">
-								<Play className="h-5 w-5" />
-								Play video
-							</span>
-						</button>
-					)}
-				</div>
-			</div>
+
 			<ContactWithUs />
 			{/* Image Dialog */}
 			<OpenImages
