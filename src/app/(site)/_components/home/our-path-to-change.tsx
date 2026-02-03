@@ -12,13 +12,6 @@ const OurPathToChange = () => {
 			href: "/work/mobile-clinics", // Mapped to Mobile Clinics
 		},
 		{
-			step: "Ensure Medicine Equity",
-			action:
-				"Establishing community pharmacies to provide subsidized medication to those in financial need.",
-			image: "/images/pharmacy-1.jpg",
-			href: "/work/community-pharmacies", // Mapped to Pharmacies
-		},
-		{
 			step: "Innovate Through Technology",
 			action:
 				"Using e-consultation and digital tools to connect remote patients with quality medical expertise.",
@@ -38,6 +31,12 @@ const OurPathToChange = () => {
 				"Training community health workers and local leaders to ensure long-term, self-sustaining health promotion.",
 			image: "/images/d/2.jpg",
 			href: "/work/training", // Mapped to Training & Empowerment
+		},
+		{
+			step: "Timeline 2025–2027",
+			action: "Key activities and milestones of the action plan.",
+			image: "/images/digital-health-2.jpg",
+			href: "/programs/timeline", // Mapped to Partnerships
 		},
 		{
 			step: "Foster Global Solidarity",
@@ -68,13 +67,12 @@ const OurPathToChange = () => {
 			y: 0,
 			transition: {
 				duration: 0.8,
-
 			},
 		},
 	};
 
 	return (
-		<motion.section 
+		<motion.section
 			className="space-y-8 flex flex-col justify-between h-full"
 			variants={containerVariants}
 			initial="hidden"
@@ -84,7 +82,7 @@ const OurPathToChange = () => {
 			<motion.h1 className="h1" variants={itemVariants}>
 				Our Path To Change
 			</motion.h1>
-			<motion.main 
+			<motion.main
 				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
 				variants={containerVariants}
 			>

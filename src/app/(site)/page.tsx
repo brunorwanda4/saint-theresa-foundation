@@ -1,6 +1,6 @@
 "use client";
-import type { Metadata } from "next";
 import { motion } from "framer-motion";
+import type { Metadata } from "next";
 import LandingLink from "@/components/site/landing/LandingLink";
 import BeTheLightOfHope from "./_components/home/be-the-light-of-hope";
 import HomeHero from "./_components/home/home-hero";
@@ -40,7 +40,7 @@ const itemVariants = {
 
 const LadingPage = () => {
 	return (
-		<motion.div 
+		<motion.div
 			className="space-y-8 px-8"
 			variants={containerVariants}
 			initial="hidden"

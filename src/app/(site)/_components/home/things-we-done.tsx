@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Carousel from "@/components/carousel";
 
 const projects = [
@@ -9,68 +8,47 @@ const projects = [
 		title: "Coming Soon",
 		description:
 			"This project is currently in development. Stay tuned for updates!",
-		blogUrl: "#",
-		githubUrl: "#",
-		isPlaceholder: true,
 	},
 	{
 		image: "/images/d/3.jpg",
 		title: "In Progress",
 		description: "Working on something exciting. Check back soon!",
-		blogUrl: "#",
-		githubUrl: "#",
-		isPlaceholder: true,
 	},
 	{
 		image: "/images/d/2.jpg",
 		title: "Under Construction",
 		description: "Building amazing features. More details coming soon!",
-		blogUrl: "#",
-		githubUrl: "#",
-		isPlaceholder: true,
 	},
 	{
 		image: "/images/d/4.jpeg",
 		title: "Coming Soon",
 		description: "An exciting new project is on the way!",
-		blogUrl: "#",
-		githubUrl: "#",
-		isPlaceholder: true,
 	},
 	{
 		image: "/images/d/7.jpeg",
 		title: "Coming Soon",
 		description: "An exciting new project is on the way!",
-		blogUrl: "#",
-		githubUrl: "#",
-		isPlaceholder: true,
 	},
 	{
 		image: "/images/d/5.jpg",
 		title: "Coming Soon",
 		description: "An exciting new project is on the way!",
-		blogUrl: "#",
-		githubUrl: "#",
-		isPlaceholder: true,
 	},
 	{
 		image: "/images/d/6.jpg",
 		title: "Coming Soon",
 		description: "An exciting new project is on the way!",
-		blogUrl: "#",
-		githubUrl: "#",
-		isPlaceholder: true,
 	},
 ];
 
 const ThingsWeDone = () => {
 	return (
-		<motion.section 
+		<motion.section
 			className="relative flex flex-col items-center"
 			initial={{ opacity: 0, y: 20 }}
 			whileInView={{ opacity: 1, y: 0 }}
 			viewport={{ once: true, margin: "-100px" }}
-			transition={{ duration: 0.8, }}
+			transition={{ duration: 0.8 }}
 		>
 			{/* Carousel */}
 			<div className="max-w-[1280px] mx-auto w-full">

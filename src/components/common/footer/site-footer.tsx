@@ -23,7 +23,6 @@ const footerSections = [
 		title: "Programs",
 		links: [
 			{ name: "Mobile Clinics", href: "/work/mobile-clinics" },
-			{ name: "Community Pharmacies", href: "/work/community-pharmacies" },
 			{ name: "Digital Health Platform", href: "/work/digital-health" },
 			{ name: "Public Health Education", href: "/work/public-health" },
 			{ name: "Community Capacity Building", href: "/work/training" },
@@ -45,14 +44,7 @@ const footerSections = [
 	},
 	{
 		title: "Resources",
-		links: [
-			{ name: "Articles, videos, and PDFs", href: "/impact/gallery" },
-			{
-				name: "Workshops & community event reports",
-				href: "/biography/training",
-			},
-			{ name: "Downloads and guides", href: "/resources/downloads" },
-		],
+		links: [{ name: "Articles, videos, and Images", href: "/impact/gallery" }],
 	},
 	{
 		title: "Get Involved",
@@ -120,9 +112,9 @@ export default function SiteFooter() {
 						<Button
 							onClick={scrollToTop}
 							variant="outline"
-							className=" bg-foreground hover:bg-background hover:text-foreground duration-150 cursor-pointer"
+							className=" bg-foreground hover:bg-background hover:text-foreground duration-150 cursor-pointer rounded-full size-10"
 						>
-							<FaArrowUp className="w-5 h-5" />
+							<FaArrowUp size={20} />
 						</Button>
 
 						<div className="bg-[#334155]/40 border border-white/10 p-6 rounded-2xl w-full max-w-[300px]">

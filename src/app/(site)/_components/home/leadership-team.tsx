@@ -47,32 +47,31 @@ const LeadershipTeam = () => {
 			y: 0,
 			transition: {
 				duration: 0.8,
-
 			},
 		},
 	};
 
 	return (
-		<motion.section 
+		<motion.section
 			className="font-sans"
 			variants={containerVariants}
 			initial="hidden"
 			whileInView="visible"
 			viewport={{ once: true, margin: "-100px" }}
 		>
-			<div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-				<div className="flex flex-col space-y-12">
+			<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+				<div className="flex flex-col lg:space-y-12">
 					<motion.h2 className="h1" variants={itemVariants}>
 						Leadership team
 					</motion.h2>
 
-					<motion.div 
-						className="relative w-full max-w-md h-90 flex items-center justify-center"
+					<motion.div
+						className="relative w-full max-w-md lg:h-90 h-0 hidden lg:flex items-center justify-center"
 						variants={itemVariants}
 					>
 						<div
 							className={`relative overflow-hidden rounded-3xl transform -rotate-3 transition-all duration-500 ease-in-out shadow-2xl aspect-[4/3] w-full
-                ${hoveredImage ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}  `}
+                ${hoveredImage ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}  hidden lg:block`}
 						>
 							{hoveredImage && (
 								<div className="relative w-full h-full">
@@ -98,10 +97,7 @@ const LeadershipTeam = () => {
 						dignity and professional excellence.
 					</p>
 
-					<motion.div 
-						className="space-y-2"
-						variants={containerVariants}
-					>
+					<motion.div className="space-y-2" variants={containerVariants}>
 						{leaders.map((leader) => (
 							<motion.div
 								key={leader.id}

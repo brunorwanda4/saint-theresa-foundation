@@ -12,14 +12,14 @@ const BeTheLightOfHope = () => {
 			url: "/get-involved/partner",
 		},
 		{
-			title: "See Our Impact",
-			icon: "/icons/target.png",
-			url: "/impact/statistics",
-		},
-		{
 			title: "Explore Our Future",
 			icon: "/icons/development.png",
 			url: "/programs/timeline",
+		},
+		{
+			title: "View our images",
+			icon: "/icons/image-gallery.png",
+			url: "/impact/gallery",
 		},
 	];
 
@@ -43,13 +43,12 @@ const BeTheLightOfHope = () => {
 			y: 0,
 			transition: {
 				duration: 0.8,
-
 			},
 		},
 	};
 
 	return (
-		<motion.div 
+		<motion.div
 			className="flex flex-col lg:flex-row gap-4"
 			variants={containerVariants}
 			initial="hidden"
@@ -62,7 +61,7 @@ const BeTheLightOfHope = () => {
 				</h1>
 			</motion.div>
 
-			<motion.main 
+			<motion.main
 				className="w-full divide-y divide-gray-200"
 				variants={containerVariants}
 			>

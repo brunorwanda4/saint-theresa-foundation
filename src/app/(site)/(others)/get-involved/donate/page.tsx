@@ -1,10 +1,12 @@
 "use client";
+import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
+import MyImage from "@/components/common/images/MyImage";
 import SiteLink from "@/components/common/site/site-link";
+import ContactWithUs from "../../about/_component/contact-with-us";
 
-// Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
 	gsap.registerPlugin(ScrollTrigger);
 }
@@ -16,13 +18,10 @@ export default function DonatePage() {
 	const supportSectionRef = useRef<HTMLDivElement>(null);
 	const supportHeadingRef = useRef<HTMLHeadingElement>(null);
 	const listItemsRef = useRef<(HTMLLIElement | null)[]>([]);
-	const bankDetailsRef = useRef<HTMLDivElement>(null);
-	const bankItemsRef = useRef<(HTMLParagraphElement | null)[]>([]);
 	const buttonRef = useRef<HTMLAnchorElement>(null);
 
 	useLayoutEffect(() => {
 		const ctx = gsap.context(() => {
-			// Main heading with scroll trigger
 			if (headingRef.current) {
 				gsap.fromTo(
 					headingRef.current,
@@ -36,13 +35,11 @@ export default function DonatePage() {
 						scrollTrigger: {
 							trigger: headingRef.current,
 							start: "top 80%",
-							toggleActions: "play none none none",
 						},
 					},
 				);
 			}
 
-			// Description
 			if (descriptionRef.current) {
 				gsap.fromTo(
 					descriptionRef.current,
@@ -51,17 +48,14 @@ export default function DonatePage() {
 						opacity: 1,
 						y: 0,
 						duration: 0.8,
-						ease: "power2.out",
 						scrollTrigger: {
 							trigger: descriptionRef.current,
 							start: "top 85%",
-							toggleActions: "play none none none",
 						},
 					},
 				);
 			}
 
-			// Support section container
 			if (supportSectionRef.current) {
 				gsap.fromTo(
 					supportSectionRef.current,
@@ -70,116 +64,44 @@ export default function DonatePage() {
 						opacity: 1,
 						y: 0,
 						duration: 0.8,
-						ease: "power2.out",
 						scrollTrigger: {
 							trigger: supportSectionRef.current,
 							start: "top 80%",
-							toggleActions: "play none none none",
 						},
 					},
 				);
 			}
 
-			// Support heading
-			if (supportHeadingRef.current) {
+			const items = listItemsRef.current.filter(Boolean) as HTMLLIElement[];
+			if (items.length) {
 				gsap.fromTo(
-					supportHeadingRef.current,
-					{ x: -30, opacity: 0 },
+					items,
+					{ x: -40, opacity: 0 },
 					{
 						x: 0,
 						opacity: 1,
-						duration: 0.7,
-						ease: "power2.out",
-						scrollTrigger: {
-							trigger: supportHeadingRef.current,
-							start: "top 85%",
-							toggleActions: "play none none none",
-						},
-					},
-				);
-			}
-
-			// Support list items
-			const validListItems = listItemsRef.current.filter(
-				Boolean,
-			) as HTMLLIElement[];
-			if (validListItems.length > 0) {
-				gsap.fromTo(
-					validListItems,
-					{ x: -40, opacity: 0, scale: 0.95 },
-					{
-						x: 0,
-						opacity: 1,
-						scale: 1,
-						duration: 0.6,
 						stagger: 0.15,
-						ease: "power2.out",
-						scrollTrigger: {
-							trigger: validListItems[0],
-							start: "top 85%",
-							toggleActions: "play none none none",
-						},
-					},
-				);
-			}
-
-			// Bank details
-			if (bankDetailsRef.current) {
-				gsap.fromTo(
-					bankDetailsRef.current,
-					{ opacity: 0, y: 20 },
-					{
-						opacity: 1,
-						y: 0,
 						duration: 0.6,
-						ease: "power2.out",
 						scrollTrigger: {
-							trigger: bankDetailsRef.current,
+							trigger: items[0],
 							start: "top 85%",
-							toggleActions: "play none none none",
 						},
 					},
 				);
 			}
 
-			// Bank items
-			const validBankItems = bankItemsRef.current.filter(
-				Boolean,
-			) as HTMLParagraphElement[];
-			if (validBankItems.length > 0) {
-				gsap.fromTo(
-					validBankItems,
-					{ x: -20, opacity: 0 },
-					{
-						x: 0,
-						opacity: 1,
-						duration: 0.5,
-						stagger: 0.1,
-						ease: "power2.out",
-						scrollTrigger: {
-							trigger: validBankItems[0],
-							start: "top 90%",
-							toggleActions: "play none none none",
-						},
-					},
-				);
-			}
-
-			// Button
 			if (buttonRef.current) {
 				gsap.fromTo(
 					buttonRef.current,
-					{ scale: 0, opacity: 0, rotation: -10 },
+					{ scale: 0, opacity: 0 },
 					{
 						scale: 1,
 						opacity: 1,
-						rotation: 0,
 						duration: 0.6,
 						ease: "back.out(1.8)",
 						scrollTrigger: {
 							trigger: buttonRef.current,
 							start: "top 90%",
-							toggleActions: "play none none none",
 						},
 					},
 				);
@@ -189,82 +111,93 @@ export default function DonatePage() {
 		return () => ctx.revert();
 	}, []);
 
-	// Helper functions remain the same
-	const addToListItemsRefs = (el: HTMLLIElement | null, index: number) => {
-		listItemsRef.current[index] = el;
-	};
-
-	const addToBankItemsRefs = (
-		el: HTMLParagraphElement | null,
-		index: number,
-	) => {
-		bankItemsRef.current[index] = el;
+	const maskRevealVariants = {
+		hidden: { clipPath: "inset(0 100% 0 0)", opacity: 0 },
+		visible: {
+			clipPath: "inset(0 0% 0 0)",
+			opacity: 1,
+		},
 	};
 
 	return (
-		<section ref={containerRef} className="min-h-screen py-8">
-			<div className="global-px">
-				<h1
-					ref={headingRef}
-					className="text-foreground mb-2 text-4xl font-bold"
-				>
-					Make a Difference Today
-				</h1>
-
-				<p ref={descriptionRef} className="mb-8">
-					Your contribution helps us provide healthcare, training, and hope to
-					underserved communities across Rwanda.
-				</p>
+		<section ref={containerRef} className="min-h-screen py-12 px-8 space-y-12">
+			<div className=" flex justify-between  items-end w-full mt-12">
+				<div className=" lg:min-w-1/2 hidden lg:block" />
+				<div className=" mb-8 flex flex-col w-full">
+					<motion.h1
+						className=" h1 max-w-2xl"
+						variants={maskRevealVariants}
+						initial="hidden"
+						animate="visible"
+						transition={{ duration: 1.2, ease: "easeInOut" }}
+					>
+						Support Community Health & Equity
+					</motion.h1>
+					<motion.p
+						className="max-w-2xl leading-relaxed p mt-12"
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.8, delay: 0.3 }}
+					>
+						By supporting the <strong>Sainte Thérèsa Foundation</strong>, you
+						help address a critical crisis where{" "}
+						<strong>82% of the rural poor</strong> cannot afford essential
+						medicine and <strong>1 in 3 people</strong> lack access to basic
+						healthcare across Rwanda and Kenya.
+					</motion.p>
+				</div>
 			</div>
 
+			{/* Support Section */}
 			<div
 				ref={supportSectionRef}
-				className="bg-foreground global-px text-primary-foreground py-8"
+				className="bg-foreground text-primary-foreground rounded-3xl p-8 flex"
 			>
-				<div className="mx-auto rounded-3xl">
-					<h2
-						ref={supportHeadingRef}
-						className="text-primary-foreground mb-4 text-2xl font-semibold"
-					>
-						Ways to Support
+				<div className="max-w-2xl">
+					<h2 ref={supportHeadingRef} className="h1  mb-6">
+						How You Can Support Our Mission
 					</h2>
 
-					<ul className="mb-8 space-y-3">
-						<li ref={(el) => addToListItemsRefs(el, 0)}>
-							&#128179; One-time or recurring online donations
+					<ul className="space-y-4 leading-relaxed ">
+						<li ref={(el) => { listItemsRef.current[0] = el; }} className="p">
+							<strong>• Financial Contributions (Impact Tiers):</strong> Support
+							our Community Health and Access Initiative with a total budget of{" "}
+							<strong>271,040,000 RWF (~$186,500 USD)</strong>, including mobile
+							medical vehicles, community pharmacies, health screenings, and
+							digital health platforms.
 						</li>
-						<li ref={(el) => addToListItemsRefs(el, 1)}>
-							&#127974; Bank transfer or mobile money (details below)
+
+						<li ref={(el) => { listItemsRef.current[1] = el; }} className="p">
+							<strong>• Strategic Partnerships:</strong> Collaborate with us
+							through faith-based networks, pharmaceutical and logistics firms,
+							and development organizations to ensure sustainable healthcare
+							delivery.
 						</li>
-						<li ref={(el) => addToListItemsRefs(el, 2)}>
-							&#127873; In-kind donations (medical supplies, food, or equipment)
+
+						<li ref={(el) => { listItemsRef.current[2] = el; }} className="p">
+							<strong>• Capacity Building & Training:</strong> Fund training for
+							community health workers and public education on nutrition,
+							hygiene, and disease prevention under our 2025–2027 plan.
+						</li>
+
+						<li ref={(el) => { listItemsRef.current[3] = el; }} className="p">
+							<strong>• Professional & Advocacy Support:</strong> Contribute
+							expertise, staffing, and advocacy to strengthen our institutional
+							capacity and global health engagement.
 						</li>
 					</ul>
 
-					<div ref={bankDetailsRef} className="space-y-1">
-						<p ref={(el) => addToBankItemsRefs(el, 0)}>
-							<strong>Account Name:</strong> Sainte Thérèse Foundation
-						</p>
-						<p ref={(el) => addToBankItemsRefs(el, 1)}>
-							<strong>Bank:</strong> Bank of Kigali
-						</p>
-						<p ref={(el) => addToBankItemsRefs(el, 2)}>
-							<strong>Account No:</strong> 0123-456-789
-						</p>
-						<p ref={(el) => addToBankItemsRefs(el, 3)}>
-							<strong>Mobile Money:</strong> +250 78 000 0000
-						</p>
-					</div>
-
-					<SiteLink
-						ref={buttonRef}
-						className="text-primary-foreground mt-3 inline-block rounded-full px-8 py-3 font-semibold transition hover:scale-105 hover:shadow-lg"
-						link="/contact"
-					>
-						Contact Us for Support
+					<SiteLink ref={buttonRef} link="/contact" className="mt-8 ">
+						Partner or Donate With Us
 					</SiteLink>
 				</div>
+				<MyImage
+					src="/icons/doctor-tool.png"
+					className=" size-96"
+					classname=" object-contain"
+				/>
 			</div>
+			<ContactWithUs />
 		</section>
 	);
 }

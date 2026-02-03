@@ -1,13 +1,8 @@
 "use client";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 import { Handshake, Heart, Users } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-
-if (typeof window !== "undefined") {
-	gsap.registerPlugin(ScrollTrigger);
-}
+import BeTheLightOfHope from "../../_components/home/be-the-light-of-hope";
 
 interface InvolvementItem {
 	title: string;
@@ -38,132 +33,71 @@ export default function GetInvolvedPage() {
 		},
 	];
 
-	const containerRef = useRef<HTMLDivElement>(null);
-	const headerRef = useRef<HTMLDivElement>(null);
-	const cardRefs = useRef<HTMLDivElement[]>([]);
-
-	useEffect(() => {
-		if (typeof window === "undefined") return;
-
-		const ctx = gsap.context(() => {
-			// Header animation
-			gsap.fromTo(
-				headerRef.current,
-				{
-					opacity: 0,
-					y: -30,
-				},
-				{
-					opacity: 1,
-					y: 0,
-					duration: 1,
-					ease: "power2.out",
-					scrollTrigger: {
-						trigger: headerRef.current,
-						start: "top 80%",
-						toggleActions: "play none none reverse",
-					},
-				},
-			);
-
-			// Cards animation with stagger effect
-			gsap.fromTo(
-				cardRefs.current,
-				{
-					opacity: 0,
-					y: 60,
-					scale: 0.8,
-					rotationY: 15,
-				},
-				{
-					opacity: 1,
-					y: 0,
-					scale: 1,
-					rotationY: 0,
-					duration: 0.8,
-					stagger: 0.2,
-					ease: "back.out(1.4)",
-					scrollTrigger: {
-						trigger: cardRefs.current[0],
-						start: "top 75%",
-						toggleActions: "play none none reverse",
-					},
-				},
-			);
-
-			// Add hover animations using GSAP
-			cardRefs.current.forEach((card) => {
-				if (!card) return;
-
-				// Hover animation
-				card.addEventListener("mouseenter", () => {
-					gsap.to(card, {
-						scale: 1.03,
-						y: -5,
-						duration: 0.3,
-						ease: "power2.out",
-					});
-				});
-
-				// Mouse leave animation
-				card.addEventListener("mouseleave", () => {
-					gsap.to(card, {
-						scale: 1,
-						y: 0,
-						duration: 0.3,
-						ease: "power2.out",
-					});
-				});
-			});
-		}, containerRef);
-
-		return () => ctx.revert();
-	}, []);
-
-	// Function to add cards to refs array
-	const addCardToRefs = (el: HTMLDivElement | null) => {
-		if (el && !cardRefs.current.includes(el)) {
-			cardRefs.current.push(el);
-		}
+	const visionCardVariants = {
+		hidden: { opacity: 0, scale: 0.9, y: 20 },
+		visible: {
+			opacity: 1,
+			scale: 1,
+			y: 0,
+			transition: {
+				duration: 0.6,
+				ease: [0.22, 1, 0.36, 1] as const,
+			},
+		},
 	};
 
+	const containerVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.8,
+
+				staggerChildren: 0.1,
+			},
+		},
+	};
 	return (
-		<main className="min-h-screen py-8" ref={containerRef}>
-			<div
-				ref={headerRef}
-				className="global-px mx-auto mb-8 max-w-5xl items-center text-center"
-			>
-				<h1 className="text-foreground mb-2 text-4xl font-bold">
-					Get Involved
-				</h1>
-				<p className="">
+		<main className="min-h-screen py-8 pt-24 lg:gap-y-16 flex flex-col global-px">
+			<div className="flex flex-col lg:flex-row gap-4 lg:gap-8 global-px mb-8 max-w-5xl">
+				<motion.h1 className="h1 lg:w-1/2"> Get Involved</motion.h1>
+				<p className="lg:w-1/2 max-w-2xl leading-relaxed">
 					The Sainte Thérèse Foundation thrives through collective effort.
 					Whether you give, serve, or collaborate – your involvement creates
 					real, lasting change in lives across Rwanda.
 				</p>
 			</div>
 
-			<div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-3">
-				{items.map((item, i) => {
-					const IconComponent = item.icon;
-					return (
-						<div
-							key={i}
-							ref={addCardToRefs}
-							className="site-card cursor-pointer items-center"
-						>
-							<div className="text-primary mb-4 flex justify-center">
-								<IconComponent className="text-primary" size={28} />
-							</div>
-							<h2 className="mb-2 text-xl font-semibold">{item.title}</h2>
-							<p className="mb-3">{item.desc}</p>
-							<Link href={item.href} className="font-medium hover:underline">
-								Learn more &#8594;
+			<motion.div
+				className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+				variants={containerVariants}
+			>
+				{items.map((vision, index) => (
+					<motion.div
+						key={`${index}-${vision.title}`}
+						className="flex flex-col gap-2 justify-between bg-foreground text-background p-4 lg:p-8 min-h-32 rounded-md  items-center"
+						variants={visionCardVariants}
+						custom={index}
+					>
+						<div className="text-primary mb-4 flex justify-center">
+							<vision.icon className=" text-background" size={28} />
+						</div>
+						<div className="flex flex-col gap-2">
+							<Link href={vision.href} className="h3 text-center ">
+								{vision.title}
+							</Link>
+							<Link href={vision.href} className="p text-center">
+								{vision.desc}
 							</Link>
 						</div>
-					);
-				})}
-			</div>
+						<Link href={vision.href} className="font-medium hover:underline">
+							Learn more →
+						</Link>
+					</motion.div>
+				))}
+			</motion.div>
+			<BeTheLightOfHope />
 		</main>
 	);
 }

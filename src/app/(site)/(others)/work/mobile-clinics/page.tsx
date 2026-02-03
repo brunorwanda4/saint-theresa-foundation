@@ -3,6 +3,8 @@
 import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
 import MyImage from "@/components/common/images/MyImage";
+import { Separator } from "@/components/ui/separator";
+import ContactWithUs from "../../about/_component/contact-with-us";
 
 const MobileClinicsPage = () => {
 	const containerRef = useRef<HTMLElement>(null);
@@ -221,76 +223,81 @@ const MobileClinicsPage = () => {
 		listItemsRef.current[index] = el;
 	};
 
+	const rwandaHealthStats = [
+		{
+			category: "Geographical Barriers",
+			description:
+				"43% of Rwandans live in rural areas with very limited access to traditional medical clinics.",
+		},
+		{
+			category: "Accessibility Crisis",
+			description:
+				"1 in 3 people lack proper healthcare specifically because of their distance from facilities or financial constraints.",
+		},
+		{
+			category: "Affordability",
+			description:
+				"82% of the rural poor cannot afford essential medicine, making direct-to-community service a necessity for saving lives.",
+		},
+	];
+
 	return (
-		<main ref={containerRef} className="min-h-screen py-16">
-			<h1
-				ref={headingRef}
-				className="text-foreground global-px bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-4xl font-bold text-transparent"
-			>
-				Mobile Clinics
-			</h1>
+		<main className=" max-w-7xl space-y-8  py-16 px-8">
+			<div className="space-y-4 flex flex-col lg:flex-row lg:space-x-8 global-px">
+				<h1 ref={headingRef} className="h1  lg:w-1/2">
+					Mobile Clinics
+				</h1>
+				<p ref={introRef} className="p lg:w-1/2">
+					The Sainte Thérèsa Foundation uses mobile clinics as a primary
+					strategic tool to bring quality healthcare directly to vulnerable and
+					"hard-to-reach" populations in rural Rwanda. These units serve as an
+					extension of the Sainte Thérèse Polyclinic, moving beyond the
+					hospital's walls to provide community-based care.
+				</p>
+			</div>
+			<Separator className="mt-8" />
 			<section
 				ref={contentSectionRef}
-				className="bg-foreground text-primary-foreground global-px mt-4 space-y-8 rounded-lg py-6 shadow-xl"
+				className="global-px mt-4 space-y-8  py-6 "
 			>
-				<div className="space-y-8">
-					<p ref={introRef} className="text-lg leading-relaxed">
-						Our mobile clinics bring essential healthcare directly to people
-						living in remote and underserved communities – bridging the gap
-						between medical access and those in need.
-					</p>
-				</div>
-
-				<div className="grid items-center gap-12 md:grid-cols-2">
-					<div ref={imageRef} className="overflow-hidden rounded-xl">
+				<div className="items-center gap-12 flex flex-col lg:flex-row-reverse">
+					<div
+						ref={imageRef}
+						className="overflow-hidden rounded-xl lg:w-1/2 w-full"
+					>
 						<MyImage
-							src="/images/mobile-clinic.jpg"
+							src="/images/ambulance.jpg"
 							alt="Mobile Clinic"
 							className="h-80 w-full cursor-pointer object-cover shadow-2xl transition-all duration-700 hover:scale-110 hover:rotate-1"
 							loading="lazy"
 						/>
 					</div>
-					<div ref={contentTextRef} className="space-y-6">
-						<h2
-							ref={contentHeadingRef}
-							className="text-primary-foreground text-3xl font-bold"
-						>
-							How It Works
+					<div ref={contentTextRef} className="space-y-6 lg:w-1/2">
+						<h2 ref={contentHeadingRef} className="h2">
+							The Urgent Need for Mobile Units
 						</h2>
-						<p
-							ref={contentParagraphRef}
-							className="text-primary-content text-lg leading-relaxed"
-						>
-							Our vans are equipped with medical tools, diagnostics, and trained
-							health professionals to provide maternal care, vaccinations, and
-							emergency consultations.
+						<p ref={contentParagraphRef} className="p">
+							The foundation's commitment to mobile healthcare is driven by
+							significant gaps in the current health system:
 						</p>
-						<ul className="text-primary-content space-y-3 text-lg">
-							<li
-								ref={(el) => addToListItemsRefs(el, 0)}
-								className="flex cursor-pointer items-center gap-3 rounded-lg p-2 transition-all duration-300 hover:bg-white/10"
-							>
-								<span className="text-2xl">&#127973;</span>
-								On-site check-ups and basic treatments
-							</li>
-							<li
-								ref={(el) => addToListItemsRefs(el, 1)}
-								className="flex cursor-pointer items-center gap-3 rounded-lg p-2 transition-all duration-300 hover:bg-white/10"
-							>
-								<span className="text-2xl">&#128202;</span>
-								Community health data collection
-							</li>
-							<li
-								ref={(el) => addToListItemsRefs(el, 2)}
-								className="flex cursor-pointer items-center gap-3 rounded-lg p-2 transition-all duration-300 hover:bg-white/10"
-							>
-								<span className="text-2xl">&#128101;</span>
-								Health awareness & hygiene sessions
-							</li>
+						<ul className=" space-y-3 text-lg">
+							{rwandaHealthStats.map((item, index) => (
+								<li
+									key={`${index}-${item.description}`}
+									ref={(el) => addToListItemsRefs(el, index)}
+									className="flex flex-col items-start space-y-1"
+								>
+									<h3 className="h3">{item.category}</h3>
+									<p className="sm">{item.description}</p>
+								</li>
+							))}
 						</ul>
 					</div>
 				</div>
 			</section>
+			<div className=" global-px mt-8">
+				<ContactWithUs />
+			</div>
 		</main>
 	);
 };

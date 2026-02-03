@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import AnimatedLink from "@/components/common/animation/animated-link";
-import MyImage from "@/components/common/images/MyImage";
 import { Button } from "@/components/ui/button";
 import {
 	NavigationMenu,
@@ -20,11 +19,11 @@ const SiteNavItems = () => {
 	const aboutUsPages = [
 		{
 			name: "Foundation story",
-			href: "/about",
+			href: "/about/our-story",
 			image: "/icons/history.png",
 		},
 		{
-			name: "Leadership bios & photos",
+			name: "Leadership bios",
 			href: "/about/team",
 			image: "/icons/group.png",
 		},
@@ -47,11 +46,7 @@ const SiteNavItems = () => {
 			description:
 				"Bringing healthcare directly to rural and hard-to-reach communities.",
 		},
-		{
-			title: "Community Pharmacies",
-			href: "/work/community-pharmacies",
-			description: "Establishing local access to affordable medicine.",
-		},
+
 		{
 			title: "Digital Health",
 			href: "/work/digital-health",
@@ -95,12 +90,6 @@ const SiteNavItems = () => {
 
 	const impactItems = [
 		{
-			title: "Statistics",
-			href: "/impact/statistics",
-			description:
-				"Patients served, medicines delivered, and communities reached.",
-		},
-		{
 			title: "Stories",
 			href: "/impact/stories",
 			description: "Testimonials and stories from the communities we serve.",
@@ -135,11 +124,6 @@ const SiteNavItems = () => {
 			title: "Community Outreach",
 			href: "/biography/outreach",
 			description: "Updates from rural outreach missions and mobile clinics.",
-		},
-		{
-			title: "Workshops & Training",
-			href: "/biography/training",
-			description: "Insights from our health and nutrition workshops.",
 		},
 		{
 			title: "Conferences & Advocacy",
