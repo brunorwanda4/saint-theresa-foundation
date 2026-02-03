@@ -1,15 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Handshake, Heart, Users } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
 import BeTheLightOfHope from "../../_components/home/be-the-light-of-hope";
-
-if (typeof window !== "undefined") {
-	gsap.registerPlugin(ScrollTrigger);
-}
 
 interface InvolvementItem {
 	title: string;
