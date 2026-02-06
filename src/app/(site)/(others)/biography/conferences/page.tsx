@@ -33,11 +33,11 @@ export default function ConferencesBioPage() {
 			image: "/images/image-1-a.jpg",
 		},
 		{
-			title: "East African Faith & Health Forum",
+			title: "East African Community & Health Forum",
 			location: "Kigali, Rwanda",
 			date: "July 2024",
 			description:
-				"Shared insights on how faith-based organizations enhance health equity in underserved areas.",
+				"Shared insights on how community-based organizations enhance health equity in underserved areas.",
 			image: "/images/nurse.jpg",
 		},
 		{
@@ -55,11 +55,11 @@ export default function ConferencesBioPage() {
 			name: "Dr. Marie Mukamana",
 			role: "Medical Director",
 			image: "/images/founder.jpg",
-			bio: "Advocate for maternal health and faith-driven care, with 10+ years of experience in rural clinics.",
+			bio: "Advocate for maternal health and compassionate care, with 10+ years of experience in rural clinics.",
 		},
 		{
-			name: "Fr. Emmanuel Habimana",
-			role: "Spiritual Advisor",
+			name: "Emmanuel Habimana",
+			role: "Community Advisor",
 			image: "/images/anita.webp",
 			bio: "Keynote speaker on the moral dimensions of health and compassion-based service.",
 		},
@@ -226,7 +226,7 @@ export default function ConferencesBioPage() {
 					>
 						We actively share our mission, research, and innovations in health
 						forums across Rwanda and the globe. Our team contributes to shaping
-						discussions on faith-based care, digital health, and sustainable
+						discussions on community-based care, digital health, and sustainable
 						community medicine.
 					</motion.p>
 				</div>

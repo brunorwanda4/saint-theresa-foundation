@@ -33,7 +33,7 @@ export default function WorkPage() {
 			<div className="flex flex-col lg:flex-row gap-4 lg:gap-8 global-px mb-8 max-w-5xl">
 				<motion.h1 className="h1 lg:w-1/2">Our Work</motion.h1>
 				<p className="lg:w-1/2 max-w-2xl leading-relaxed">
-					The Sainte Thérèse Foundation is a faith-inspired health organization
+					The Sainte Thérèse Foundation is a humanitarian health organization
 					dedicated to transforming lives through compassionate care, education,
 					and empowerment. From humble beginnings, we've grown into a movement
 					of service across Rwanda.

@@ -169,7 +169,7 @@ export default function DonatePage() {
 
 						<li ref={(el) => { listItemsRef.current[1] = el; }} className="p">
 							<strong>• Strategic Partnerships:</strong> Collaborate with us
-							through faith-based networks, pharmaceutical and logistics firms,
+							through community networks, pharmaceutical and logistics firms,
 							and development organizations to ensure sustainable healthcare
 							delivery.
 						</li>

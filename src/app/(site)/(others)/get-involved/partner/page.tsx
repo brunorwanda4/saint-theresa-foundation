@@ -330,9 +330,9 @@ export default function PartnerPage() {
 					Our Current Partners
 				</h2>
 				<p className="max-w-xl p">
-					We are honored to collaborate with esteemed organizations, faith-based
+					We are honored to collaborate with esteemed organizations, community
 					institutions, and educational partners committed to shared values of
-					service, love, and impact.
+					service, compassion, and impact.
 				</p>
 
 				<div className="flex flex-wrap justify-center gap-8 divide-x mt-12 divide-muted-foreground">

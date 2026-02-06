@@ -32,14 +32,14 @@ const WhoWeAre = () => {
 				transition={{ duration: 0.8, delay: 0.2 }}
 			>
 				<p className="p">
-					The Sainte Thérèsa Foundation is a faith-driven nonprofit extension of
+					The Sainte Thérèsa Foundation is a humanitarian nonprofit extension of
 					the Sainte Thérèse Polyclinic that brings essential care to
 					underserved communities through{" "}
 					<strong>mobile medical vehicles</strong> and digital health tools.
 					Guided by 40 years of combined leadership in public health and global
 					governance, the foundation focuses on expanding access to medicine and
 					preventive screenings across Rwanda and Kenya. <br /> <br />
-					Rooted in the <strong>little way</strong> of St. Thérèse, our mission
+					Inspired by the compassionate legacy of St. Thérèse, our mission
 					has already reached over 800 beneficiaries with free health services
 					designed to restore human dignity.
 				</p>

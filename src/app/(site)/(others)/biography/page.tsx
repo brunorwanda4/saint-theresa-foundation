@@ -12,7 +12,7 @@ export default function BiographyPage() {
 		},
 		{
 			title: "Conferences & Advocacy",
-			desc: "Where we've represented our mission nationally and internationally to share our vision of faith-driven care.",
+			desc: "Where we've represented our mission nationally and internationally to share our vision of compassionate care.",
 			href: "/biography/conferences",
 		},
 		{
@@ -52,7 +52,7 @@ export default function BiographyPage() {
 			<div className="flex flex-col lg:flex-row gap-4 lg:gap-8 global-px mb-8 max-w-5xl">
 				<motion.h1 className="h1 lg:w-1/2">Biography & Events</motion.h1>
 				<p className="lg:w-1/2 max-w-2xl leading-relaxed">
-					The Sainte Thérèse Foundation continues to grow through faith,
+					The Sainte Thérèse Foundation continues to grow through compassion,
 					leadership, and community engagement. Explore how our work extends
 					beyond clinics – through outreach, advocacy, and the sharing of hope.
 				</p>

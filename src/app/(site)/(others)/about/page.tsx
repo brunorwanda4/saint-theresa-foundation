@@ -89,12 +89,12 @@ export default function AboutPage() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, delay: 0.3 }}
 					>
-						The <strong>Sainte Thérèse Foundation</strong> is a faith-driven
-						initiative founded by seasoned humanitarian professionals to bridge
+						The <strong>Sainte Thérèse Foundation</strong> is a humanitarian
+						initiative founded by seasoned professionals to bridge
 						the gap between quality medical care and the world's most vulnerable
-						populations. Rooted in the <strong>"little way"</strong> of St.
-						Thérèse of Lisieux, we view healthcare as a sacred duty and a humble
-						contribution to the <strong>healing ministry of Christ.</strong>
+						populations. Inspired by the compassionate legacy of St.
+						Thérèse of Lisieux, we view healthcare as a fundamental human right and a humble
+						contribution to the <strong>wellbeing of all people.</strong>
 					</motion.p>
 				</div>
 			</div>
@@ -136,7 +136,7 @@ export default function AboutPage() {
 					variants={fadeInFromRight}
 				>
 					<p className="text-lg font-medium">
-						Who We Are The Sainte Thérèse Foundation is a faith-driven,
+						Who We Are The Sainte Thérèse Foundation is a humanitarian,
 						nonprofit initiative that serves as an extension of the Sainte
 						Thérèse Polyclinic, which currently provides care to approximately
 						40,000 to 50,000 patients annually.

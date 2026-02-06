@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Sainte Thérèse Foundation",
   description:
-    "The Sainte Thérèse Foundation is a faith-driven nonprofit initiative bringing healthcare closer to poor and vulnerable communities in rural Rwanda through mobile clinics, digital health, community pharmacies, and public health education.",
+    "The Sainte Thérèse Foundation is a humanitarian nonprofit initiative bringing healthcare closer to poor and vulnerable communities in rural Rwanda through mobile clinics, digital health, community pharmacies, and public health education.",
   icons: [
     {
       url: "/logo-icon.png",
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     "Sainte Thérèse Foundation",
     "Healthcare in Rwanda",
     "Nonprofit",
-    "Faith-based initiative",
+    "Humanitarian initiative",
     "Community health",
     "Mobile clinics",
     "Digital health",
     "Public health education",
     "Community pharmacies",
-    "Christian compassion",
+    "Compassionate care",
     "Healthcare access",
     "Rwanda charity",
     "AHAYO Marie Anita",

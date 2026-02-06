@@ -12,5 +12,5 @@ export const stories = [
   {
     name: "Sister Thérèse, Program Coordinator",
     image: "/images/image-5.jpeg",
-    text: "We believe faith and service must walk hand in hand. Our mission is not only to heal bodies but to restore hope and dignity.",
+    text: "We believe compassion and service must walk hand in hand. Our mission is not only to heal bodies but to restore hope and dignity.",
   },]

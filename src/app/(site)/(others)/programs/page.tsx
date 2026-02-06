@@ -37,7 +37,7 @@ export default function ProgramsPage() {
 				<p className="lg:w-1/2 max-w-2xl leading-relaxed">
 					Every project of the Sainte Thérèse Foundation aligns with a vision of
 					sustainable healthcare, education, and community empowerment. Our plan
-					ensures that faith-driven compassion translates into measurable,
+					ensures that compassionate service translates into measurable,
 					lasting impact.
 				</p>
 			</div>

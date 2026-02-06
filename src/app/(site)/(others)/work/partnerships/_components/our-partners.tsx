@@ -20,7 +20,7 @@ const OurPartners = () => {
 			icon: HeartPulse,
 		},
 		{
-			name: "Faith-Based Networks",
+			name: "Community-Based Networks",
 			desc: "Partnering with local institutions like the Rwamagana Catholic Church for community mobilization and health screening outreach.",
 			icon: Users,
 		},

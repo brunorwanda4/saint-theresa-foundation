@@ -28,7 +28,7 @@ export default function PressBioPage() {
 			title: "Call for Partnership: Extending the Healing Hand of Service",
 			date: "Ongoing",
 			description:
-				"An open invitation to Christian philanthropies and development partners to collaborate in improving rural access to essential healthcare and medicines.",
+				"An open invitation to philanthropies and development partners to collaborate in improving rural access to essential healthcare and medicines.",
 		},
 	];
 

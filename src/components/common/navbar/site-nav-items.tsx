@@ -67,7 +67,7 @@ const SiteNavItems = () => {
 		{
 			title: "Partnerships",
 			href: "/work/partnerships",
-			description: "Collaborating with faith-based and global partners.",
+			description: "Collaborating with community and global partners.",
 		},
 	];
 	const programItems = [

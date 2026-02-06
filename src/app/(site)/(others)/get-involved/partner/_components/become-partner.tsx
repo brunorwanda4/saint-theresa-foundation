@@ -31,7 +31,7 @@ const BecomePartner = () => {
 			{/* Stats Container */}
 			<p className=" text-background max-w-lg  text-lg">
 				Partner with Sainte Thérèse Foundation and help us extend care,
-				education, and faith-based healing across Rwanda and beyond.
+				education, and compassionate healing across Rwanda and beyond.
 			</p>
 
 			<SiteLink className="mt-10" link="/contact">

@@ -14,7 +14,7 @@ export const LandingLinks = [
     href: "/biography/outreach",
   },
   {
-    title: "Faith & Service Talks",
+    title: "Community & Service Talks",
     description:
       "Join our community dialogues and reflections inspired by St. Thérèse’s mission of compassion, service, and hope in healthcare.",
     icon: PeaceTalk,

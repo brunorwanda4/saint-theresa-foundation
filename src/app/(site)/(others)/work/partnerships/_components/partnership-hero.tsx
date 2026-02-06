@@ -28,7 +28,7 @@ const PartnershipHero = () => {
 				<p className=" text-lg ">
 					The Sainte Thérèsa Foundation builds its impact through a diverse
 					network of strategic partners, ranging from government health bodies
-					and international peacebuilding organizations to local faith-based
+					and international peacebuilding organizations to local community
 					networks and global pharmaceutical suppliers.
 				</p>
 			</motion.div>

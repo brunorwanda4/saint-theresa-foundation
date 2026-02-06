@@ -136,7 +136,7 @@ export default function VolunteerPage() {
 					<ul className="ml-5 list-disc space-y-2">
 						<li>Gain experience in community health work</li>
 						<li>Be part of outreach and digital health missions</li>
-						<li>Share your skills and grow spiritually</li>
+						<li>Share your skills and grow personally</li>
 					</ul>
 					<p className="mt-4">
 						Whether you're a medical professional, a student, or simply

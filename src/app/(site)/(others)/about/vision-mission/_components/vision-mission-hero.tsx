@@ -28,7 +28,7 @@ const VisionMissionHero = () => {
 					The{" "}
 					<strong className="text-primary">Sainte Thérèse Foundation</strong> is
 					guided by a clear strategic roadmap that aims to eliminate barriers to
-					healthcare through faith-inspired service and professional medical
+					healthcare through compassionate service and professional medical
 					expertise.
 				</h2>
 			</motion.div>

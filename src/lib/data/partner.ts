@@ -66,8 +66,8 @@ export const testimonials: Testimonial[] = [
 
 export const opportunities: Opportunity[] = [
 	{
-		title: "Faith-Based Collaborations",
-		desc: "Join church and mission-based initiatives improving rural health access.",
+		title: "Community-Based Collaborations",
+		desc: "Join community and mission-based initiatives improving rural health access.",
 	},
 	{
 		title: "Community Health Projects",

@@ -56,7 +56,7 @@ const MissionVision = () => {
 					<p className="p">
 						Enhancing well-being for underserved communities through mobile
 						healthcare, digital tools, and community pharmacies, rooted in human
-						dignity and Christian compassion.
+						dignity and compassionate care.
 					</p>
 				</motion.div>
 				<motion.div 
