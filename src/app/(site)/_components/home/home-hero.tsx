@@ -73,10 +73,7 @@ const HomeHero = () => {
 							<IoMdArrowForward className="group-hover:translate-x-1 cursor-pointer transition-transform" />
 						</Button>
 					</Link>
-					<Link
-						href="/get-involved/volunteer"
-						className="w-fit cursor-pointer"
-					>
+					<Link href="/get-involved/volunteer" className="w-fit cursor-pointer">
 						<Button
 							variant="outline"
 							size="lg"
@@ -88,16 +85,13 @@ const HomeHero = () => {
 				</motion.div>
 			</div>
 
-			<motion.div 
+			<motion.div
 				className="col-span-12 lg:col-span-7 relative h-[500px] w-full"
 				variants={itemVariants}
 			>
-				<motion.div 
-					className="relative w-72 h-43 z-20"
-					variants={itemVariants}
-				>
+				<motion.div className="relative w-72 h-43 z-20" variants={itemVariants}>
 					<Image
-						src="/images/digital-health-2.jpg"
+						src="/images/d/5.jpg"
 						alt="Digital health"
 						fill
 						className="object-cover rounded-md"
@@ -105,8 +99,8 @@ const HomeHero = () => {
 				</motion.div>
 
 				{/* Main Doctor Image */}
-				<motion.div 
-					className="absolute bottom-10 left-[15%] w-67 h-92 z-30"
+				<motion.div
+					className="absolute bottom-10 left-[15%] w-80 h-120 z-30"
 					variants={itemVariants}
 				>
 					<Image
@@ -117,15 +111,15 @@ const HomeHero = () => {
 						priority
 					/>
 				</motion.div>
-				
+
 				<motion.div
 					className="blob absolute size-60 md:size-40 rounded-full bg-primary opacity-60 to-transparent blur-2xl z-10"
 					style={{ zIndex: 0 }}
 					variants={floatingVariants}
 					animate="float"
 				/>
-				
-				<motion.div 
+
+				<motion.div
 					className="z-35 absolute bottom-10 lg:left-[-20px] bg-background/40 backdrop-blur-md lg:py-2 lg:px-4 px-2 rounded-2xl shadow-xl flex items-center gap-4 border border-background max-w-65"
 					variants={floatingVariants}
 					initial="hidden"
@@ -146,7 +140,7 @@ const HomeHero = () => {
 				</motion.div>
 
 				{/* Floating Card: Mobile Clinics */}
-				<motion.div 
+				<motion.div
 					className="absolute bottom-24 right-4 bg-muted-foreground/20 p-4 rounded-xl shadow-lg flex items-center gap-4 max-w-[220px] z-35"
 					variants={floatingVariants}
 					initial="hidden"
@@ -169,7 +163,7 @@ const HomeHero = () => {
 				</motion.div>
 
 				{/* Right Side Stats */}
-				<motion.div 
+				<motion.div
 					className="absolute right-0 top-0 flex flex-col gap-12 pl-10 z-35 max-md:hidden"
 					variants={itemVariants}
 				>
@@ -186,7 +180,7 @@ const HomeHero = () => {
 						</p>
 					</div>
 				</motion.div>
-				
+
 				<motion.div
 					className="max-md:top-2 max-md:right-2 blob absolute size-60 md:size-40 rounded-full bg-secondary right-1/3 top-1/4 opacity-60 to-transparent blur-2xl z-10"
 					style={{ zIndex: 0 }}
