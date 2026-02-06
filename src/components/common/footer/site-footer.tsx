@@ -52,7 +52,6 @@ const footerSections = [
 			{ name: "Donation system", href: "/get-involved/donate" },
 			{ name: "Volunteer sign-up", href: "/get-involved/volunteer" },
 			{ name: "Partnership requests", href: "/get-involved/partner" },
-			{ name: "Prayer support / spiritual engagement", href: "/spiritual" },
 		],
 	},
 ];
